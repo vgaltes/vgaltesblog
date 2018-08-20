@@ -1,0 +1,24 @@
+---
+title: 'Testing: DAMP vs DRY'
+date: '2015-02-15 23:13:27 +0000'
+categories:
+- Code
+- Testing
+tags:
+- testing
+- damp
+- dry
+---
+<p>When we write unit tests we usually try to apply our great object oriented knowledge, so we try to apply the well known <a title="Don't Repeat Yourself" href="http://en.wikipedia.org/wiki/Don't_repeat_yourself" target="_blank">DRY</a> principle (Don't Repeat Yourself). One visible consequence of this effort is that the test code is considerably shorter than the previous version. A less visible consequence, but much more important, is that is harder to understand what the hell the test is trying to do.</p>
+<p>For that reason, when writing tests, I'm more inclined to apply a non so well know principle called <a title="Descriptive And Maintainable Procedures" href="http://blog.jayfields.com/2006/05/dry-code-damp-dsls.html" target="_blank">DAMP</a> (Descriptive And Maintainable Procedures). When I write a test I try to think in myself in the future reading the test: will I be able to understand the test? Will I find the arrange phase of the test and understand what's happening there? Will I be able to understand easily why the test is failing (or passing)?</p>
+<p>There are two main consequences of trying to apply <a title="Don't Repeat Yourself" href="http://en.wikipedia.org/wiki/Don%27t_repeat_yourself" target="_blank">DRY</a> when writing a test. The first one is that we tend to write base classes where we put some kind of common code: variable initialization, mock setup (suitable for ALL tests), <a title="SUT" href="http://xunitpatterns.com/SUT.html" target="_blank">SUT</a> creation... The second one is that we tend to write (with the help of the unit tests frameworks) setup methods with some common code too.</p>
+<p>The result is that to be able to understand a test, I have to go up and down the file or, even worse, I have to go to a base class and see what's going on there.</p>
+<p>There's no magic recipe to solve that. Some advice that may help you:</p>
+<ul>
+<li>Evaluate if your class under test is doing <a title="Single Responsibility Principle" href="http://en.wikipedia.org/wiki/Single_responsibility_principle" target="_blank">too many things</a>.</li>
+<li>Don't use for/if/while in your test code (do more tests if necessary).</li>
+<li>Inline the test setup</li>
+<li>Use <a title="Test Data Builders" href="http://www.natpryce.com/articles/000714.html" target="_blank">Test Data Builders</a> to initialize your objects.</li>
+<li>When possible, <a title="Mocking" href="http://en.wikipedia.org/wiki/Mock_object" target="_blank">mock</a> everything that is not your class under test.</li>
+</ul>
+<p>Happy testing!</p>

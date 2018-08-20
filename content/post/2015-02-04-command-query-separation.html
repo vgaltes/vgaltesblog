@@ -1,0 +1,50 @@
+---
+title: Command-Query Separation
+date: '2015-02-04 10:00:55 +0000'
+categories:
+- Code
+tags:
+- OOP
+- design
+---
+<p>No, I'm not going to talk about <a title="CQRS" href="http://martinfowler.com/bliki/CQRS.html" target="_blank">CQRS</a>, but the ideas behind both concepts are similar.</p>
+<p>The <a title="Command-Query Separation Principle" href="http://en.wikipedia.org/wiki/Command%E2%80%93query_separation" target="_blank">Command-Query Separation principle</a> was first introduced by <a title="Bertrand Meyer" href="http://en.wikipedia.org/wiki/Bertrand_Meyer" target="_blank">Bertrand Meyer</a> in his book <a title="Object-Oriented Software Construction" href="http://www.amazon.co.uk/Object-Oriented-Software-Construction-Prentice-Hall-Resource/dp/0136291554" target="_blank">Object-Oriented Software Construction</a>. Mr Meyer states as follows:</p>
+<blockquote><p>Functions should no produce abstract side effects.</p></blockquote>
+<p>Meyer differentiates two kind of functions when we design a class:</p>
+<ul>
+<li>Commands: those functions which produce abstract side effects (change the observable state of the object).</li>
+<li>Queries: those functions that don't produce any side effect and return some value.</li>
+</ul>
+<p>And what is an abstract side effect? Meyer define an abstract side effect as follows:</p>
+<blockquote><p>An abstract side effect is a concrete side effect that can change the value of a non-secret query.</p></blockquote>
+<p>Or, in other words, that change the observable state of the object. A concrete side effect is a change in the internal state of your object but then they restore the original state.</p>
+<p>A query should be idempotent, that is should return the same results if we execute it once or one hundred times. So, a query should not change the state of the object.</p>
+<p>Imagine for example the Console.ReadLine() method of the .Net framework. This is clearly an example of query that changes the state. We cannot call Console.ReadLine() one hundred times and expect the same behavior. According to this principle we should split this call in two calls: Fetch (a command) and GetLastLine (a query).</p>
+<p>Let's see another simple example:</p>
+<pre class="brush:csharp">public class Account
+{
+    private double _balance;
+
+    public Account(double initialBalance)
+    {
+        _balance = initialBalance;
+    }
+
+    public void Deposit(double amount)
+    {
+        _balance += amount;
+    }
+
+    public double Withdraw(double amount)
+    {
+        _balance -= amount;
+        return _balance;
+    }
+
+    public double GetBalance()
+    {
+        return _balance;
+    }
+}</pre>
+<p>In this class we have two queries (GetBalance and Withdraw) and one command (Deposit). We can identify queries because they have a return value (although commands can return new objects as well ). If we take a look at Withdraw, we can see that it changes the internal value of balance and return it. So, if we execute Withdraw several times, we will have different results, and that's something we don't expect of a query. In that case we should convert this query into a command, converting it to a procedure and removing the return statement.</p>
+<p>Adhering to this <a title="Command-Query Separation Principle" href="http://martinfowler.com/bliki/CommandQuerySeparation.html" target="_blank">principle </a>will increase the maintainability and extensibility of our codebase. Your code will be easier to explain and understand, because you won't have to dig into the class looking for side effects.</p>

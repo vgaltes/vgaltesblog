@@ -1,0 +1,44 @@
+---
+title: 'Extracting information from your code repository using F# - Part 1: parsing
+  the log file'
+date: '2015-12-13 12:16:30 +0000'
+categories:
+- F#
+tags:
+- type providers
+- csv type provider
+- git
+---
+<p>I've recently read the excellent book <a href="https://pragprog.com/book/atcrime/your-code-as-a-crime-scene" target="_blank">Your Code as Crime Scene</a> by <a href="https://twitter.com/AdamTornhill" target="_blank">Adam Tornhill</a>. In this book, <a href="http://adamtornhill.com/" target="_blank">Adam</a> explain several techniques to extract very useful information from the commits in the code repository to help you to understand your code, your dependencies and your organisation. If you haven't read the book, please do yourself a favor and get a copy as a Christmas present.</p>
+<p>On the othe hand, this week I've attended the fantastic <a href="https://skillsmatter.com/conferences/6762-progressive-f-tutorials-2015" target="_blank">Progressive F# Tutorials</a> at <a href="https://skillsmatter.com/" target="_blank">Skills Matter</a>. There were 8 awesome workshops from people like <a href="https://twitter.com/jamie_dixon" target="_blank">Jamie Dixon</a>, <a href="https://twitter.com/tomaspetricek" target="_blank">Tomas Petricek</a> or <a href="https://twitter.com/ijrussell" target="_blank">Ian Russel</a> explaining how you can use <a href="http://fsharp.org/" target="_blank">F#</a> in your daily work. You can read a very good summary by the other <a href="https://twitter.com/jamiedixon" target="_blank">Jamie Dixon</a> <a href="https://medium.com/@jamiedixon/progressive-f-tutorials-london-2015-795d76c027da#.5m8huotel" target="_blank">here</a>.</p>
+<p>So, I've decided to improve my F# skills using it to do some of the analysis that Adam does in his book using his own tool <a href="https://github.com/adamtornhill/code-maat" target="_blank">code-maat</a>.</p>
+<h2>Creating a useful log</h2>
+<p>The first thing we need is to create a log that we can parse easily and that has all the information we need. So please, use your favorite git command line tool to navigate to the base folder of the repository that you want to analyze and type the following command:</p>
+<p><script src="https://gist.github.com/vgaltes/d650d511b60de637b662.js"></script></p>
+<p>This command will write into gitLog.log something similar to this</p>
+<p><script src="https://gist.github.com/vgaltes/39d0896e92a59a775e64.js"></script></p>
+<p>The basic structure here is that we have each commit separated by a line break. In every commit, we have a line with the commit information (hash, author, date and message) and several lines with the files that have changed (additions, deletions, file path). If the commit is a merge, all this structure is preceeded by another commit information line with the merge information.</p>
+<h2>Parsing the log file</h2>
+<p>So first of all, let's translate this structure into F# tpyes:</p>
+<p><script src="https://gist.github.com/vgaltes/e2afec3fd11e17ab96cf.js"></script></p>
+<p>As we can see we have the CommitInfo that is a <a href="http://fsharpforfunandprofit.com/posts/records/" target="_blank">Record type</a> formed by three strings and a DateTime and a CommitedFile that is also a Record type formed by two <a href="http://fsharpforfunandprofit.com/posts/the-option-type/" target="_blank">optional</a> integers and a string. The integers are optional because you can have some file in a binary format and git can't count the additions and deletions. In this case the log will display a "-" instead of a number. Finally, we have a Record type called Commit that has a CommitInfo field an array of CommitedFile. Prety straightforward.</p>
+<p>Let's read the content of the file and split it in the different commits to be able to parse it.</p>
+<p><script src="https://gist.github.com/vgaltes/de82a84c79f428f00e34.js"></script></p>
+<p>As you can see we start defining a constant in F# using the [&lt;<a href="https://msdn.microsoft.com/en-us/library/dd233193.aspx" target="_blank">Literal</a>&gt;] annotation. After that we read the file using  .Net standard libraries. And finally we split the content of the file unsing a double line break as a separator. So far so good.</p>
+<p>Now that we have an array with all the commits (still in text format), lets parse each of this chunks of data. First of all we need to know which of those lines are the commit info and which of them are the commit lines.</p>
+<p><script src="https://gist.github.com/vgaltes/0ceb2a2889aea26fbc0e.js"></script></p>
+<p>The first thing we do is to split the commit lines removing any empty line that we can possibly have. After that, we take the commit info line as the last line that is a commit info line (a line that starts with the hash information) removing all the merge info that we don't neeed. Finally, we take the file lines as all the lines that are not a commit info line.</p>
+<p>It's time to convert our commit info line into a CommitInfo object, much more convenient for our purposes.</p>
+<p><script src="https://gist.github.com/vgaltes/af3c017c2a4698acff31.js"></script></p>
+<p>As you can see, we are using the magic of <a href="https://msdn.microsoft.com/en-us/library/hh156509.aspx" target="_blank">Type providers</a> to parse the line and extract the information. In this case, using the <a href="https://fsharp.github.io/FSharp.Data/library/CsvProvider.html" target="_blank">CsvProvider</a>, we are defining that the third column will be a date using the Schema parameter. We just need to fill a CommitInfo object with the information of the first row.</p>
+<p>And finally we need to parse the information of the commit lines. We'll use a very similar process:</p>
+<p><script src="https://gist.github.com/vgaltes/468be9aeb97952305551.js"></script></p>
+<p>The idea is the same, but we just need to iterate over all the commit lines. In this case, the format of the csv is a bit different (tabs are used as separators) and we use the Schema parameter to indicate that the two integers are optional.</p>
+<p>Finally, we just need to create the Commit object:</p>
+<p><script src="https://gist.github.com/vgaltes/21452a1cde21b63be501.js"></script></p>
+<p>This is the whole function code:</p>
+<p><script src="https://gist.github.com/vgaltes/1ac9acba125c7e783994.js"></script></p>
+<p>The last bit, is to use this function in all the commits from the file:</p>
+<p><script src="https://gist.github.com/vgaltes/a353edbd84ab76d6d5af.js"></script></p>
+<h2>Summary</h2>
+<p>In this post we've seen how easy is to parse a git log file using F# and type providers. In future posts we'll see how can we extract information from this data. You can see the code of this post in this <a href="https://gist.github.com/vgaltes/30c32ab135375558c266" target="_blank">gist</a>. See you soon!</p>

@@ -1,0 +1,35 @@
+---
+title: 'F# by example: discriminated unions, record types, tuples and operators.'
+date: '2015-05-04 14:46:40 +0100'
+categories:
+- F#
+tags:
+- discriminated unions
+- operator overloading
+- tuples
+- record types
+---
+<p>Last week I continued learning <a href="http://fsharpforfunandprofit.com/" target="_blank">F#</a> with my friends <a href="https://twitter.com/samirtalwar" target="_blank">Samir</a> and <a href="http://twitter.com/pedromsantos" target="_blank">Pedro</a>. The <a href="http://vgaltes.com/index.php/2015/04/24/f-example-fizzbuzz-kata/" target="_blank">first week</a> we learned some of the F# basics and this week we learned some of the functional characteristics of F#. To do that we started doing a custom interpretation of the <a href="https://github.com/sandromancuso/Bank-kata" target="_blank">Bank kata</a> from <a href="https://twitter.com/sandromancuso" target="_blank">Sandro Mancuso</a>. You can find the code here: <a href="https://github.com/vgaltes/FSharpByExample/tree/master/BankKata" target="_blank">https://github.com/vgaltes/FSharpByExample/tree/master/BankKata</a></p>
+<p>As usual, let's start with a test an its implementation:</p>
+<p>https://gist.github.com/vgaltes/a9c109919fe7e5555c27</p>
+<p>In this piece of code we can see some of the functional characteristics of F# we are going to see in this post. The first one is <a href="https://msdn.microsoft.com/en-us/library/dd233226.aspx" target="_blank">Discriminated Unions</a>. Discriminated unions are types whose value are restricted to a known set of values called union cases. These cases are the only valid values. In our case we are defining Currency as a discriminated union. One of the most used discriminated unions is the <a href="https://msdn.microsoft.com/en-us/library/dd233245.aspx" target="_blank">Option</a> type, present in the F# core library:</p>
+<p>https://gist.github.com/vgaltes/ad0eaab4d86ce2677b86</p>
+<p>Option is a type with two possible values: Some and None. None is an empty union case (doesn't contain any associated data). Some has an associated instance of 'T. It's something similar to <a href="http://twistedoakstudios.com/blog/Post1130_when-null-is-not-enough-an-option-type-for-c" target="_blank">Maybe pattern </a>in C#.</p>
+<p>Using Option type is quite simple:</p>
+<p>https://gist.github.com/vgaltes/d1dda90150ff380166ac</p>
+<p>We will an example of how to retrieve the value of an Option, but it's as simple as:</p>
+<p>https://gist.github.com/vgaltes/5da2202b0dfd5e833a2c</p>
+<p>The second functional characteristic of F# we can see in our little piece of code is a <a href="https://msdn.microsoft.com/en-us/library/dd233184.aspx" target="_blank">record type</a>. In our case, we used a record type to define what is an account. A record represent a simple aggregates of named values. It's a kind of type between a <a href="https://msdn.microsoft.com/en-us/library/dd233200.aspx" target="_blank">tuple</a> and a class. To define a record type enclose between braces a list of labels with type annotations. A simple record type can be something like this:</p>
+<p>https://gist.github.com/vgaltes/ee0e0e0260b4cecd53b1</p>
+<p>So, in our example we are defining an Account as a record type that has a label called Amount that is a tuple of int and Currency.</p>
+<p>Let's take a look at the deposit function's code after another test and a refactor:</p>
+<p>https://gist.github.com/vgaltes/7297d59862b4007c980e</p>
+<p>Here we can see how <a href="https://msdn.microsoft.com/en-us/library/dd233180.aspx" target="_blank">type inference</a> and <a href="https://msdn.microsoft.com/en-us/library/dd547125.aspx" target="_blank">pattern matching</a> (tuple pattern) helps us to have a more compact code. First of all, instead of defining the last parameter of the function as an Account, we can use definition of the record type. Doing this, we can use tuple pattern to extract the values of the tuple and use them inside the function. In our case, we don't care about the second value of the tuple, so we can use the wildcard pattern (_).</p>
+<p>Let's take a look now at the final implementation of the withdraw function:</p>
+<p>https://gist.github.com/vgaltes/eea502a4bc3b2ce9475a</p>
+<p>In this piece of code we can see another flavor of pattern matching. In contrast with the one used in the previous article, here we can't use directly the values calculated in the match part to define our cases. We have to use the values to compare with another value, in this case 0. To do that, we use the keyword when, specifying the condition after it. In the second part (when the first case is false) we get the calculated value and use it in the return.</p>
+<p>And finally, let's take a look at the codification of a global <a href="https://msdn.microsoft.com/en-us/library/dd233204.aspx" target="_blank">operator</a> we use to chain withdrawals:</p>
+<p>https://gist.github.com/vgaltes/c9b2b5cd166c2babcf31</p>
+<p>As you can see, you define an operator just like another function but with the name of the operator enclosed in parenthesis. In our case, the operator |&gt;&gt; takes two parameters called result and f. You can annotate the type if you want but there's no need to. In the body of the function we use pattern matching to determine if the first parameter is a Success or a Failure. If it's a Success we called the function f with value as its first parameter and if it's a Failure we return the failure.</p>
+<p>And that's all folks! We are just learning F# so, if you find something that is not correct in the article, please, leave a comment!</p>
+<p>&nbsp;</p>

@@ -1,0 +1,43 @@
+---
+title: 'F# by example: FizzBuzz kata rivisited - More on Pattern-Matching'
+date: '2015-05-10 18:30:19 +0100'
+categories:
+- F#
+tags:
+- F#
+- pattern matching
+- active pattern
+---
+<p>In the <a href="http://vgaltes.com/index.php/2015/04/24/f-example-fizzbuzz-kata/" target="_blank">first post</a> of this series we've seen a possible implementation for the <a href="http://codingkata.net/Katas/Beginner/FizzBuzz" target="_blank">FizzBuzz</a> kata. In particular, we've finished the article with this code for the fizzBuzz function:</p>
+<p>https://gist.github.com/vgaltes/edafb6efc55273543a1d</p>
+<p>We've applied a <a href="http://fsharpforfunandprofit.com/posts/match-expression/" target="_blank">Tuple pattern</a> to match the tuple created in the match part. We've also applied <a href="http://en.wikibooks.org/wiki/F_Sharp_Programming/Pattern_Matching_Basics" target="_blank">Wildcard matching</a> to discard the values we are not interested in.</p>
+<p>In this article we're going to see how we can solve this problem using another flavors of Pattern-Matching.</p>
+<h2>Active patterns</h2>
+<p>Using <a href="https://msdn.microsoft.com/en-us/library/dd233248.aspx" target="_blank">active patterns</a> you can define case names (partitions of your data) so that you can use these names in Pattern-Matching expressions. A typical example could be this one:</p>
+<p>https://gist.github.com/vgaltes/ea700e4c7f2334223d0a</p>
+<p>So let's use active pattern to resolve FizzBuzz kata. The active pattern could be something like this:</p>
+<p>https://gist.github.com/vgaltes/ac693fc6a81885d7eed8</p>
+<p>As  you can see we have an <a href="http://www.developerfusion.com/article/133772/pattern-matching-in-f-part-2-active-patterns/" target="_blank">active recognizer</a> that defines four cases. Inside the recognizer we're using Pattern-Matching to select the appropriate case as we did in the original implementation of the kata. Now, we just have to use this recognizer in a Pattern-Matching function:</p>
+<p>https://gist.github.com/vgaltes/2aa85a0ef5e92d4dfd97</p>
+<p>As you can see, we are using a Pattern-Matching function, a convenient shortcut for creating a Pattern-&lt;atching lambda expression. We are just replacing the <em>match...with</em> portion of the match expression with <em>function</em>.</p>
+<p>Now, if we would like to print the first 100 numbers we can do something like this:</p>
+<p>https://gist.github.com/vgaltes/1bd24d3819c9e6022514</p>
+<p>In this case we are using a range expression to create a <a href="https://msdn.microsoft.com/en-us/library/dd233209.aspx" target="_blank">sequence</a> with numbers from 1 to 100. Using the <a href="http://theburningmonk.com/2011/09/fsharp-pipe-forward-and-pipe-backward/" target="_blank">pipe forward operator</a> we are passing this sequence to the map function of the Seq module that transforms a sequence applying a function (in this case fizzBuzz) to every element in a sequence. Finally, we iterate over the sequence to print the results.</p>
+<h2>Partial Active Patterns</h2>
+<p>Active patterns have to limitations:</p>
+<ul>
+<li>Each input must map to a named case.</li>
+<li>Are limited to seven named cases.</li>
+</ul>
+<p>An alternative to active patterns are partial active patterns. A partial active pattern include only a single case name followed by an underscore. Let's rewrite the FizzBuzz kata using partial active patterns.</p>
+<p>First, we have to write the active patterns we are going to use:</p>
+<p>https://gist.github.com/vgaltes/06f0e841f0a82d9d7d8c</p>
+<p>And after that, we are ready to use them in a Pattern-Matching expression:</p>
+<p>https://gist.github.com/vgaltes/ba40cc99e15118b81301</p>
+<h2>Parameterized Active Patterns</h2>
+<p>It's possible to use a function that accepts more than the match value. Let's define a <a href="http://blogs.msdn.com/b/chrsmith/archive/2008/02/21/introduction-to-f_2300_-active-patterns.aspx" target="_blank">Parameterized partial active pattern</a> (remember to include additional parameters <strong>before </strong>the match input argument.</p>
+<p>https://gist.github.com/vgaltes/e453ddd088beac84791f</p>
+<p>And now, let's use this partial active pattern:</p>
+<p>https://gist.github.com/vgaltes/8c1c7b58c07df88bfd3a</p>
+<p>And that's all for today. All these samples are extracted from the excellent book <a href="http://www.amazon.co.uk/Book-Breaking-Managed-Functional-Programming/dp/1593275528" target="_blank">The book of F#</a>, so I can't recommend it enough if you want to learn F#.</p>
+<p>As usual, I'm just learning F#. If you see something incorrect or you want to add an alternative solution, please leave a comment.</p>

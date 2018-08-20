@@ -1,0 +1,41 @@
+---
+title: Dealing with forms in ASP.Net MVC without using JavaScript
+date: '2015-12-06 22:12:40 +0000'
+categories:
+- Asp.Net
+- Javascript
+tags:
+- javascript
+- ASP.Net
+- mvc
+---
+<p>In the era of JavaScript it's a good idea to support users that aren't getting <a href="https://gds.blog.gov.uk/2013/10/21/how-many-people-are-missing-out-on-javascript-enhancement/" target="_blank">JavaScript enhancements</a>, specially if you work for <a href="https://www.gov.uk/service-manual/making-software/progressive-enhancement.html" target="_blank">UK's goverment</a>. If you are using simple forms you don't have any problems, but as long as you start adding complexity to your page supporting this scenario can be a bit tricky. Obviously your first thought should be: "Can I provide a similar experience using a less complex view?" The answer to this question could be splitting your view in different steps, but you should talk with your team's UX expert, Business Analyst and Product Owner to see if this solution is acceptable. In this article, we'll see a couple of techniques to deal with this situation if you are only allowed to use a single view.</p>
+<h2>Scenario</h2>
+<p>Imagine that you're developing a recipes website, where the user can add her own recipes. One step of this process is to add the ingredients needed to cook the recipe and you're asked to provide a search for the ingredients, the option of add to your recipe one of the search results, specify de grams of that ingredient used in the recipe and the option to remove one of the ingredients already added. You've developed the version that uses JavaScript with the last framework in the market, and now you need to develop the non JavaScript version of it. Let's start.</p>
+<p>[caption id="attachment_286" align="alignnone" width="300"]<a href="http://vgaltes.com/wp-content/uploads/2015/12/final.png"><img class="size-medium wp-image-286" src="http://vgaltes.com/wp-content/uploads/2015/12/final-300x224.png" alt="Application" width="300" height="224" /></a> Application[/caption]</p>
+<p>&nbsp;</p>
+<h2>Multiple buttons in a form</h2>
+<p>The first challenge you will face is to have multiple buttons in a form. As you know, you usually have a submit button in a form, but in this case we should have more than one. This is a problem well solved by ASP.Net MVC by using a derived type of <a href="http://www.tugberkugurlu.com/archive/involving-action-selection-process-in-asp-net-mvc-with-actionnameselectorattribute" target="_blank">ActionNameSelectorAttribute</a>.</p>
+<p>Here you can find a possible implementation of this attribute:</p>
+<p>https://gist.github.com/vgaltes/be6e5601781bb7496de7</p>
+<p>As you can see, basically what we are doing is checking the value of the button is the same than the name of the method in case the action was triggered by a button with the name specified in the SubmitButtonActionName property.</p>
+<p>To use this attribute we need to make changes in both the controller and the view. Let's see both changes and I will explain them later:</p>
+<p>https://gist.github.com/vgaltes/b4b1d1337a48313833e1</p>
+<p>https://gist.github.com/vgaltes/5d95e51c182fce3cca7f</p>
+<p>As you can see, in the view we are setting the name and the value of an extra submit button. In the controller we should decorate an action with the <em>MultipleActionButton</em> attribute, setting the <em>SubmitActionName</em> property with the same value that we've specified in the name attribute of the button. The name of the action must be the same as the value of the value attribute of the button.</p>
+<h2>Passing parameters</h2>
+<p>In our application, we need to tell our backend what ingredient we want to add. Using the previous attribute is not enough, unless we want to end with a lot of actions doing the same thing (wich doesn't seem a very good idea). So we need to somehow pass a parameter to the controller, telling it with ingredient we want to add from the results search or we want to remove from the list of ingredients. Here we have to be more imaginative and combine an <a href="https://msdn.microsoft.com/en-us/library/system.web.mvc.actionnameselectorattribute%28v=vs.118%29.aspx" target="_blank">ActionNameSelectorAttribute</a> with an <a href="https://msdn.microsoft.com/en-us/library/system.web.mvc.actionfilterattribute%28v=vs.118%29.aspx" target="_blank">ActionFilterAttribute</a>. Let's start taking a look at the view:</p>
+<p>https://gist.github.com/vgaltes/b42617c6bc4458b71299</p>
+<p>What are we doing here is creating a value of the button like UseIngredient-0 for the first item in the list, UseIngredient-1 for the second one, etc. If we do that, we can no longer use the implementation of the <em>ActionNameSelectorAttribute </em>recently explained because we'd need an action called UseIngredient-0, an action called UseIngredient-1, etc. So, we need a new implementation of the attribute that extracts the real name of the action. Something like this:</p>
+<p>https://gist.github.com/vgaltes/89ba835dc74336d68808</p>
+<p>Basically is the same code than the previous implementation, but we remove the parameter information before doing the comparison.</p>
+<p>What problem do we have now? Well, right now our actions don't know anything about the parameter, we need to do something to pass the parameter to the action.</p>
+<h3>ActionFilters to the rescue</h3>
+<p>An <a href="https://msdn.microsoft.com/en-us/library/dd410209%28v=vs.100%29.aspx" target="_blank">ActionFilter</a> is a mechanism to add custom behavior before or after an action is executed. In our case what we want is to inject the value of the parameter in the action. To do that we can write an ActionFilter like this one:</p>
+<p>https://gist.github.com/vgaltes/514271a33f33daa51cbb</p>
+<p>In this piece of code we are retrieving the original value of the button which triggered the action (line 11), extracting the value of the parameter (line 12), converting the value (a string) to the appropiate type (line 14) and injecting the value into the action (line 15).</p>
+<p>Finally we just have to appy this filter in an action using the appropiate values:</p>
+<p>https://gist.github.com/vgaltes/78fdf17bace15e437e0d</p>
+<h2>Wrap up</h2>
+<p>In this article we've seen how to use different buttons in the same form and pass parameters to the controller without using any kind of JavaScript. Remember that if you want to use some code when JavaScript is not enable you can use the <a href="https://developer.mozilla.org/en/docs/Web/HTML/Element/noscript" target="_blank">noscript</a> tag. You can find the source code in this <a href="https://github.com/vgaltes/NonJSForm/" target="_blank">github repo</a>.</p>
+<p>&nbsp;</p>

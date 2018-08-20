@@ -1,0 +1,189 @@
+---
+title: Test Driving ASP.Net routing
+date: '2014-07-29 17:36:20 +0100'
+categories:
+- Code
+tags:
+- ASP.Net
+- tdd
+---
+<p>In this article we will see how can we test drive the routing configuration of an ASP.Net web application.</p>
+<p>Let's start with our first test:</p>
+<pre class="brush:csharp">[TestMethod]
+public void TestSimpleRoute()
+{
+    RouteCollection routes = new RouteCollection();
+    RouteConfig.RegisterRoutes(routes);
+    // Act - process the route
+    RouteData result
+        = routes.GetRouteData(CreateHttpContext("~/Admin/Index"));
+    // Assert
+    Assert.IsNotNull(result);
+    Assert.AreEqual("controller", result.Values["controller"]);
+    Assert.AreEqual("action", result.Values["action"]);
+}
+
+private HttpContextBase CreateHttpContext(string targetUrl = null)
+{
+    var mockRequest = new Mock&lt;HttpRequestBase&gt;();
+
+    mockRequest.Setup(m =&gt; m.AppRelativeCurrentExecutionFilePath)
+        .Returns(targetUrl);
+    mockRequest.Setup(m =&gt; m.HttpMethod).Returns("GET");
+
+    var mockResponseBase = new Mock&lt;HttpResponseBase&gt;();
+    mockResponseBase.Setup(m =&gt; m.ApplyAppPathModifier(It.IsAny&lt;string&gt;())).Returns&lt;string&gt;(s =&gt; s);
+
+    var mockContext = new Mock&lt;HttpContextBase&gt;();
+    mockContext.Setup(c =&gt; c.Request).Returns(mockRequest.Object);
+    mockContext.Setup(c =&gt; c.Response).Returns(mockResponseBase.Object);
+
+    return mockContext.Object;
+}</pre>
+<p>As you can see we are mocking the HttpContext. We just need to mock the HttpMethod returned and function that converts an absolute URL to a relative one. As we will pass a relative path in the test, we just need to return the URL passed as argument. In the test code we assert that the route values for controller and action are the ones we expect.</p>
+<p>This test doesn't compile, as we haven't implemented the RegisterRoutes function yet. Let's implement it.</p>
+<pre class="brush:csharp">public class RouteConfig
+{
+    public static void RegisterRoutes(RouteCollection routes)
+    {
+        routes.MapRoute("SimpleRoute", "{controller}/{action}");
+    }
+}</pre>
+<p>In a "real" application, this class will be in the App_Start folder of our web application project. In our case, we will put this code in our test project.</p>
+<p>In our second test we will test the default values of a route, that is the values of the controller and action we will have if we don't provide them in the path.</p>
+<pre class="brush:csharp">[TestMethod]
+public void TestDefaults()
+{
+    RouteCollection routes = new RouteCollection();
+    RouteConfig.RegisterRoutes(routes);
+    // Act - process the route
+    RouteData result
+        = routes.GetRouteData(CreateHttpContext("~/"));
+    // Assert
+    Assert.IsNotNull(result);
+    Assert.AreEqual("DefaultController", result.Values["controller"]);
+    Assert.AreEqual("DefaultIndex", result.Values["action"]);
+}</pre>
+<p>Let's make this test pass.</p>
+<pre class="brush:csharp">routes.MapRoute("SimpleRoute", "{controller}/{action}", 
+    new { controller = "DefaultController", action = "DefaultIndex" });</pre>
+<p>As you can see we are providing an anonymous object where we specify the default values for controller and action.</p>
+<p>In our third test we will introduce the static URL segments. Imagine that before your controller and action, you want to specify some fixed segments, for example: http://yourdomain.com/Public/&lt;controller&gt;/&lt;action&gt;.</p>
+<pre class="brush:csharp">[TestMethod]
+public void TestStaticUrlSegments()
+{
+    // Arrange - register routes
+    RouteCollection routes = new RouteCollection();
+    RouteConfig.RegisterRoutes(routes);
+    // Act - process the route
+    RouteData result
+        = routes.GetRouteData(CreateHttpContext("~/Public/Admin/Index"));
+    // Assert
+    Assert.IsNotNull(result);
+    Assert.AreEqual("Admin", result.Values["controller"]);
+    Assert.AreEqual("Index", result.Values["action"]);
+}</pre>
+<p>Let's make the test pass:</p>
+<pre class="brush:csharp">routes.MapRoute("Public", "Public/{controller}/{action}");</pre>
+<p>Time to do some some refactoring in our test code. Let's start by implementing a [TestInitialize] method.</p>
+<pre class="brush:csharp">RouteCollection routes;
+
+[TestInitialize]
+public void TestInitialize()
+{
+    routes = new RouteCollection();
+    RouteConfig.RegisterRoutes(routes);
+}</pre>
+<p>And make a method to retrieve the values of the route:</p>
+<pre class="brush:csharp">private string GetRouteValueFor(RouteData result, string key)
+{
+    return result.Values[key].ToString();
+}</pre>
+<p>Now, our tests look like this:</p>
+<pre class="brush:csharp">[TestMethod]
+public void TestStaticUrlSegments()
+{
+    RouteData result = routes.GetRouteData(CreateHttpContext("~/Public/Admin/Index"));
+
+    Assert.IsNotNull(result);
+    Assert.AreEqual("Admin", GetRouteValueFor(result, "controller"));
+    Assert.AreEqual("Index", GetRouteValueFor(result, "action"));
+}</pre>
+<p>Let's test mixed segments. That is that you can have a "fixed" string before the controller's name, like http://yourdomain.com/Mixed&lt;controller&gt;/&lt;action&gt;.</p>
+<pre class="brush:csharp">[TestMethod]
+public void TestMixedSegments()
+{
+    RouteData result = routes.GetRouteData(CreateHttpContext("~/MixedAdmin/Index"));
+
+    Assert.IsNotNull(result);
+    Assert.AreEqual("Admin", GetRouteValueFor(result, "controller"));
+    Assert.AreEqual("Index", GetRouteValueFor(result, "action"));
+}</pre>
+<p>Let's make the test pass.</p>
+<pre class="brush:csharp">routes.MapRoute("MixedSegments", "Mixed{controller}/{action}");</pre>
+<p>We could specify some alias as well. That is that you map an static route to some controller and action.</p>
+<pre class="brush:csharp">[TestMethod]
+public void TestAlias()
+{
+    RouteData result = routes.GetRouteData(CreateHttpContext("~/OldAdmin/OldIndex"));
+
+    Assert.IsNotNull(result);
+    Assert.AreEqual("Admin", GetRouteValueFor(result, "controller"));
+    Assert.AreEqual("Index", GetRouteValueFor(result, "action"));
+}</pre>
+<p>And the code that pass the test:</p>
+<pre class="brush:csharp">routes.MapRoute("Alias", "OldAdmin/OldIndex", new { controller = "Admin", action = "Index" });</pre>
+<p>The next feature to implement is the custom segments, the segments that aren't controller of action.</p>
+<pre class="brush:csharp">[TestMethod]
+public void TestCustomSegment()
+{
+    RouteData result = routes.GetRouteData(CreateHttpContext("~/Admin/Index/SomeId"));
+
+    Assert.IsNotNull(result);
+    Assert.AreEqual("Admin", GetRouteValueFor(result, "controller"));
+    Assert.AreEqual("Index", GetRouteValueFor(result, "action"));
+    Assert.AreEqual("SomeId", GetRouteValueFor(result, "id"));
+}</pre>
+<p>As you can see, we want a segment called id to have the value SomeId. Let's do it:</p>
+<pre class="brush:csharp">routes.MapRoute("CustomSegment", "{controller}/{action}/{id}");</pre>
+<p>We can have some optional segments as well. In the route we will specify that we could have a segment called id, but we can decide not to specify this segment when making the call.</p>
+<pre class="brush:csharp">[TestMethod]
+public void TestOptionalSegment()
+{
+    RouteData result = routes.GetRouteData(CreateHttpContext("~/OptionalAdmin/Index"));
+
+    Assert.IsNotNull(result);
+    Assert.AreEqual("Admin", GetRouteValueFor(result, "controller"));
+    Assert.AreEqual("Index", GetRouteValueFor(result, "action"));
+    Assert.AreEqual(UrlParameter.Optional, GetRouteValueFor(result, "id"));
+}
+
+</pre>
+<pre class="brush:csharp">[TestMethod]
+public void TestOptionalSegmentWithValue()
+{
+    RouteData result = routes.GetRouteData(CreateHttpContext("~/OptionalAdmin/Index/4"));
+
+    Assert.IsNotNull(result);
+    Assert.AreEqual("Admin", GetRouteValueFor(result, "controller"));
+    Assert.AreEqual("Index", GetRouteValueFor(result, "action"));
+    Assert.AreEqual("4", GetRouteValueFor(result, "id"));
+}</pre>
+<p>Let's pass the test:</p>
+<pre class="brush:csharp">routes.MapRoute("OptionalSegment", "Optional{controller}/{action}/{id}", new { id = UrlParameter.Optional });</pre>
+<p>Finally, we could need to specify a long list of segments. We can do it, but at the end we will be responsible of splitting this segments. You will be see more clear in the test code:</p>
+<pre class="brush:csharp">[TestMethod]
+public void TestVariableLengthRoute()
+{
+    RouteData result = routes.GetRouteData(CreateHttpContext("~/CatchAllAdmin/Index/SubIndex/Step1/Step2/Step3"));
+
+    Assert.IsNotNull(result);
+    Assert.AreEqual("Admin", GetRouteValueFor(result, "controller"));
+    Assert.AreEqual("Index", GetRouteValueFor(result, "action"));
+    Assert.AreEqual("SubIndex", GetRouteValueFor(result, "id"));
+    Assert.AreEqual("Step1/Step2/Step3", GetRouteValueFor(result, "catchAll"));
+}</pre>
+<p>And let's pass the last test:</p>
+<pre class="brush:csharp">routes.MapRoute("CatchAllSegment", "CatchAll{controller}/{action}/{id}/{*catchAll}");</pre>
+<p>In this article you have seen how you can test your routing configuration in an ASP.Net web application. You can find the code of this article here: <a href="https://github.com/vgaltes/TestDrivingASPNetRouting" target="_blank">https://github.com/vgaltes/TestDrivingASPNetRouting</a> I've made a commit for each step.</p>
+<p>See you soon!</p>
