@@ -1,0 +1,555 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on VGALTES blog</title>
+    <link>http://example.org/tags/</link>
+    <description>Recent content in Tags on VGALTES blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 10 May 2015 18:30:19 +0100</lastBuildDate>
+    
+	<atom:link href="http://example.org/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Active Pattern</title>
+      <link>http://example.org/tags/active-pattern/</link>
+      <pubDate>Sun, 10 May 2015 18:30:19 +0100</pubDate>
+      
+      <guid>http://example.org/tags/active-pattern/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Active Patterns</title>
+      <link>http://example.org/tags/active-patterns/</link>
+      <pubDate>Mon, 17 Oct 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/tags/active-patterns/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Agile</title>
+      <link>http://example.org/tags/agile/</link>
+      <pubDate>Thu, 18 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/tags/agile/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Agile Dev Practices</title>
+      <link>http://example.org/tags/agile-dev-practices/</link>
+      <pubDate>Wed, 13 Mar 2013 22:36:01 +0000</pubDate>
+      
+      <guid>http://example.org/tags/agile-dev-practices/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Antipatterns</title>
+      <link>http://example.org/tags/antipatterns/</link>
+      <pubDate>Thu, 16 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/tags/antipatterns/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Antlr</title>
+      <link>http://example.org/tags/antlr/</link>
+      <pubDate>Wed, 06 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/tags/antlr/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Aprils Fools Day</title>
+      <link>http://example.org/tags/aprils-fools-day/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/tags/aprils-fools-day/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Architect</title>
+      <link>http://example.org/tags/architect/</link>
+      <pubDate>Fri, 27 Feb 2015 17:23:12 +0000</pubDate>
+      
+      <guid>http://example.org/tags/architect/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Asp.net</title>
+      <link>http://example.org/tags/asp.net/</link>
+      <pubDate>Sun, 06 Dec 2015 22:12:40 +0000</pubDate>
+      
+      <guid>http://example.org/tags/asp.net/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Aws</title>
+      <link>http://example.org/tags/aws/</link>
+      <pubDate>Wed, 16 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/tags/aws/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Azure</title>
+      <link>http://example.org/tags/azure/</link>
+      <pubDate>Sat, 01 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/tags/azure/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Bdd</title>
+      <link>http://example.org/tags/bdd/</link>
+      <pubDate>Wed, 13 Mar 2013 22:36:01 +0000</pubDate>
+      
+      <guid>http://example.org/tags/bdd/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Business Analisys</title>
+      <link>http://example.org/tags/business-analisys/</link>
+      <pubDate>Sun, 11 Dec 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/tags/business-analisys/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ci</title>
+      <link>http://example.org/tags/ci/</link>
+      <pubDate>Thu, 13 Oct 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/tags/ci/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Circleci</title>
+      <link>http://example.org/tags/circleci/</link>
+      <pubDate>Wed, 16 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/tags/circleci/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Code Analysis</title>
+      <link>http://example.org/tags/code-analysis/</link>
+      <pubDate>Tue, 07 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/tags/code-analysis/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Csv Type Provider</title>
+      <link>http://example.org/tags/csv-type-provider/</link>
+      <pubDate>Sun, 13 Dec 2015 12:16:30 +0000</pubDate>
+      
+      <guid>http://example.org/tags/csv-type-provider/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Currying</title>
+      <link>http://example.org/tags/currying/</link>
+      <pubDate>Fri, 24 Apr 2015 15:03:26 +0100</pubDate>
+      
+      <guid>http://example.org/tags/currying/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Damp</title>
+      <link>http://example.org/tags/damp/</link>
+      <pubDate>Sun, 15 Feb 2015 23:13:27 +0000</pubDate>
+      
+      <guid>http://example.org/tags/damp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Data Structures</title>
+      <link>http://example.org/tags/data-structures/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/tags/data-structures/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ddd</title>
+      <link>http://example.org/tags/ddd/</link>
+      <pubDate>Sun, 11 Dec 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/tags/ddd/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Design</title>
+      <link>http://example.org/tags/design/</link>
+      <pubDate>Wed, 04 Feb 2015 10:00:55 +0000</pubDate>
+      
+      <guid>http://example.org/tags/design/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Design Patterns</title>
+      <link>http://example.org/tags/design-patterns/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/tags/design-patterns/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Devops</title>
+      <link>http://example.org/tags/devops/</link>
+      <pubDate>Wed, 16 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/tags/devops/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Discriminated Unions</title>
+      <link>http://example.org/tags/discriminated-unions/</link>
+      <pubDate>Mon, 04 May 2015 14:46:40 +0100</pubDate>
+      
+      <guid>http://example.org/tags/discriminated-unions/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Dry</title>
+      <link>http://example.org/tags/dry/</link>
+      <pubDate>Sun, 15 Feb 2015 23:13:27 +0000</pubDate>
+      
+      <guid>http://example.org/tags/dry/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>F#</title>
+      <link>http://example.org/tags/f#/</link>
+      <pubDate>Mon, 17 Oct 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/tags/f#/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Forms</title>
+      <link>http://example.org/tags/forms/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/tags/forms/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Fsharp</title>
+      <link>http://example.org/tags/fsharp/</link>
+      <pubDate>Thu, 15 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/tags/fsharp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Functional Design Patterns</title>
+      <link>http://example.org/tags/functional-design-patterns/</link>
+      <pubDate>Mon, 04 Jul 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/tags/functional-design-patterns/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Git</title>
+      <link>http://example.org/tags/git/</link>
+      <pubDate>Sat, 19 Dec 2015 17:56:14 +0000</pubDate>
+      
+      <guid>http://example.org/tags/git/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Javascript</title>
+      <link>http://example.org/tags/javascript/</link>
+      <pubDate>Wed, 06 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/tags/javascript/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lambda</title>
+      <link>http://example.org/tags/lambda/</link>
+      <pubDate>Wed, 16 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/tags/lambda/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Learning</title>
+      <link>http://example.org/tags/learning/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/tags/learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mvc</title>
+      <link>http://example.org/tags/mvc/</link>
+      <pubDate>Sun, 06 Dec 2015 22:12:40 +0000</pubDate>
+      
+      <guid>http://example.org/tags/mvc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mvs</title>
+      <link>http://example.org/tags/mvs/</link>
+      <pubDate>Thu, 18 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/tags/mvs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mysql</title>
+      <link>http://example.org/tags/mysql/</link>
+      <pubDate>Sun, 17 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/tags/mysql/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ndepend</title>
+      <link>http://example.org/tags/ndepend/</link>
+      <pubDate>Tue, 07 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/tags/ndepend/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Net Core</title>
+      <link>http://example.org/tags/net-core/</link>
+      <pubDate>Tue, 20 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/tags/net-core/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Noestimates</title>
+      <link>http://example.org/tags/noestimates/</link>
+      <pubDate>Tue, 06 Oct 2015 21:41:49 +0100</pubDate>
+      
+      <guid>http://example.org/tags/noestimates/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Nunit</title>
+      <link>http://example.org/tags/nunit/</link>
+      <pubDate>Fri, 24 Apr 2015 15:03:26 +0100</pubDate>
+      
+      <guid>http://example.org/tags/nunit/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Oop</title>
+      <link>http://example.org/tags/oop/</link>
+      <pubDate>Wed, 04 Feb 2015 10:00:55 +0000</pubDate>
+      
+      <guid>http://example.org/tags/oop/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Operator Overloading</title>
+      <link>http://example.org/tags/operator-overloading/</link>
+      <pubDate>Mon, 04 May 2015 14:46:40 +0100</pubDate>
+      
+      <guid>http://example.org/tags/operator-overloading/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Pattern Matching</title>
+      <link>http://example.org/tags/pattern-matching/</link>
+      <pubDate>Mon, 17 Oct 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/tags/pattern-matching/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Personal</title>
+      <link>http://example.org/tags/personal/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/tags/personal/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Record Types</title>
+      <link>http://example.org/tags/record-types/</link>
+      <pubDate>Mon, 04 May 2015 14:46:40 +0100</pubDate>
+      
+      <guid>http://example.org/tags/record-types/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Scope Management</title>
+      <link>http://example.org/tags/scope-management/</link>
+      <pubDate>Thu, 18 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/tags/scope-management/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Security</title>
+      <link>http://example.org/tags/security/</link>
+      <pubDate>Sun, 17 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/tags/security/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Serverless</title>
+      <link>http://example.org/tags/serverless/</link>
+      <pubDate>Sun, 09 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/tags/serverless/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Specflow</title>
+      <link>http://example.org/tags/specflow/</link>
+      <pubDate>Wed, 13 Mar 2013 22:36:01 +0000</pubDate>
+      
+      <guid>http://example.org/tags/specflow/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Statistics</title>
+      <link>http://example.org/tags/statistics/</link>
+      <pubDate>Sat, 19 Dec 2015 17:56:14 +0000</pubDate>
+      
+      <guid>http://example.org/tags/statistics/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Step Functions</title>
+      <link>http://example.org/tags/step-functions/</link>
+      <pubDate>Sun, 09 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/tags/step-functions/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Suave</title>
+      <link>http://example.org/tags/suave/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/tags/suave/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tdd</title>
+      <link>http://example.org/tags/tdd/</link>
+      <pubDate>Fri, 24 Apr 2015 15:03:26 +0100</pubDate>
+      
+      <guid>http://example.org/tags/tdd/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Teamwork</title>
+      <link>http://example.org/tags/teamwork/</link>
+      <pubDate>Fri, 24 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/tags/teamwork/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Testing</title>
+      <link>http://example.org/tags/testing/</link>
+      <pubDate>Sun, 15 Feb 2015 23:13:27 +0000</pubDate>
+      
+      <guid>http://example.org/tags/testing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tuples</title>
+      <link>http://example.org/tags/tuples/</link>
+      <pubDate>Mon, 04 May 2015 14:46:40 +0100</pubDate>
+      
+      <guid>http://example.org/tags/tuples/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Type Providers</title>
+      <link>http://example.org/tags/type-providers/</link>
+      <pubDate>Sun, 13 Dec 2015 12:16:30 +0000</pubDate>
+      
+      <guid>http://example.org/tags/type-providers/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Unit Testing</title>
+      <link>http://example.org/tags/unit-testing/</link>
+      <pubDate>Thu, 13 Oct 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/tags/unit-testing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Vault</title>
+      <link>http://example.org/tags/vault/</link>
+      <pubDate>Sun, 17 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/tags/vault/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

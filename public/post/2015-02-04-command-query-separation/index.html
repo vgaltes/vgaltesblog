@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Command-Query Separation - VGALTES blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Vicenç García" />
+  <meta name="description" content="No, I&#39;m not going to talk about CQRS, but the ideas behind both concepts are similar.
+The Command-Query Separation principle was first introduced by Bertrand Meyer in his book Object-Oriented Software Construction. Mr Meyer states as follows:
+Functions should no produce abstract side effects.
+ Meyer differentiates two kind of functions when we design a class:
+ Commands: those functions which produce abstract side effects (change the observable state of the object)." />
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.40.1" />
+
+
+<link rel="canonical" href="http://example.org/post/2015-02-04-command-query-separation/" />
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+<link href="/dist/even.min.css?v=3.2.0" rel="stylesheet">
+<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
+
+
+
+
+<meta property="og:title" content="Command-Query Separation" />
+<meta property="og:description" content="No, I&#39;m not going to talk about CQRS, but the ideas behind both concepts are similar.
+The Command-Query Separation principle was first introduced by Bertrand Meyer in his book Object-Oriented Software Construction. Mr Meyer states as follows:
+Functions should no produce abstract side effects.
+ Meyer differentiates two kind of functions when we design a class:
+ Commands: those functions which produce abstract side effects (change the observable state of the object)." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/post/2015-02-04-command-query-separation/" />
+
+
+
+<meta property="article:published_time" content="2015-02-04T10:00:55&#43;00:00"/>
+
+<meta property="article:modified_time" content="2015-02-04T10:00:55&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta itemprop="name" content="Command-Query Separation">
+<meta itemprop="description" content="No, I&#39;m not going to talk about CQRS, but the ideas behind both concepts are similar.
+The Command-Query Separation principle was first introduced by Bertrand Meyer in his book Object-Oriented Software Construction. Mr Meyer states as follows:
+Functions should no produce abstract side effects.
+ Meyer differentiates two kind of functions when we design a class:
+ Commands: those functions which produce abstract side effects (change the observable state of the object).">
+
+
+<meta itemprop="datePublished" content="2015-02-04T10:00:55&#43;00:00" />
+<meta itemprop="dateModified" content="2015-02-04T10:00:55&#43;00:00" />
+<meta itemprop="wordCount" content="412">
+
+
+
+<meta itemprop="keywords" content="OOP,design," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Command-Query Separation"/>
+<meta name="twitter:description" content="No, I&#39;m not going to talk about CQRS, but the ideas behind both concepts are similar.
+The Command-Query Separation principle was first introduced by Bertrand Meyer in his book Object-Oriented Software Construction. Mr Meyer states as follows:
+Functions should no produce abstract side effects.
+ Meyer differentiates two kind of functions when we design a class:
+ Commands: those functions which produce abstract side effects (change the observable state of the object)."/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">VGALTES</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">VGALTES</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Command-Query Separation</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 04-02-2015 </span>
+        <div class="post-category">
+            
+              <a href="/categories/code/"> Code </a>
+            
+          </div>
+        <span class="more-meta"> 412 words </span>
+        <span class="more-meta"> 2 mins read </span>
+        
+      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  
+  <div class="post-toc-content always-active">
+    
+  </div>
+</div>
+
+    
+    
+
+    
+    <div class="post-content">
+      <p>No, I'm not going to talk about <a title="CQRS" href="http://martinfowler.com/bliki/CQRS.html" target="_blank">CQRS</a>, but the ideas behind both concepts are similar.</p>
+<p>The <a title="Command-Query Separation Principle" href="http://en.wikipedia.org/wiki/Command%E2%80%93query_separation" target="_blank">Command-Query Separation principle</a> was first introduced by <a title="Bertrand Meyer" href="http://en.wikipedia.org/wiki/Bertrand_Meyer" target="_blank">Bertrand Meyer</a> in his book <a title="Object-Oriented Software Construction" href="http://www.amazon.co.uk/Object-Oriented-Software-Construction-Prentice-Hall-Resource/dp/0136291554" target="_blank">Object-Oriented Software Construction</a>. Mr Meyer states as follows:</p>
+<blockquote><p>Functions should no produce abstract side effects.</p></blockquote>
+<p>Meyer differentiates two kind of functions when we design a class:</p>
+<ul>
+<li>Commands: those functions which produce abstract side effects (change the observable state of the object).</li>
+<li>Queries: those functions that don't produce any side effect and return some value.</li>
+</ul>
+<p>And what is an abstract side effect? Meyer define an abstract side effect as follows:</p>
+<blockquote><p>An abstract side effect is a concrete side effect that can change the value of a non-secret query.</p></blockquote>
+<p>Or, in other words, that change the observable state of the object. A concrete side effect is a change in the internal state of your object but then they restore the original state.</p>
+<p>A query should be idempotent, that is should return the same results if we execute it once or one hundred times. So, a query should not change the state of the object.</p>
+<p>Imagine for example the Console.ReadLine() method of the .Net framework. This is clearly an example of query that changes the state. We cannot call Console.ReadLine() one hundred times and expect the same behavior. According to this principle we should split this call in two calls: Fetch (a command) and GetLastLine (a query).</p>
+<p>Let's see another simple example:</p>
+<pre class="brush:csharp">public class Account
+{
+    private double _balance;
+
+    public Account(double initialBalance)
+    {
+        _balance = initialBalance;
+    }
+
+    public void Deposit(double amount)
+    {
+        _balance += amount;
+    }
+
+    public double Withdraw(double amount)
+    {
+        _balance -= amount;
+        return _balance;
+    }
+
+    public double GetBalance()
+    {
+        return _balance;
+    }
+}</pre>
+<p>In this class we have two queries (GetBalance and Withdraw) and one command (Deposit). We can identify queries because they have a return value (although commands can return new objects as well ). If we take a look at Withdraw, we can see that it changes the internal value of balance and return it. So, if we execute Withdraw several times, we will have different results, and that's something we don't expect of a query. In that case we should convert this query into a command, converting it to a procedure and removing the return statement.</p>
+<p>Adhering to this <a title="Command-Query Separation Principle" href="http://martinfowler.com/bliki/CommandQuerySeparation.html" target="_blank">principle </a>will increase the maintainability and extensibility of our codebase. Your code will be easier to explain and understand, because you won't have to dig into the class looking for side effects.</p>
+
+    </div>
+
+    
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Vicenç García</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">04-02-2015</span>
+  </p>
+  
+  
+</div>
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          
+          <a href="/tags/oop/">OOP</a>
+          
+          <a href="/tags/design/">design</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+          <a class="prev" href="/post/2015-02-15-testing-damp-vs-dry/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Testing: DAMP vs DRY</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        
+          <a class="next" href="/post/2015-01-18-bilbostack/">
+            <span class="next-text nav-default">Bilbostack</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+  <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'vgaltes';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:vgaltes@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://linkedin.com/in/vgaltes" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="https://twitter.com/vgaltes" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="https://github.com/vgaltes" class="iconfont icon-github" title="github"></a>
+  <a href="http://example.org/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    
+      2013 - 
+    2018
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Vicenç García</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+<script src="/lib/highlight/highlight.pack.js?v=20171001"></script><script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
+
+
+<script type="text/javascript" src="/dist/even.min.js?v=3.2.0"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tdd on VGALTES blog</title>
+    <link>http://example.org/tags/tdd/</link>
+    <description>Recent content in Tdd on VGALTES blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 24 Apr 2015 15:03:26 +0100</lastBuildDate>
+    
+	<atom:link href="http://example.org/tags/tdd/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>F# by example: FizzBuzz Kata</title>
+      <link>http://example.org/post/2015-04-24-f-example-fizzbuzz-kata/</link>
+      <pubDate>Fri, 24 Apr 2015 15:03:26 +0100</pubDate>
+      
+      <guid>http://example.org/post/2015-04-24-f-example-fizzbuzz-kata/</guid>
+      <description>Last Tuesday I started a book club with my friends Samir Talwar and Pedro Moreira Santos (both of them working at Codurance). The book we&#39;ve choseen is &#34;The book of F#&#34;, because we want to learn F#.
+After reading the first three chapters we decided to make the FizzBuzz kata to start practicing. In this article I&#39;m going to explain you how we solved the kata trying to explain all the F# syntax we use.</description>
+    </item>
+    
+    <item>
+      <title>Test Driving ASP.Net routing</title>
+      <link>http://example.org/post/2014-07-29-test-driving-asp-net-routing/</link>
+      <pubDate>Tue, 29 Jul 2014 17:36:20 +0100</pubDate>
+      
+      <guid>http://example.org/post/2014-07-29-test-driving-asp-net-routing/</guid>
+      <description>In this article we will see how can we test drive the routing configuration of an ASP.Net web application.
+Let&#39;s start with our first test:
+[TestMethod]public void TestSimpleRoute(){RouteCollection routes = new RouteCollection();RouteConfig.RegisterRoutes(routes);// Act - process the routeRouteData result= routes.GetRouteData(CreateHttpContext(&#34;~/Admin/Index&#34;));// AssertAssert.IsNotNull(result);Assert.AreEqual(&#34;controller&#34;, result.Values[&#34;controller&#34;]);Assert.AreEqual(&#34;action&#34;, result.Values[&#34;action&#34;]);}private HttpContextBase CreateHttpContext(string targetUrl = null){var mockRequest = new Mock&amp;lt;HttpRequestBase&amp;gt;();mockRequest.Setup(m =&amp;gt; m.AppRelativeCurrentExecutionFilePath).Returns(targetUrl);mockRequest.</description>
+    </item>
+    
+  </channel>
+</rss>

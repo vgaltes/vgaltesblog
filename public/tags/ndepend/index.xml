@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ndepend on VGALTES blog</title>
+    <link>http://example.org/tags/ndepend/</link>
+    <description>Recent content in Ndepend on VGALTES blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 07 Nov 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://example.org/tags/ndepend/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Analysing hotspots using CrystalGazer and NDepend</title>
+      <link>http://example.org/post/2017-11-07-analysing-hotspots/</link>
+      <pubDate>Tue, 07 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/post/2017-11-07-analysing-hotspots/</guid>
+      <description>When you start working on a new project, there are a couple of things that you should try to discover as fast as you can: the shape of the code and the internals of the team you&amp;rsquo;re working with.
+You can (and should) try to discover both of them using conversations (at the end, developing software is having conversations (link in spanish)). But it&amp;rsquo;s also useful to try to discover this things for yourself, to confirm what the conversations are saying, or to bo a little bit faster.</description>
+    </item>
+    
+  </channel>
+</rss>

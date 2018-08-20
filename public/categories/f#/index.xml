@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>F# on VGALTES blog</title>
+    <link>http://example.org/categories/f#/</link>
+    <description>Recent content in F# on VGALTES blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 04 Jul 2016 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://example.org/categories/f#/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>RPG Combat Kata</title>
+      <link>http://example.org/post/2016-07-04-rpg-combat-kata/</link>
+      <pubDate>Mon, 04 Jul 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/post/2016-07-04-rpg-combat-kata/</guid>
+      <description>A couple of weeks ago I saw these tweets (in Spanish):
+Hoy en la ofi hemos empezado la mañana con la RPG Combat kata de @SuuiGD que hicimos en el #scpna :-D https://t.co/vsK0OucncD
+&amp;mdash; Xabi Sáez de Ocáriz (@ziraco) June 22, 2016 
+@SuuiGD @ziraco a mi me flipó tanto que estoy haciendo la versión &amp;quot;Extended&amp;quot;.si sigo así, le pongo UI y al store! ;)
+&amp;mdash; Modesto San Juan (@msanjuan) June 22, 2016</description>
+    </item>
+    
+    <item>
+      <title>Extracting information from your code repository using F# – Part 2: Basic statistics</title>
+      <link>http://example.org/post/2015-12-19-extracting-information-from-your-code-repository-using-f-part-2-basic-statistics/</link>
+      <pubDate>Sat, 19 Dec 2015 17:56:14 +0000</pubDate>
+      
+      <guid>http://example.org/post/2015-12-19-extracting-information-from-your-code-repository-using-f-part-2-basic-statistics/</guid>
+      <description>In the previous article we&#39;ve seen how to parse a git log file. We ended up having an array of commits:
+TODO: Raw content of a Gist file.
+Let&#39;s start extracting some useful statistics from it.
+The first thing that can come into our mind is to know how many commits we have done to the repository. That&#39;s pretty easy to do:
+
+As you can see, we are using the pipe forward operator (|&amp;gt;) and the Array.</description>
+    </item>
+    
+    <item>
+      <title>Extracting information from your code repository using F# - Part 1: parsing the log file</title>
+      <link>http://example.org/post/2015-12-13-extracting-information-from-your-code-repository-using-fsharp-part-1-parsing-the-log-file/</link>
+      <pubDate>Sun, 13 Dec 2015 12:16:30 +0000</pubDate>
+      
+      <guid>http://example.org/post/2015-12-13-extracting-information-from-your-code-repository-using-fsharp-part-1-parsing-the-log-file/</guid>
+      <description>I&#39;ve recently read the excellent book Your Code as Crime Scene by Adam Tornhill. In this book, Adam explain several techniques to extract very useful information from the commits in the code repository to help you to understand your code, your dependencies and your organisation. If you haven&#39;t read the book, please do yourself a favor and get a copy as a Christmas present.
+On the othe hand, this week I&#39;ve attended the fantastic Progressive F# Tutorials at Skills Matter.</description>
+    </item>
+    
+    <item>
+      <title>F# by example: FizzBuzz kata rivisited - More on Pattern-Matching</title>
+      <link>http://example.org/post/2015-05-10-fsharp-by-example-fizzbuzz-kata-rivisited-more-on-pattern-matching/</link>
+      <pubDate>Sun, 10 May 2015 18:30:19 +0100</pubDate>
+      
+      <guid>http://example.org/post/2015-05-10-fsharp-by-example-fizzbuzz-kata-rivisited-more-on-pattern-matching/</guid>
+      <description>In the first post of this series we&#39;ve seen a possible implementation for the FizzBuzz kata. In particular, we&#39;ve finished the article with this code for the fizzBuzz function:
+https://gist.github.com/vgaltes/edafb6efc55273543a1d
+We&#39;ve applied a Tuple pattern to match the tuple created in the match part. We&#39;ve also applied Wildcard matching to discard the values we are not interested in.
+In this article we&#39;re going to see how we can solve this problem using another flavors of Pattern-Matching.</description>
+    </item>
+    
+    <item>
+      <title>F# by example: discriminated unions, record types, tuples and operators.</title>
+      <link>http://example.org/post/2015-05-04-fsharp-by-example-discriminated-unions-record-types-tuples-and-operators/</link>
+      <pubDate>Mon, 04 May 2015 14:46:40 +0100</pubDate>
+      
+      <guid>http://example.org/post/2015-05-04-fsharp-by-example-discriminated-unions-record-types-tuples-and-operators/</guid>
+      <description>Last week I continued learning F# with my friends Samir and Pedro. The first week we learned some of the F# basics and this week we learned some of the functional characteristics of F#. To do that we started doing a custom interpretation of the Bank kata from Sandro Mancuso. You can find the code here: https://github.com/vgaltes/FSharpByExample/tree/master/BankKata
+As usual, let&#39;s start with a test an its implementation:
+https://gist.github.com/vgaltes/a9c109919fe7e5555c27
+In this piece of code we can see some of the functional characteristics of F# we are going to see in this post.</description>
+    </item>
+    
+  </channel>
+</rss>

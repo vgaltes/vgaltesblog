@@ -1,0 +1,497 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on VGALTES blog</title>
+    <link>http://example.org/post/</link>
+    <description>Recent content in Posts on VGALTES blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 16 May 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://example.org/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Using different configuration per stage</title>
+      <link>http://example.org/post/2018-05-16-using-different-configuration-per-stage/</link>
+      <pubDate>Wed, 16 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/post/2018-05-16-using-different-configuration-per-stage/</guid>
+      <description>In the previous article we saw how to create a basic deployment pipeline for a serverless application. In this article, we&amp;rsquo;re going to enrich the deployment by allowing to have different values for configuration settings in each stage.
+Background The moment your application starts to be a little bit more complex, you need to use configuration settings. These settings can be things like the log level, addresses of external services, usernames and (encrypted) passwords, etc.</description>
+    </item>
+    
+    <item>
+      <title>Deploying a serverless application</title>
+      <link>http://example.org/post/2018-04-19-deploy-serverless-app/</link>
+      <pubDate>Thu, 19 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/post/2018-04-19-deploy-serverless-app/</guid>
+      <description>Starting with AWS Lambda is really easy. You can even write a function in the browser! But that&amp;rsquo;s not how you should work on a daily basis. You must have a CI/CD pipeline set up, you probably have two accounts (one for production and another one for development), you need a repeatable and reliable way to create your infrastructure and so on. In this article I&amp;rsquo;ll show you how to create a simple continuous delivery pipeline that brings us closer to a professional application development.</description>
+    </item>
+    
+    <item>
+      <title>Dynamic secrets with Vault</title>
+      <link>http://example.org/post/2017-12-16-vault-dynamic-secrets/</link>
+      <pubDate>Sun, 17 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/post/2017-12-16-vault-dynamic-secrets/</guid>
+      <description>In the previous article we saw how we can configure Vault and write and read static secrets. Today, we&amp;rsquo;re going to see how we can use Vault to generate temporary users on a MySQL server so we can control access in a more secure way.
+First of all we&amp;rsquo;ll need a MySQL server connected to the same network than the Vault server. Let&amp;rsquo;s change the docker-compose.yml file to accomplish this.</description>
+    </item>
+    
+    <item>
+      <title>Vault basics</title>
+      <link>http://example.org/post/2017-12-16-vault-basics/</link>
+      <pubDate>Sat, 16 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/post/2017-12-16-vault-basics/</guid>
+      <description>Vault from HashiCorp is an amazing tool to manage the secrets on your organisation. It not only can help you to manage what they call static secrets that you can write and read, but also allows you to manage dynamic secrets to, for example, create temporary users in a MySQL database with certain permissions. It helps you to have a more secure organization.
+Today we&amp;rsquo;re going to see how can we configure and use the basics of Vault.</description>
+    </item>
+    
+    <item>
+      <title>Analysing hotspots using CrystalGazer and NDepend</title>
+      <link>http://example.org/post/2017-11-07-analysing-hotspots/</link>
+      <pubDate>Tue, 07 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/post/2017-11-07-analysing-hotspots/</guid>
+      <description>When you start working on a new project, there are a couple of things that you should try to discover as fast as you can: the shape of the code and the internals of the team you&amp;rsquo;re working with.
+You can (and should) try to discover both of them using conversations (at the end, developing software is having conversations (link in spanish)). But it&amp;rsquo;s also useful to try to discover this things for yourself, to confirm what the conversations are saying, or to bo a little bit faster.</description>
+    </item>
+    
+    <item>
+      <title>ANTLR and JavaScript</title>
+      <link>http://example.org/post/2017-09-06-antlr-and-javascript/</link>
+      <pubDate>Wed, 06 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/post/2017-09-06-antlr-and-javascript/</guid>
+      <description>In the last few weeks I&amp;rsquo;ve been working on Crystal Gazer, a nodejs console application to gather information from your Git repository. You can find it on GitHub and on NPM.
+One of the things I&amp;rsquo;d like to do is to track the evolution of a function. Has it been modified a lot? How many people has been working on it? Is the function too long?
+To answer the first question, what we could do is rely on the git log -L:function:file command to give us all the changes a function has suffered.</description>
+    </item>
+    
+    <item>
+      <title>Calling a Step Function</title>
+      <link>http://example.org/post/2017-07-09-calling-a-step-function/</link>
+      <pubDate>Sun, 09 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/post/2017-07-09-calling-a-step-function/</guid>
+      <description>Until now we&amp;rsquo;ve seen how to create a Step Function, but we&amp;rsquo;ve always called them using the serverless framework. In this article we&amp;rsquo;re going to see how to call them programatically.
+We have two options to call a Step Function: the first one is to use the API Gateway and create an HTTP endpoint as the Event source of the Step Function. The second one is to call the step function from a Lambda function using the AWS SDK.</description>
+    </item>
+    
+    <item>
+      <title>Choice, pass, fail and succeed states in AWS Step Functions</title>
+      <link>http://example.org/post/2017-06-29-step-functions-choice-pass-fail-succeed-states/</link>
+      <pubDate>Thu, 29 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/post/2017-06-29-step-functions-choice-pass-fail-succeed-states/</guid>
+      <description>This will be the last article explaining the different states we can use in a step function. We&amp;rsquo;ll see three simple states like Pass, Fail and Succeed and finally, we&amp;rsquo;re going to a see a more complex state like Choice. And obviously, we&amp;rsquo;re going to use the http://serverless.com framework to deploy them.
+Pass state The pass state is a simple state that just passes its input to its output, without performing any work.</description>
+    </item>
+    
+    <item>
+      <title>Handling errors in AWS Step Functions</title>
+      <link>http://example.org/post/2017-06-22-handling-errors-in-step-functions/</link>
+      <pubDate>Thu, 22 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/post/2017-06-22-handling-errors-in-step-functions/</guid>
+      <description>As we&amp;rsquo;ve seen in previous articles, Step Functions helps us to orchestrate lambda functions. One of the most important aspects when we&amp;rsquo;re developing a system, distributed or not, is handling errors and retries. In this articles we&amp;rsquo;ll see how easy is to do it using Step Functions and the serverless framework.
+Catching errors Coding the lambda First of all we&amp;rsquo;re going to catch some errors. Let&amp;rsquo;s create a new project with one lambda inside it named ErrorLambda with the following code:</description>
+    </item>
+    
+    <item>
+      <title>Wait state in AWS Step Functions using the serverless framework</title>
+      <link>http://example.org/post/2017-06-21-step-functions-wait-state/</link>
+      <pubDate>Wed, 21 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/post/2017-06-21-step-functions-wait-state/</guid>
+      <description>In the last article we&amp;rsquo;ve seen how to the parallel state in a State function. In this article we&amp;rsquo;ll see how we can use the Wait state using the serverless framework.
+The wait state delays the execution of the state function for a certain amount of time. By default, it returns the same object that it receives.
+What are we going to code We are going to code the following state function As you can see we&amp;rsquo;re going to have an initial function that creates a result with a field called DelaySeconds.</description>
+    </item>
+    
+    <item>
+      <title>Parallel state in AWS Step Functions using .Net Core</title>
+      <link>http://example.org/post/2017-06-20-step-functions-parallel-state/</link>
+      <pubDate>Tue, 20 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/post/2017-06-20-step-functions-parallel-state/</guid>
+      <description>In the last article we&amp;rsquo;ve seen how to create a very basic step function using .Net Core and the serverless framework. Today we&amp;rsquo;ll see how to create one of the more useful states in a Step Function: the parallel state.
+The parallel state allows you to create parallel branches of execution in your state machine. Using it, you&amp;rsquo;ll be able to run several tasks in parallel and then collect the results in another task, that will be executed only if all the parallel tasks finish correctly.</description>
+    </item>
+    
+    <item>
+      <title>AWS Step Functions using .Net Core</title>
+      <link>http://example.org/post/2017-06-15-step-functions-using-net-core/</link>
+      <pubDate>Thu, 15 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/post/2017-06-15-step-functions-using-net-core/</guid>
+      <description>If my good friend Alan Gorton is right
+Functions will eat servers. #serverless https://t.co/4Rc1cDnM73
+&amp;mdash; Alan Gorton (@develogue) February 19, 2017 
+we&amp;rsquo;d better be prepared. In this article we&amp;rsquo;ll see how we can develop AWS Lambda Functions using .Net Core and deploy them and Step Functions using the serverless framework.
+Installing dependencies You should be able to follow this tutorial using a Windows machine or a Mac. The first step is to install all the things we&amp;rsquo;re going to need.</description>
+    </item>
+    
+    <item>
+      <title>A simple Azure Function using F#</title>
+      <link>http://example.org/post/2017-04-01-a-simple-azure-function-using-f-sharp/</link>
+      <pubDate>Sat, 01 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/post/2017-04-01-a-simple-azure-function-using-f-sharp/</guid>
+      <description>The other day my friend Jero wrote an article explaining how to write a Google Function using Javascript. The goal of this article is to do the same exercise but using Azure Functions and F#.
+First steps First of all, you will need to set up a couple of things. Don&amp;rsquo;t worry, both of them are free. First of all you&amp;rsquo;ll need an Azure account. You can create one for free and have £150 credit (and you&amp;rsquo;re not going to spend a single pound doing this exercise).</description>
+    </item>
+    
+    <item>
+      <title>Definition of X</title>
+      <link>http://example.org/post/2017-03-24-definition-of-x/</link>
+      <pubDate>Fri, 24 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/post/2017-03-24-definition-of-x/</guid>
+      <description>When you&amp;rsquo;re not sure about how to do something, you generally do a checklist of steps to follow. The first day I went to my current client, I had a list of steps: buy the train ticket, go to Kings Cross, collect the train ticket, take the train, take a cab, ask for Mr X, etc. I&amp;rsquo;m not using that list anymore because I now know how to do it.</description>
+    </item>
+    
+    <item>
+      <title>Cargo cult</title>
+      <link>http://example.org/post/2017-03-16-cargo-cult/</link>
+      <pubDate>Thu, 16 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/post/2017-03-16-cargo-cult/</guid>
+      <description>Cargo cult is a movement that is found in societies that believe in often-apocalyptic religious prophecies that predict a return to power, the defeat of enemies, and/or the accumulation of wealth. This movement often occurs in colonial societies.
+The first occurrences date from the end of the 19th century in Fiji, but the most important ones are the ones in the Melanesian islands after the World War II. During the war, both sides airdropped supplies and military equipment for their troops that often shared it with the local population.</description>
+    </item>
+    
+    <item>
+      <title>Cowboys</title>
+      <link>http://example.org/post/2017-03-14-cowboys/</link>
+      <pubDate>Tue, 14 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/post/2017-03-14-cowboys/</guid>
+      <description>According to the Wikipedia, a cowboy (and a cowgirl) is an animal herder who tends cattle on ranches in North America, traditionally on horseback, and often performs a multitude of other ranch-related tasks. They were quite famous in the 19th century and we can still find them in ranches.
+Hollywood adapted the cowboy lifestyle to create some stereotypes, both positive and negative. But, in general, a cowboy was a guy with a gun killing people, either because they were bad guys or because they were defending a good cause.</description>
+    </item>
+    
+    <item>
+      <title>Avoid pull requests</title>
+      <link>http://example.org/post/2017-03-12-avoid-pull-requests/</link>
+      <pubDate>Sun, 12 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/post/2017-03-12-avoid-pull-requests/</guid>
+      <description>Pull requests are a common way to integrate your changes in another repository or branch in an Open Source project. They allow the receiver of the pull request to easily view and review the changes you made. Pull requests are great, especially when your team is not colocated, but also in different time zones. It seems that their popularity has extended to enterprise projects as well, even when the team is co-located.</description>
+    </item>
+    
+    <item>
+      <title>Beyond Event Storming</title>
+      <link>http://example.org/post/2016-12-11-beyond-event-storming/</link>
+      <pubDate>Sun, 11 Dec 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/post/2016-12-11-beyond-event-storming/</guid>
+      <description>On 1st and 2nd of December, the last edition of Conferencia Agile Spain was held in Vitoria. I was part of the oragnisation and both as a organiser and as attendee I think it was awesome (post with some of the internals will come soon). I held a workshop about Event Storming there, which went great. Chris Matts did the opening keynote and he attended my workshop too. In the middle of the workshop he approached to me and told me: &amp;ldquo;If you want, after the workshop I can explain you how can you join Event Storming and Real Options.</description>
+    </item>
+    
+    <item>
+      <title>Partial classification active pattern</title>
+      <link>http://example.org/post/2016-10-17-partial-classification-active-pattern/</link>
+      <pubDate>Mon, 17 Oct 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/post/2016-10-17-partial-classification-active-pattern/</guid>
+      <description>Pattern matching is a powerful and amazing characteristic of F#. Actually, is so amazing that Microsoft is starting to port it to C#.
+There are different kinds of pattern matching. In this post we&amp;rsquo;re going to take a look at a partial classification active pattern that takes an argument and returns a value.
+As its name denotes, is a pattern that partially classificates what you match with it. That means that doesn&amp;rsquo;t try to define all possible options but just one.</description>
+    </item>
+    
+    <item>
+      <title>Running NUnit3 tests using fake</title>
+      <link>http://example.org/post/2016-10-13-run-nunit3-tests-using-fake/</link>
+      <pubDate>Thu, 13 Oct 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/post/2016-10-13-run-nunit3-tests-using-fake/</guid>
+      <description>When you have some unit tests developed using NUnit 2.x your FAKE script looks like something like this:
+Target &amp;quot;RunUnitTests&amp;quot; (fun _ -&amp;gt; !! (testDir + &amp;quot;/*.Tests.dll&amp;quot;) |&amp;gt; NUnit (fun p -&amp;gt; {p with ToolPath = &amp;quot;packages/NUnit.Runners/tools/&amp;quot;})  )
+But NUnit3 works slightly different. Instead of having a single NUnit.Runners package, that package references some other packages (runner, extensions, etc). One of those packages is NUnit.ConsoleRunner that has the exe inside the tools folder.</description>
+    </item>
+    
+    <item>
+      <title>Deadlines are not that bad</title>
+      <link>http://example.org/post/2016-08-18-deadlines-are-not-that-bad/</link>
+      <pubDate>Thu, 18 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/post/2016-08-18-deadlines-are-not-that-bad/</guid>
+      <description>In my current project we had a hard deadline: we had to go to public beta on August and finish the transition of all users to the new system by the end of August. When we knew those dates our first reaction was this one:
+Depending on the environment you work the reaction to these news are usually some combination of a lot of pressure from management, working a lot of hours, drop the quality of your code, hysteria, etc.</description>
+    </item>
+    
+    <item>
+      <title>RPG Combat Kata</title>
+      <link>http://example.org/post/2016-07-04-rpg-combat-kata/</link>
+      <pubDate>Mon, 04 Jul 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/post/2016-07-04-rpg-combat-kata/</guid>
+      <description>A couple of weeks ago I saw these tweets (in Spanish):
+Hoy en la ofi hemos empezado la mañana con la RPG Combat kata de @SuuiGD que hicimos en el #scpna :-D https://t.co/vsK0OucncD
+&amp;mdash; Xabi Sáez de Ocáriz (@ziraco) June 22, 2016 
+@SuuiGD @ziraco a mi me flipó tanto que estoy haciendo la versión &amp;quot;Extended&amp;quot;.si sigo así, le pongo UI y al store! ;)
+&amp;mdash; Modesto San Juan (@msanjuan) June 22, 2016</description>
+    </item>
+    
+    <item>
+      <title>Extracting information from your code repository using F# – Part 2: Basic statistics</title>
+      <link>http://example.org/post/2015-12-19-extracting-information-from-your-code-repository-using-f-part-2-basic-statistics/</link>
+      <pubDate>Sat, 19 Dec 2015 17:56:14 +0000</pubDate>
+      
+      <guid>http://example.org/post/2015-12-19-extracting-information-from-your-code-repository-using-f-part-2-basic-statistics/</guid>
+      <description>In the previous article we&#39;ve seen how to parse a git log file. We ended up having an array of commits:
+TODO: Raw content of a Gist file.
+Let&#39;s start extracting some useful statistics from it.
+The first thing that can come into our mind is to know how many commits we have done to the repository. That&#39;s pretty easy to do:
+
+As you can see, we are using the pipe forward operator (|&amp;gt;) and the Array.</description>
+    </item>
+    
+    <item>
+      <title>Extracting information from your code repository using F# - Part 1: parsing the log file</title>
+      <link>http://example.org/post/2015-12-13-extracting-information-from-your-code-repository-using-fsharp-part-1-parsing-the-log-file/</link>
+      <pubDate>Sun, 13 Dec 2015 12:16:30 +0000</pubDate>
+      
+      <guid>http://example.org/post/2015-12-13-extracting-information-from-your-code-repository-using-fsharp-part-1-parsing-the-log-file/</guid>
+      <description>I&#39;ve recently read the excellent book Your Code as Crime Scene by Adam Tornhill. In this book, Adam explain several techniques to extract very useful information from the commits in the code repository to help you to understand your code, your dependencies and your organisation. If you haven&#39;t read the book, please do yourself a favor and get a copy as a Christmas present.
+On the othe hand, this week I&#39;ve attended the fantastic Progressive F# Tutorials at Skills Matter.</description>
+    </item>
+    
+    <item>
+      <title>Dealing with forms in ASP.Net MVC without using JavaScript</title>
+      <link>http://example.org/post/2015-12-06-dealing-with-forms-in-asp-net-mvc-without-using-javascript/</link>
+      <pubDate>Sun, 06 Dec 2015 22:12:40 +0000</pubDate>
+      
+      <guid>http://example.org/post/2015-12-06-dealing-with-forms-in-asp-net-mvc-without-using-javascript/</guid>
+      <description>In the era of JavaScript it&#39;s a good idea to support users that aren&#39;t getting JavaScript enhancements, specially if you work for UK&#39;s goverment. If you are using simple forms you don&#39;t have any problems, but as long as you start adding complexity to your page supporting this scenario can be a bit tricky. Obviously your first thought should be: &#34;Can I provide a similar experience using a less complex view?</description>
+    </item>
+    
+    <item>
+      <title>XP Day 2015</title>
+      <link>http://example.org/post/2015-10-28-xp-day-2015/</link>
+      <pubDate>Wed, 28 Oct 2015 07:45:55 +0000</pubDate>
+      
+      <guid>http://example.org/post/2015-10-28-xp-day-2015/</guid>
+      <description>Yesterday I attended XPDay 2015, an event organized by the people of the eXtreme Tuesday club. It was the first time I was there and it was great to share a day with such a bunch of talented people like Allan Kelly, Nat Pryce, Steve Freeman, Giovanni Asproni or Liz Keogh among others.
+In this time where a lot of people talk about agile hangover and say that agile doesn&#39;t work it&#39;s good to return to the origins and talk about eXtreme Programming.</description>
+    </item>
+    
+    <item>
+      <title>My point of view about the #NoEstimates movement</title>
+      <link>http://example.org/post/2015-10-06-my-point-of-view-about-the-noestimates-movement/</link>
+      <pubDate>Tue, 06 Oct 2015 21:41:49 +0100</pubDate>
+      
+      <guid>http://example.org/post/2015-10-06-my-point-of-view-about-the-noestimates-movement/</guid>
+      <description>The #NoEstimates movement is an interesting thing. If you haven&#39;t heard about it, take a look at #NoEstimates hashtag on Twitter, read these articles from Ron Jeffries (article 1, article 2, article 3) or buy (and read) the excellent book written by Vasco Duarte.
+Let me make a summary for you: we fail making estimations. A lot. Take a look at famous CHAOS report if you need more evidence. Agile methodologies improved the numbers a bit but not too much (I bet the numbers are going down again because everybody is &#34;</description>
+    </item>
+    
+    <item>
+      <title>F# by example: FizzBuzz kata rivisited - More on Pattern-Matching</title>
+      <link>http://example.org/post/2015-05-10-fsharp-by-example-fizzbuzz-kata-rivisited-more-on-pattern-matching/</link>
+      <pubDate>Sun, 10 May 2015 18:30:19 +0100</pubDate>
+      
+      <guid>http://example.org/post/2015-05-10-fsharp-by-example-fizzbuzz-kata-rivisited-more-on-pattern-matching/</guid>
+      <description>In the first post of this series we&#39;ve seen a possible implementation for the FizzBuzz kata. In particular, we&#39;ve finished the article with this code for the fizzBuzz function:
+https://gist.github.com/vgaltes/edafb6efc55273543a1d
+We&#39;ve applied a Tuple pattern to match the tuple created in the match part. We&#39;ve also applied Wildcard matching to discard the values we are not interested in.
+In this article we&#39;re going to see how we can solve this problem using another flavors of Pattern-Matching.</description>
+    </item>
+    
+    <item>
+      <title>F# by example: discriminated unions, record types, tuples and operators.</title>
+      <link>http://example.org/post/2015-05-04-fsharp-by-example-discriminated-unions-record-types-tuples-and-operators/</link>
+      <pubDate>Mon, 04 May 2015 14:46:40 +0100</pubDate>
+      
+      <guid>http://example.org/post/2015-05-04-fsharp-by-example-discriminated-unions-record-types-tuples-and-operators/</guid>
+      <description>Last week I continued learning F# with my friends Samir and Pedro. The first week we learned some of the F# basics and this week we learned some of the functional characteristics of F#. To do that we started doing a custom interpretation of the Bank kata from Sandro Mancuso. You can find the code here: https://github.com/vgaltes/FSharpByExample/tree/master/BankKata
+As usual, let&#39;s start with a test an its implementation:
+https://gist.github.com/vgaltes/a9c109919fe7e5555c27
+In this piece of code we can see some of the functional characteristics of F# we are going to see in this post.</description>
+    </item>
+    
+    <item>
+      <title>F# by example: FizzBuzz Kata</title>
+      <link>http://example.org/post/2015-04-24-f-example-fizzbuzz-kata/</link>
+      <pubDate>Fri, 24 Apr 2015 15:03:26 +0100</pubDate>
+      
+      <guid>http://example.org/post/2015-04-24-f-example-fizzbuzz-kata/</guid>
+      <description>Last Tuesday I started a book club with my friends Samir Talwar and Pedro Moreira Santos (both of them working at Codurance). The book we&#39;ve choseen is &#34;The book of F#&#34;, because we want to learn F#.
+After reading the first three chapters we decided to make the FizzBuzz kata to start practicing. In this article I&#39;m going to explain you how we solved the kata trying to explain all the F# syntax we use.</description>
+    </item>
+    
+    <item>
+      <title>The architect</title>
+      <link>http://example.org/post/2015-02-27-architect/</link>
+      <pubDate>Fri, 27 Feb 2015 17:23:12 +0000</pubDate>
+      
+      <guid>http://example.org/post/2015-02-27-architect/</guid>
+      <description>Last Wednesday was my last day in the project I worked on the last six months. I&#39;ve spent a great time working there, learning a lot of things and improving as a professional.
+One of the members of the team, Mark, has the role of technical architect. If you have an agile mindset when you listen the word architect is not unusual that a look of disgust appears on your face.</description>
+    </item>
+    
+    <item>
+      <title>Testing: DAMP vs DRY</title>
+      <link>http://example.org/post/2015-02-15-testing-damp-vs-dry/</link>
+      <pubDate>Sun, 15 Feb 2015 23:13:27 +0000</pubDate>
+      
+      <guid>http://example.org/post/2015-02-15-testing-damp-vs-dry/</guid>
+      <description>When we write unit tests we usually try to apply our great object oriented knowledge, so we try to apply the well known DRY principle (Don&#39;t Repeat Yourself). One visible consequence of this effort is that the test code is considerably shorter than the previous version. A less visible consequence, but much more important, is that is harder to understand what the hell the test is trying to do.
+For that reason, when writing tests, I&#39;m more inclined to apply a non so well know principle called DAMP (Descriptive And Maintainable Procedures).</description>
+    </item>
+    
+    <item>
+      <title>Command-Query Separation</title>
+      <link>http://example.org/post/2015-02-04-command-query-separation/</link>
+      <pubDate>Wed, 04 Feb 2015 10:00:55 +0000</pubDate>
+      
+      <guid>http://example.org/post/2015-02-04-command-query-separation/</guid>
+      <description>No, I&#39;m not going to talk about CQRS, but the ideas behind both concepts are similar.
+The Command-Query Separation principle was first introduced by Bertrand Meyer in his book Object-Oriented Software Construction. Mr Meyer states as follows:
+Functions should no produce abstract side effects.
+ Meyer differentiates two kind of functions when we design a class:
+ Commands: those functions which produce abstract side effects (change the observable state of the object).</description>
+    </item>
+    
+    <item>
+      <title>Bilbostack</title>
+      <link>http://example.org/post/2015-01-18-bilbostack/</link>
+      <pubDate>Sun, 18 Jan 2015 23:32:46 +0000</pubDate>
+      
+      <guid>http://example.org/post/2015-01-18-bilbostack/</guid>
+      <description>Last Saturday (January 17th) the Bilbostack conference was held in Bilbao. It was the fourth edition of this conference and it was a complete success. I&#39;m really glad to be part of the organisation of Bilbostack, sharing this responsibility with Ibon Landa, Asier Marqués and Fran Mosteiro.
+I like to organize Bilbostack for many reasons:
+It&#39;s &#34;easy&#34; to organize. We don&#39;t open a Call for Papers. We meet one day in a beer, take some beers and make a list of the people we would like to speak at the conference.</description>
+    </item>
+    
+    <item>
+      <title>Professionalism</title>
+      <link>http://example.org/post/2014-12-08-professionalism/</link>
+      <pubDate>Mon, 08 Dec 2014 23:51:50 +0000</pubDate>
+      
+      <guid>http://example.org/post/2014-12-08-professionalism/</guid>
+      <description>According to Wikipedia, in some cultures the term professional is used as shorthand to describe a particular social stratum of well-educated workers who enjoy considerable work autonomy and who are commonly engaged in creative and intellectually challenging work. According to Google Analytics you probably come from one of these cultures.
+I have to admit that when I started to hear the term Craftsmanship I was distrusting, maybe because some of the people that used it tried to use it as a label to put themselves in a higher level than the rest of us.</description>
+    </item>
+    
+    <item>
+      <title>Test Driving ASP.Net routing</title>
+      <link>http://example.org/post/2014-07-29-test-driving-asp-net-routing/</link>
+      <pubDate>Tue, 29 Jul 2014 17:36:20 +0100</pubDate>
+      
+      <guid>http://example.org/post/2014-07-29-test-driving-asp-net-routing/</guid>
+      <description>In this article we will see how can we test drive the routing configuration of an ASP.Net web application.
+Let&#39;s start with our first test:
+[TestMethod]public void TestSimpleRoute(){RouteCollection routes = new RouteCollection();RouteConfig.RegisterRoutes(routes);// Act - process the routeRouteData result= routes.GetRouteData(CreateHttpContext(&#34;~/Admin/Index&#34;));// AssertAssert.IsNotNull(result);Assert.AreEqual(&#34;controller&#34;, result.Values[&#34;controller&#34;]);Assert.AreEqual(&#34;action&#34;, result.Values[&#34;action&#34;]);}private HttpContextBase CreateHttpContext(string targetUrl = null){var mockRequest = new Mock&amp;lt;HttpRequestBase&amp;gt;();mockRequest.Setup(m =&amp;gt; m.AppRelativeCurrentExecutionFilePath).Returns(targetUrl);mockRequest.</description>
+    </item>
+    
+    <item>
+      <title>Don&#39;t do experiments with your client&#39;s money</title>
+      <link>http://example.org/post/2014-07-16-dont-do-experiments-with-your-clients-money/</link>
+      <pubDate>Wed, 16 Jul 2014 14:33:56 +0100</pubDate>
+      
+      <guid>http://example.org/post/2014-07-16-dont-do-experiments-with-your-clients-money/</guid>
+      <description>Imagine you &#34;manage&#34; a development team. Imagine you reach to have a product that your client is reasonably happy with it. Imagine that the architecture of the application is a mess. Imagine that you don&#39;t have any test. Imagine that the performance of the application is clearly improvable. Imagine that you can improve the user experience a lot. Imagine that you UI layer is made in a 14 years old technology.</description>
+    </item>
+    
+    <item>
+      <title>Agile Dev Practices</title>
+      <link>http://example.org/post/2013-03-13-agile-dev-practices/</link>
+      <pubDate>Wed, 13 Mar 2013 22:36:01 +0000</pubDate>
+      
+      <guid>http://example.org/post/2013-03-13-agile-dev-practices/</guid>
+      <description>Last week I attended to Agile Dev Practices, a brand-new conference done in Postdam, organized by Diaz Hilterscheid, the people behind the renowned Agile Testing Days. It was my third international conference (the first outside Spain) and the first one I have gone as a speaker.
+I had the good fortune to assist to Carlos Blé tutorial about “Practical BDD for RIAs with JavaScript”. It was a great tutorial, more suitable to do in two days (or at least, one and a half) but equally great.</description>
+    </item>
+    
+    <item>
+      <title>A Premier League team will win the Champions League this year</title>
+      <link>http://example.org/post/2016-04-01-a-premier-league-team-will-win-the-champions/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/post/2016-04-01-a-premier-league-team-will-win-the-champions/</guid>
+      <description>Spain and Germany are dominating with an iron fist last Champions League editions. After a lot of investment, a Premier League team is ready to conquer the longed for trophy. In this article we&amp;rsquo;ll demonstrate this fact.
+The data We&amp;rsquo;ve borrowed the data for this study from the UEFA&amp;rsquo;s official page. If you go to this address http://www.uefa.com/uefachampionsleague/season=2011/matches/all/index.html# you&amp;rsquo;ll see all the matches played in the season 2010&amp;frasl;2011. Change the year in the query string to see another year&amp;rsquo;s results.</description>
+    </item>
+    
+    <item>
+      <title>Arrays in F#</title>
+      <link>http://example.org/post/2016-02-17-arrays-in-fsharp/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/post/2016-02-17-arrays-in-fsharp/</guid>
+      <description>Arrays are one of the basic data structures in F#. In this article we&amp;rsquo;re going to see an introduction of what can we do with them.
+Creation There are several ways to create an array in F#
+Create from a literal We can create an array with a predefined set of values. To do that, we just need to specify the values separated by semicolons and wrapped between [| and |]</description>
+    </item>
+    
+    <item>
+      <title>Decorator pattern in F#</title>
+      <link>http://example.org/post/2016-06-01-decorator-pattern-in-fsharp/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/post/2016-06-01-decorator-pattern-in-fsharp/</guid>
+      <description>Introduction A couple of weeks ago my friend Ian Russell explained the decorator pattern at work. For those who don&amp;rsquo;t know exactly how it works, the decorator pattern allows us to add behavior to an individual object without affecting the behavior of other objects of that class (Wikipedia).
+The object oriented solution There are a couple of typical implementations of the pattern in C#. The &amp;ldquo;lightweight&amp;rdquo; version is &amp;ldquo;just&amp;rdquo; to create decorators implementing the same interface of the decorated class, and passing the decorated object in the constructor of the decorator.</description>
+    </item>
+    
+    <item>
+      <title>Function composition and pipeline operator</title>
+      <link>http://example.org/post/2016-04-02-function-composition-and-pipeline-operator/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/post/2016-04-02-function-composition-and-pipeline-operator/</guid>
+      <description>As Scott Wlaschin points out in his excellent article function composition it&amp;rsquo;s not the same as using the pipeline operator.
+The definition of the pipeline operator is this one:
+let (|&amp;gt;) x f = f x  So, take the thing on the left hand side of the operator and use it as the last parameter on the function in the right hand side.
+On the other hand, we have this definition for the forward composition operator (&amp;gt;&amp;gt;)</description>
+    </item>
+    
+    <item>
+      <title>My learning patterns</title>
+      <link>http://example.org/post/2016-06-16-learning-patterns/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/post/2016-06-16-learning-patterns/</guid>
+      <description>In the last days I stumbled upon some articles about how to improve, be more productive, etc. Usually you can separate this kind of articles in two categories: - the articles that talk about non work-related activities you must do if you want to increase your productivity. Eat the right food, sleep the right amount of time, do exercise, etc. - the articles that talk about work-related activities. Go to meetups, read, do pet projects, etc.</description>
+    </item>
+    
+    <item>
+      <title>Sending forms with Suave, Suave.DotLiquid and Suave.Forms</title>
+      <link>http://example.org/post/2016-04-21-forms-with-suave-dotliquid-and-suave-forms/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/post/2016-04-21-forms-with-suave-dotliquid-and-suave-forms/</guid>
+      <description>In the previous article we saw how to send forms using Suave.Experimental as view engine. In this article we&amp;rsquo;re going to use Suave.DotLiquid as view engine. We&amp;rsquo;ll see how we&amp;rsquo;re going to be able to reuse most of the work done previously.
+Suave.DotLiquid DotLiquid is a port of the Ruby template engine Liquid. Suave is able to use this library thanks to the pakage Suave.DotLiquid. So, the first thing we need to do is install these packages in our project.</description>
+    </item>
+    
+    <item>
+      <title>Sending forms with Suave, Suave.Experimental and Suave.Forms</title>
+      <link>http://example.org/post/2016-04-20-forms-with-suave-experimental-and-suave-forms/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/post/2016-04-20-forms-with-suave-experimental-and-suave-forms/</guid>
+      <description>Sending data to a web server is a very common task when developing a website. From registering a new user to filling some personal details in a web commerce application, we usually have to deal with filling a form and send its data to the web server. In this series of articles, we are going to see how to send data using different view engines.
+Suave.Experimental Experimental is a component available via NuGet that allows us to write the views using F# code.</description>
+    </item>
+    
+    <item>
+      <title>Sequences in F#</title>
+      <link>http://example.org/post/2016-02-20-sequences-in-fsharp/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/post/2016-02-20-sequences-in-fsharp/</guid>
+      <description>A sequence is a list of potential values (all of them of the same type) computed on demand.
+Sequence creation As with arrays there are several ways to create a sequence.
+Create from a range expression
+You can create a new sequence from a range expression. In this case, instead of using [| and |] you should use { and }
+let numbers = {1..20}  Create from a sequence expression</description>
+    </item>
+    
+  </channel>
+</rss>

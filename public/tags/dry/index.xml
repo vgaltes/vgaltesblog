@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Dry on VGALTES blog</title>
+    <link>http://example.org/tags/dry/</link>
+    <description>Recent content in Dry on VGALTES blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 15 Feb 2015 23:13:27 +0000</lastBuildDate>
+    
+	<atom:link href="http://example.org/tags/dry/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Testing: DAMP vs DRY</title>
+      <link>http://example.org/post/2015-02-15-testing-damp-vs-dry/</link>
+      <pubDate>Sun, 15 Feb 2015 23:13:27 +0000</pubDate>
+      
+      <guid>http://example.org/post/2015-02-15-testing-damp-vs-dry/</guid>
+      <description>When we write unit tests we usually try to apply our great object oriented knowledge, so we try to apply the well known DRY principle (Don&#39;t Repeat Yourself). One visible consequence of this effort is that the test code is considerably shorter than the previous version. A less visible consequence, but much more important, is that is harder to understand what the hell the test is trying to do.
+For that reason, when writing tests, I&#39;m more inclined to apply a non so well know principle called DAMP (Descriptive And Maintainable Procedures).</description>
+    </item>
+    
+  </channel>
+</rss>

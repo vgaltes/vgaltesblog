@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Unit Testing on VGALTES blog</title>
+    <link>http://example.org/tags/unit-testing/</link>
+    <description>Recent content in Unit Testing on VGALTES blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 13 Oct 2016 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://example.org/tags/unit-testing/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Running NUnit3 tests using fake</title>
+      <link>http://example.org/post/2016-10-13-run-nunit3-tests-using-fake/</link>
+      <pubDate>Thu, 13 Oct 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/post/2016-10-13-run-nunit3-tests-using-fake/</guid>
+      <description>When you have some unit tests developed using NUnit 2.x your FAKE script looks like something like this:
+Target &amp;quot;RunUnitTests&amp;quot; (fun _ -&amp;gt; !! (testDir + &amp;quot;/*.Tests.dll&amp;quot;) |&amp;gt; NUnit (fun p -&amp;gt; {p with ToolPath = &amp;quot;packages/NUnit.Runners/tools/&amp;quot;})  )
+But NUnit3 works slightly different. Instead of having a single NUnit.Runners package, that package references some other packages (runner, extensions, etc). One of those packages is NUnit.ConsoleRunner that has the exe inside the tools folder.</description>
+    </item>
+    
+  </channel>
+</rss>

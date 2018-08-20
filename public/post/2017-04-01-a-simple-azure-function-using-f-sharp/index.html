@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>A simple Azure Function using F# - VGALTES blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Vicenç García" />
+  <meta name="description" content="The other day my friend Jero wrote an article explaining how to write a Google Function using Javascript. The goal of this article is to do the same exercise but using Azure Functions and F#.
+First steps First of all, you will need to set up a couple of things. Don&amp;rsquo;t worry, both of them are free. First of all you&amp;rsquo;ll need an Azure account. You can create one for free and have £150 credit (and you&amp;rsquo;re not going to spend a single pound doing this exercise)." />
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.40.1" />
+
+
+<link rel="canonical" href="http://example.org/post/2017-04-01-a-simple-azure-function-using-f-sharp/" />
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+<link href="/dist/even.min.css?v=3.2.0" rel="stylesheet">
+<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
+
+
+
+
+<meta property="og:title" content="A simple Azure Function using F#" />
+<meta property="og:description" content="The other day my friend Jero wrote an article explaining how to write a Google Function using Javascript. The goal of this article is to do the same exercise but using Azure Functions and F#.
+First steps First of all, you will need to set up a couple of things. Don&rsquo;t worry, both of them are free. First of all you&rsquo;ll need an Azure account. You can create one for free and have £150 credit (and you&rsquo;re not going to spend a single pound doing this exercise)." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/post/2017-04-01-a-simple-azure-function-using-f-sharp/" />
+
+
+
+<meta property="article:published_time" content="2017-04-01T00:00:00&#43;00:00"/>
+
+<meta property="article:modified_time" content="2017-04-01T00:00:00&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta itemprop="name" content="A simple Azure Function using F#">
+<meta itemprop="description" content="The other day my friend Jero wrote an article explaining how to write a Google Function using Javascript. The goal of this article is to do the same exercise but using Azure Functions and F#.
+First steps First of all, you will need to set up a couple of things. Don&rsquo;t worry, both of them are free. First of all you&rsquo;ll need an Azure account. You can create one for free and have £150 credit (and you&rsquo;re not going to spend a single pound doing this exercise).">
+
+
+<meta itemprop="datePublished" content="2017-04-01T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2017-04-01T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="1400">
+
+
+
+<meta itemprop="keywords" content="fsharp,azure,serverless," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="A simple Azure Function using F#"/>
+<meta name="twitter:description" content="The other day my friend Jero wrote an article explaining how to write a Google Function using Javascript. The goal of this article is to do the same exercise but using Azure Functions and F#.
+First steps First of all, you will need to set up a couple of things. Don&rsquo;t worry, both of them are free. First of all you&rsquo;ll need an Azure account. You can create one for free and have £150 credit (and you&rsquo;re not going to spend a single pound doing this exercise)."/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">VGALTES</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">VGALTES</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">A simple Azure Function using F#</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 01-04-2017 </span>
+        <div class="post-category">
+            
+              <a href="/categories/fsharp/"> fsharp </a>
+            
+          </div>
+        <span class="more-meta"> 1400 words </span>
+        <span class="more-meta"> 7 mins read </span>
+        
+      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#first-steps">First steps</a></li>
+<li><a href="#continuous-deployment">Continuous deployment</a></li>
+<li><a href="#code">Code</a></li>
+<li><a href="#dependencies">Dependencies</a></li>
+<li><a href="#summary">Summary</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+
+    
+    
+
+    
+    <div class="post-content">
+      
+
+<p>The other day my friend <a href="https://twitter.com/jerolba">Jero</a> wrote an <a href="http://www.jerolba.com/mujeres-y-hombres-y-serverless/">article</a> explaining how to write a Google Function using Javascript. The goal of this article is to do the same exercise but using Azure Functions and F#.</p>
+
+<h2 id="first-steps">First steps</h2>
+
+<p>First of all, you will need to set up a couple of things. Don&rsquo;t worry, both of them are free. First of all you&rsquo;ll need an <a href="https://azure.microsoft.com/en-us/">Azure</a> account. You can create one for <a href="https://azure.microsoft.com/en-gb/free/">free</a> and have £150 credit (and you&rsquo;re not going to spend a single pound doing this exercise).</p>
+
+<p>Second (not entirely necessary as you can edit an Azure Function directly in the browser, but highly recommended) you need an IDE to develop F#. Download <a href="https://code.visualstudio.com/">VSCode</a> and install the <a href="http://ionide.io/">Ionide</a> extension and you&rsquo;ll be in a perfect position.</p>
+
+<p>If we want to develop locally we&rsquo;ll need to install the <a href="https://www.npmjs.com/package/azure-functions-cli">Azure Functions CLI</a>. Unfortunately, this tool is only available in Windows right now. This tool will help us a little bit on the function creation. Right now is a convenient way to create an Azure Function, but it&rsquo;s not entirely necessary. At the end, is going to create some files that you can create manually if you want.</p>
+
+<p>To install the Azure Functions CLI you need to follow the folowwing steps:
+  - Install <a href="https://docs.npmjs.com/getting-started/installing-node">nodejs</a>
+  - Update npm: npm install npm@latest -g
+  - Install Azure Functions npm package: npm i -g azure-functions-cli</p>
+
+<p>Now we can create the Azure function folder. Create the folder where you want to work and type func init ManOrWoman. This will create a git repository with some files inside. <img src="/images/func-init.png" alt="Func Init" />Now you can push the repo to Github.</p>
+
+<h2 id="continuous-deployment">Continuous deployment</h2>
+
+<p>What are we going to do in this example, is enable the continuous deployment from Github. We will link our Azure Function to a repo in Github so that every time we push a change the function will be automatically deployed. Probably something you don&rsquo;t want to do in your professional project but that is good enough by now. Hopefully, we&rsquo;ll see how to deploy an Azure function in a more professional way in a future article.</p>
+
+<p>Let&rsquo;s go to the Azure portal and create a new Function App:
+ - App Name: ManOrWoman
+ - Resource Group: ManOrWomanRG
+ - Hosting Plan: use a App Service Plan -&gt; create new -&gt; Free Tier (or a <a href="https://azure.microsoft.com/en-us/pricing/details/functions/">consumption plan</a>)
+ - Storage account: (create new) manorwomansa</p>
+
+<p>When Azure finishes creating the function you can set up the continuous deployment using Github:
+ - Click on Start from source control
+   <img src="/images/start-from-source-control.png" alt="Start from source control" />
+ - Follow the steps to set up a new github deployment</p>
+
+<p>Now we&rsquo;re ready to create the function itself. Go to your console (to your work folder) type func new and follow the following steps:
+ - Select a language -&gt; choose F#
+ - Select a template -&gt; httptrigger
+ - FunctionName -&gt; ManOrWoman</p>
+
+<p>Push the changes and wait until they are deployed. Don&rsquo;t worry, only takes few seconds. Now we&rsquo;re ready to test the test function using a browser. If we try to execute the function using the browser and going to the URL <a href="https://manorwoman.azurewebsites.net/api/ManOrWoman?name=Vicenc">https://manorwoman.azurewebsites.net/api/ManOrWoman?name=Vicenc</a> we&rsquo;re going to get a 401 Unauthorised as a response. This is because we have the authorisation set as function and therefore we need to provide a code (key) to be able to run this function. Something like this: <code>https://manorwoman.azurewebsites.net/api/ManOrWoman?code=&lt;the_code&gt;&amp;name=Vicenc</code> You can find your code in the Azure Portal under Manage inside your function.</p>
+
+<p>If we&rsquo;d like to make this function public, we should go to our function.json file and change the authLevel from function to anonymous. Let&rsquo;s change it, push the changes and try to access the function in this way: <a href="https://manorwoman.azurewebsites.net/api/ManOrWoman?name=Vicenc">https://manorwoman.azurewebsites.net/api/ManOrWoman?name=Vicenc</a> We&rsquo;re good now and we don&rsquo;t need to provide any key.</p>
+
+<h2 id="code">Code</h2>
+
+<p>Let&rsquo;s code the function itself. What we&rsquo;re going to do is given a name, check it the list of people&rsquo;s name in Spain. To do that, we&rsquo;re going to download the data from the <a href="http://www.ine.es/dyngs/INEbase/es/operacion.htm?c=Estadistica_C&amp;cid=1254736177009&amp;menu=resultados&amp;secc=1254736195454&amp;idp=1254734710990">goverment</a> and export it as a CSV, one file for men&rsquo;s names and another one for women&rsquo;s names. We need to upload this files to our function environment and we&rsquo;ll do that using Kudu:
+ - Go to https://<your_function_name>.scm.azurewebsites.net
+ - Click on Debug Console -&gt; CMD
+ - Navigate to data
+ - Create a folder called spain
+ - Create two files, women.csv and men.csv
+ - Edit the files and copy the content from the files you&rsquo;ve recently created</p>
+
+<p>We&rsquo;ll need the same kind of structure in our local environment to be able to test the function. So, in your function folder, create the same folder structure (/data/spain) and copy there those two files.</p>
+
+<p>As we&rsquo;re using csv as our data source, we&rsquo;re going to use the CSV type provider to read the data. Let&rsquo;s start defining some types we&rsquo;re going to use. Create a file called types.fs and copy the following content:</p>
+
+<pre><code>namespace Types
+    open FSharp.Data
+
+    type NameData = CsvProvider&lt;&quot;Order,Name,Frequency,AverageAge&quot;, HasHeaders = true, 
+                                            Schema = &quot;Order(int),Name,Frequency(int), AverageAge(float)&quot;&gt;
+
+    type NameStatistic = {Frequency: int}
+
+    type Result = {
+        Gender: string
+        Frequency: int
+        Percentage:float
+    }
+</code></pre>
+
+<p>And now create a file called statistics.cs and copy the following content:</p>
+
+<pre><code>module Statistics
+    open Types
+    open FSharp.Data
+
+    let getGenderStatistics (fileName:string) (name:string) =
+        let names = NameData.Load(fileName)
+
+        let nameData =
+            names.Rows
+            |&gt; Seq.filter(fun r -&gt; r.Name = name.ToUpperInvariant() )
+            |&gt; Seq.tryHead
+
+        match nameData with
+        | None -&gt; None
+        | Some x -&gt; Some {NameStatistic.Frequency = x.Frequency}
+
+    let getNameStatistics (name: string) (folder:string) =
+        let statistics =
+            [|folder + &quot;men.csv&quot;; folder + &quot;women.csv&quot;|]
+            |&gt; Array.map(fun x -&gt; getGenderStatistics x name)
+
+        let calculatePercentage (x:int) (y:int) = 
+            float x * 100.0 / (float x + float y)
+
+        match statistics with
+        | [|Some m;Some w|] -&gt; 
+            match (m.Frequency &gt; w.Frequency) with
+            | true -&gt; Some {Gender = &quot;Man&quot;; Frequency = m.Frequency; Percentage = calculatePercentage m.Frequency w.Frequency}
+            | false -&gt; Some {Gender = &quot;Woman&quot;; Frequency = w.Frequency; Percentage = calculatePercentage w.Frequency m.Frequency}
+        | [|Some m;None|] -&gt; 
+            Some {Gender = &quot;Man&quot;; Frequency = m.Frequency; Percentage = 100.0} 
+        | [|None;Some w|] -&gt; 
+            Some {Gender = &quot;Woman&quot;; Frequency = w.Frequency; Percentage = 100.0} 
+        | _ -&gt; None
+</code></pre>
+
+<p>Basically what we&rsquo;re doing here is to find the name in both files, see where is more common, and return the result.</p>
+
+<p>What we need to do now is to use this function in the run.fsx script. Edit the script with the following content:</p>
+
+<pre><code>#r &quot;System.Net.Http&quot;
+#r &quot;Newtonsoft.Json&quot;
+#r &quot;Fsharp.Data&quot;
+#load &quot;Types.fs&quot;
+#load &quot;Statistics.fs&quot;
+
+open System.Net
+open System.Net.Http
+open System.Net.Http.Headers
+open Newtonsoft.Json
+open Statistics
+
+let Run(req: HttpRequestMessage, log: TraceWriter) =
+    async {
+        log.Info(sprintf &quot;F# HTTP trigger function processed a request.&quot;)
+
+        let name =
+            req.GetQueryNameValuePairs()
+            |&gt; Seq.tryFind (fun q -&gt; q.Key.ToLowerInvariant() = &quot;name&quot;)
+
+        let folder = Environment.ExpandEnvironmentVariables(@&quot;%HOME%\data\spain\&quot;)
+
+        let response =
+            match name with
+            | Some x -&gt;
+                let statistics = getNameStatistics x.Value folder
+                match statistics with
+                | Some y -&gt; 
+                    let json = JsonConvert.SerializeObject(y)
+                    let jsonResponse = sprintf &quot;%s&quot; json
+                    req.CreateResponse(HttpStatusCode.OK, jsonResponse, &quot;text/plain&quot;)
+                | None -&gt; req.CreateResponse(HttpStatusCode.BadRequest, &quot;We haven't found the name&quot;)
+            | None -&gt;
+                req.CreateResponse(HttpStatusCode.BadRequest, &quot;Specify a Name value&quot;)
+
+        return response
+
+    } |&gt; Async.RunSynchronously
+</code></pre>
+
+<p>In this piece of code, we&rsquo;re just parsing the input, calling our code, and return the result. The &ldquo;interesting&rdquo; part comes when returning the result. As you can see we&rsquo;re returning it as &ldquo;text/plain&rdquo;. That&rsquo;s because how ASP.Net works internally. You will face the same problem developing a Web API project. If you&rsquo;re doing that you can use Mark Seemann&rsquo;s <a href="http://blog.ploeh.dk/2013/10/15/easy-aspnet-web-api-dtos-with-f-climutable-records/">solution</a> or Isaac Abraham&rsquo;s <a href="http://stackoverflow.com/questions/22789504/f-json-net-6-0-and-webapi-serialization-of-record-types/26036775#26036775">solution</a> If not, you have two options:
+ - Specify the media type as &ldquo;text/plain&rdquo;
+ - Use DataMemberAttribute to provide your own names.</p>
+
+<p>I think the second option is the best one because we keep our media type as &ldquo;application/json&rdquo;. So, let&rsquo;s make some changes:
+In types.fs:
+ - Add: open System.Runtime.Serialization
+ - Change the result type to:
+     [<DataContract>]
+     type Result = {
+         [<field: DataMember(Name="Gender")>]
+         Gender: string
+         [<field: DataMember(Name="Frequency")>]
+         Frequency: int
+         [<field: DataMember(Name="Percentage")>]
+         Percentage:float
+     }</p>
+
+<p>In run.fsx:
+ - Add: #r &ldquo;System.Runtime.Serialization&rdquo;
+ - Change the way we create the response to:
+     match statistics with
+         | Some y -&gt;
+             req.CreateResponse(HttpStatusCode.OK, y)
+         | None -&gt; req.CreateResponse(HttpStatusCode.BadRequest, &ldquo;We haven&rsquo;t found the name&rdquo;)</p>
+
+<h2 id="dependencies">Dependencies</h2>
+
+<p>Our last step is to specify the dependencies of the function. In our case, we just need the FSharp.Data dependency. Open the project.json file and add &ldquo;FSharp.Data&rdquo;: &ldquo;2.3.2&rdquo; inside the dependencies node.</p>
+
+<p>Push the changes and&hellip; voilà!!</p>
+
+<p><img src="/images/azure-function-result.png" alt="Result" /></p>
+
+<h2 id="summary">Summary</h2>
+
+<p>In this article, we&rsquo;ve seen an introduction to Azure Functions using F#. We&rsquo;ve developed a toy project to learn the basics. But we can&rsquo;t develop a serious project in this way, we need things like testing and a better deployment. Hopefully, we&rsquo;ll see it in future posts.</p>
+
+    </div>
+
+    
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Vicenç García</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">01-04-2017</span>
+  </p>
+  
+  
+</div>
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          
+          <a href="/tags/fsharp/">fsharp</a>
+          
+          <a href="/tags/azure/">azure</a>
+          
+          <a href="/tags/serverless/">serverless</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+          <a class="prev" href="/post/2017-06-15-step-functions-using-net-core/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">AWS Step Functions using .Net Core</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        
+          <a class="next" href="/post/2017-03-24-definition-of-x/">
+            <span class="next-text nav-default">Definition of X</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+  <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'vgaltes';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:vgaltes@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://linkedin.com/in/vgaltes" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="https://twitter.com/vgaltes" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="https://github.com/vgaltes" class="iconfont icon-github" title="github"></a>
+  <a href="http://example.org/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    
+      2013 - 
+    2018
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Vicenç García</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+<script src="/lib/highlight/highlight.pack.js?v=20171001"></script><script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
+
+
+<script type="text/javascript" src="/dist/even.min.js?v=3.2.0"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

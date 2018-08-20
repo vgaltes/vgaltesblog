@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Code on VGALTES blog</title>
+    <link>http://example.org/categories/code/</link>
+    <description>Recent content in Code on VGALTES blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 24 Apr 2015 15:03:26 +0100</lastBuildDate>
+    
+	<atom:link href="http://example.org/categories/code/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>F# by example: FizzBuzz Kata</title>
+      <link>http://example.org/post/2015-04-24-f-example-fizzbuzz-kata/</link>
+      <pubDate>Fri, 24 Apr 2015 15:03:26 +0100</pubDate>
+      
+      <guid>http://example.org/post/2015-04-24-f-example-fizzbuzz-kata/</guid>
+      <description>Last Tuesday I started a book club with my friends Samir Talwar and Pedro Moreira Santos (both of them working at Codurance). The book we&#39;ve choseen is &#34;The book of F#&#34;, because we want to learn F#.
+After reading the first three chapters we decided to make the FizzBuzz kata to start practicing. In this article I&#39;m going to explain you how we solved the kata trying to explain all the F# syntax we use.</description>
+    </item>
+    
+    <item>
+      <title>Testing: DAMP vs DRY</title>
+      <link>http://example.org/post/2015-02-15-testing-damp-vs-dry/</link>
+      <pubDate>Sun, 15 Feb 2015 23:13:27 +0000</pubDate>
+      
+      <guid>http://example.org/post/2015-02-15-testing-damp-vs-dry/</guid>
+      <description>When we write unit tests we usually try to apply our great object oriented knowledge, so we try to apply the well known DRY principle (Don&#39;t Repeat Yourself). One visible consequence of this effort is that the test code is considerably shorter than the previous version. A less visible consequence, but much more important, is that is harder to understand what the hell the test is trying to do.
+For that reason, when writing tests, I&#39;m more inclined to apply a non so well know principle called DAMP (Descriptive And Maintainable Procedures).</description>
+    </item>
+    
+    <item>
+      <title>Command-Query Separation</title>
+      <link>http://example.org/post/2015-02-04-command-query-separation/</link>
+      <pubDate>Wed, 04 Feb 2015 10:00:55 +0000</pubDate>
+      
+      <guid>http://example.org/post/2015-02-04-command-query-separation/</guid>
+      <description>No, I&#39;m not going to talk about CQRS, but the ideas behind both concepts are similar.
+The Command-Query Separation principle was first introduced by Bertrand Meyer in his book Object-Oriented Software Construction. Mr Meyer states as follows:
+Functions should no produce abstract side effects.
+ Meyer differentiates two kind of functions when we design a class:
+ Commands: those functions which produce abstract side effects (change the observable state of the object).</description>
+    </item>
+    
+    <item>
+      <title>Test Driving ASP.Net routing</title>
+      <link>http://example.org/post/2014-07-29-test-driving-asp-net-routing/</link>
+      <pubDate>Tue, 29 Jul 2014 17:36:20 +0100</pubDate>
+      
+      <guid>http://example.org/post/2014-07-29-test-driving-asp-net-routing/</guid>
+      <description>In this article we will see how can we test drive the routing configuration of an ASP.Net web application.
+Let&#39;s start with our first test:
+[TestMethod]public void TestSimpleRoute(){RouteCollection routes = new RouteCollection();RouteConfig.RegisterRoutes(routes);// Act - process the routeRouteData result= routes.GetRouteData(CreateHttpContext(&#34;~/Admin/Index&#34;));// AssertAssert.IsNotNull(result);Assert.AreEqual(&#34;controller&#34;, result.Values[&#34;controller&#34;]);Assert.AreEqual(&#34;action&#34;, result.Values[&#34;action&#34;]);}private HttpContextBase CreateHttpContext(string targetUrl = null){var mockRequest = new Mock&amp;lt;HttpRequestBase&amp;gt;();mockRequest.Setup(m =&amp;gt; m.AppRelativeCurrentExecutionFilePath).Returns(targetUrl);mockRequest.</description>
+    </item>
+    
+  </channel>
+</rss>

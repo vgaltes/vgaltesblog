@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Active Pattern on VGALTES blog</title>
+    <link>http://example.org/tags/active-pattern/</link>
+    <description>Recent content in Active Pattern on VGALTES blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 10 May 2015 18:30:19 +0100</lastBuildDate>
+    
+	<atom:link href="http://example.org/tags/active-pattern/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>F# by example: FizzBuzz kata rivisited - More on Pattern-Matching</title>
+      <link>http://example.org/post/2015-05-10-fsharp-by-example-fizzbuzz-kata-rivisited-more-on-pattern-matching/</link>
+      <pubDate>Sun, 10 May 2015 18:30:19 +0100</pubDate>
+      
+      <guid>http://example.org/post/2015-05-10-fsharp-by-example-fizzbuzz-kata-rivisited-more-on-pattern-matching/</guid>
+      <description>In the first post of this series we&#39;ve seen a possible implementation for the FizzBuzz kata. In particular, we&#39;ve finished the article with this code for the fizzBuzz function:
+https://gist.github.com/vgaltes/edafb6efc55273543a1d
+We&#39;ve applied a Tuple pattern to match the tuple created in the match part. We&#39;ve also applied Wildcard matching to discard the values we are not interested in.
+In this article we&#39;re going to see how we can solve this problem using another flavors of Pattern-Matching.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Javascript on VGALTES blog</title>
+    <link>http://example.org/tags/javascript/</link>
+    <description>Recent content in Javascript on VGALTES blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 06 Sep 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://example.org/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>ANTLR and JavaScript</title>
+      <link>http://example.org/post/2017-09-06-antlr-and-javascript/</link>
+      <pubDate>Wed, 06 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/post/2017-09-06-antlr-and-javascript/</guid>
+      <description>In the last few weeks I&amp;rsquo;ve been working on Crystal Gazer, a nodejs console application to gather information from your Git repository. You can find it on GitHub and on NPM.
+One of the things I&amp;rsquo;d like to do is to track the evolution of a function. Has it been modified a lot? How many people has been working on it? Is the function too long?
+To answer the first question, what we could do is rely on the git log -L:function:file command to give us all the changes a function has suffered.</description>
+    </item>
+    
+    <item>
+      <title>Dealing with forms in ASP.Net MVC without using JavaScript</title>
+      <link>http://example.org/post/2015-12-06-dealing-with-forms-in-asp-net-mvc-without-using-javascript/</link>
+      <pubDate>Sun, 06 Dec 2015 22:12:40 +0000</pubDate>
+      
+      <guid>http://example.org/post/2015-12-06-dealing-with-forms-in-asp-net-mvc-without-using-javascript/</guid>
+      <description>In the era of JavaScript it&#39;s a good idea to support users that aren&#39;t getting JavaScript enhancements, specially if you work for UK&#39;s goverment. If you are using simple forms you don&#39;t have any problems, but as long as you start adding complexity to your page supporting this scenario can be a bit tricky. Obviously your first thought should be: &#34;Can I provide a similar experience using a less complex view?</description>
+    </item>
+    
+    <item>
+      <title>Agile Dev Practices</title>
+      <link>http://example.org/post/2013-03-13-agile-dev-practices/</link>
+      <pubDate>Wed, 13 Mar 2013 22:36:01 +0000</pubDate>
+      
+      <guid>http://example.org/post/2013-03-13-agile-dev-practices/</guid>
+      <description>Last week I attended to Agile Dev Practices, a brand-new conference done in Postdam, organized by Diaz Hilterscheid, the people behind the renowned Agile Testing Days. It was my third international conference (the first outside Spain) and the first one I have gone as a speaker.
+I had the good fortune to assist to Carlos Blé tutorial about “Practical BDD for RIAs with JavaScript”. It was a great tutorial, more suitable to do in two days (or at least, one and a half) but equally great.</description>
+    </item>
+    
+  </channel>
+</rss>

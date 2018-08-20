@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Suave on VGALTES blog</title>
+    <link>http://example.org/tags/suave/</link>
+    <description>Recent content in Suave on VGALTES blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    
+	<atom:link href="http://example.org/tags/suave/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Sending forms with Suave, Suave.DotLiquid and Suave.Forms</title>
+      <link>http://example.org/post/2016-04-21-forms-with-suave-dotliquid-and-suave-forms/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/post/2016-04-21-forms-with-suave-dotliquid-and-suave-forms/</guid>
+      <description>In the previous article we saw how to send forms using Suave.Experimental as view engine. In this article we&amp;rsquo;re going to use Suave.DotLiquid as view engine. We&amp;rsquo;ll see how we&amp;rsquo;re going to be able to reuse most of the work done previously.
+Suave.DotLiquid DotLiquid is a port of the Ruby template engine Liquid. Suave is able to use this library thanks to the pakage Suave.DotLiquid. So, the first thing we need to do is install these packages in our project.</description>
+    </item>
+    
+    <item>
+      <title>Sending forms with Suave, Suave.Experimental and Suave.Forms</title>
+      <link>http://example.org/post/2016-04-20-forms-with-suave-experimental-and-suave-forms/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/post/2016-04-20-forms-with-suave-experimental-and-suave-forms/</guid>
+      <description>Sending data to a web server is a very common task when developing a website. From registering a new user to filling some personal details in a web commerce application, we usually have to deal with filling a form and send its data to the web server. In this series of articles, we are going to see how to send data using different view engines.
+Suave.Experimental Experimental is a component available via NuGet that allows us to write the views using F# code.</description>
+    </item>
+    
+  </channel>
+</rss>

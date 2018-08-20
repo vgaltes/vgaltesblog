@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Devops on VGALTES blog</title>
+    <link>http://example.org/tags/devops/</link>
+    <description>Recent content in Devops on VGALTES blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 16 May 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://example.org/tags/devops/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Using different configuration per stage</title>
+      <link>http://example.org/post/2018-05-16-using-different-configuration-per-stage/</link>
+      <pubDate>Wed, 16 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/post/2018-05-16-using-different-configuration-per-stage/</guid>
+      <description>In the previous article we saw how to create a basic deployment pipeline for a serverless application. In this article, we&amp;rsquo;re going to enrich the deployment by allowing to have different values for configuration settings in each stage.
+Background The moment your application starts to be a little bit more complex, you need to use configuration settings. These settings can be things like the log level, addresses of external services, usernames and (encrypted) passwords, etc.</description>
+    </item>
+    
+    <item>
+      <title>Deploying a serverless application</title>
+      <link>http://example.org/post/2018-04-19-deploy-serverless-app/</link>
+      <pubDate>Thu, 19 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/post/2018-04-19-deploy-serverless-app/</guid>
+      <description>Starting with AWS Lambda is really easy. You can even write a function in the browser! But that&amp;rsquo;s not how you should work on a daily basis. You must have a CI/CD pipeline set up, you probably have two accounts (one for production and another one for development), you need a repeatable and reliable way to create your infrastructure and so on. In this article I&amp;rsquo;ll show you how to create a simple continuous delivery pipeline that brings us closer to a professional application development.</description>
+    </item>
+    
+  </channel>
+</rss>

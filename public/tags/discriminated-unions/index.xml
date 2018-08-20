@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Discriminated Unions on VGALTES blog</title>
+    <link>http://example.org/tags/discriminated-unions/</link>
+    <description>Recent content in Discriminated Unions on VGALTES blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 04 May 2015 14:46:40 +0100</lastBuildDate>
+    
+	<atom:link href="http://example.org/tags/discriminated-unions/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>F# by example: discriminated unions, record types, tuples and operators.</title>
+      <link>http://example.org/post/2015-05-04-fsharp-by-example-discriminated-unions-record-types-tuples-and-operators/</link>
+      <pubDate>Mon, 04 May 2015 14:46:40 +0100</pubDate>
+      
+      <guid>http://example.org/post/2015-05-04-fsharp-by-example-discriminated-unions-record-types-tuples-and-operators/</guid>
+      <description>Last week I continued learning F# with my friends Samir and Pedro. The first week we learned some of the F# basics and this week we learned some of the functional characteristics of F#. To do that we started doing a custom interpretation of the Bank kata from Sandro Mancuso. You can find the code here: https://github.com/vgaltes/FSharpByExample/tree/master/BankKata
+As usual, let&#39;s start with a test an its implementation:
+https://gist.github.com/vgaltes/a9c109919fe7e5555c27
+In this piece of code we can see some of the functional characteristics of F# we are going to see in this post.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Random Thoughts on VGALTES blog</title>
+    <link>http://example.org/categories/random-thoughts/</link>
+    <description>Recent content in Random Thoughts on VGALTES blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 27 Feb 2015 17:23:12 +0000</lastBuildDate>
+    
+	<atom:link href="http://example.org/categories/random-thoughts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>The architect</title>
+      <link>http://example.org/post/2015-02-27-architect/</link>
+      <pubDate>Fri, 27 Feb 2015 17:23:12 +0000</pubDate>
+      
+      <guid>http://example.org/post/2015-02-27-architect/</guid>
+      <description>Last Wednesday was my last day in the project I worked on the last six months. I&#39;ve spent a great time working there, learning a lot of things and improving as a professional.
+One of the members of the team, Mark, has the role of technical architect. If you have an agile mindset when you listen the word architect is not unusual that a look of disgust appears on your face.</description>
+    </item>
+    
+    <item>
+      <title>Professionalism</title>
+      <link>http://example.org/post/2014-12-08-professionalism/</link>
+      <pubDate>Mon, 08 Dec 2014 23:51:50 +0000</pubDate>
+      
+      <guid>http://example.org/post/2014-12-08-professionalism/</guid>
+      <description>According to Wikipedia, in some cultures the term professional is used as shorthand to describe a particular social stratum of well-educated workers who enjoy considerable work autonomy and who are commonly engaged in creative and intellectually challenging work. According to Google Analytics you probably come from one of these cultures.
+I have to admit that when I started to hear the term Craftsmanship I was distrusting, maybe because some of the people that used it tried to use it as a label to put themselves in a higher level than the rest of us.</description>
+    </item>
+    
+    <item>
+      <title>Don&#39;t do experiments with your client&#39;s money</title>
+      <link>http://example.org/post/2014-07-16-dont-do-experiments-with-your-clients-money/</link>
+      <pubDate>Wed, 16 Jul 2014 14:33:56 +0100</pubDate>
+      
+      <guid>http://example.org/post/2014-07-16-dont-do-experiments-with-your-clients-money/</guid>
+      <description>Imagine you &#34;manage&#34; a development team. Imagine you reach to have a product that your client is reasonably happy with it. Imagine that the architecture of the application is a mess. Imagine that you don&#39;t have any test. Imagine that the performance of the application is clearly improvable. Imagine that you can improve the user experience a lot. Imagine that you UI layer is made in a 14 years old technology.</description>
+    </item>
+    
+  </channel>
+</rss>

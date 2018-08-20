@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Vault on VGALTES blog</title>
+    <link>http://example.org/tags/vault/</link>
+    <description>Recent content in Vault on VGALTES blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 17 Dec 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://example.org/tags/vault/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Dynamic secrets with Vault</title>
+      <link>http://example.org/post/2017-12-16-vault-dynamic-secrets/</link>
+      <pubDate>Sun, 17 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/post/2017-12-16-vault-dynamic-secrets/</guid>
+      <description>In the previous article we saw how we can configure Vault and write and read static secrets. Today, we&amp;rsquo;re going to see how we can use Vault to generate temporary users on a MySQL server so we can control access in a more secure way.
+First of all we&amp;rsquo;ll need a MySQL server connected to the same network than the Vault server. Let&amp;rsquo;s change the docker-compose.yml file to accomplish this.</description>
+    </item>
+    
+    <item>
+      <title>Vault basics</title>
+      <link>http://example.org/post/2017-12-16-vault-basics/</link>
+      <pubDate>Sat, 16 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/post/2017-12-16-vault-basics/</guid>
+      <description>Vault from HashiCorp is an amazing tool to manage the secrets on your organisation. It not only can help you to manage what they call static secrets that you can write and read, but also allows you to manage dynamic secrets to, for example, create temporary users in a MySQL database with certain permissions. It helps you to have a more secure organization.
+Today we&amp;rsquo;re going to see how can we configure and use the basics of Vault.</description>
+    </item>
+    
+  </channel>
+</rss>

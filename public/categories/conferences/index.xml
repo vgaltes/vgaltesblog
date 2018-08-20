@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Conferences on VGALTES blog</title>
+    <link>http://example.org/categories/conferences/</link>
+    <description>Recent content in Conferences on VGALTES blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 28 Oct 2015 07:45:55 +0000</lastBuildDate>
+    
+	<atom:link href="http://example.org/categories/conferences/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>XP Day 2015</title>
+      <link>http://example.org/post/2015-10-28-xp-day-2015/</link>
+      <pubDate>Wed, 28 Oct 2015 07:45:55 +0000</pubDate>
+      
+      <guid>http://example.org/post/2015-10-28-xp-day-2015/</guid>
+      <description>Yesterday I attended XPDay 2015, an event organized by the people of the eXtreme Tuesday club. It was the first time I was there and it was great to share a day with such a bunch of talented people like Allan Kelly, Nat Pryce, Steve Freeman, Giovanni Asproni or Liz Keogh among others.
+In this time where a lot of people talk about agile hangover and say that agile doesn&#39;t work it&#39;s good to return to the origins and talk about eXtreme Programming.</description>
+    </item>
+    
+    <item>
+      <title>Bilbostack</title>
+      <link>http://example.org/post/2015-01-18-bilbostack/</link>
+      <pubDate>Sun, 18 Jan 2015 23:32:46 +0000</pubDate>
+      
+      <guid>http://example.org/post/2015-01-18-bilbostack/</guid>
+      <description>Last Saturday (January 17th) the Bilbostack conference was held in Bilbao. It was the fourth edition of this conference and it was a complete success. I&#39;m really glad to be part of the organisation of Bilbostack, sharing this responsibility with Ibon Landa, Asier Marqués and Fran Mosteiro.
+I like to organize Bilbostack for many reasons:
+It&#39;s &#34;easy&#34; to organize. We don&#39;t open a Call for Papers. We meet one day in a beer, take some beers and make a list of the people we would like to speak at the conference.</description>
+    </item>
+    
+    <item>
+      <title>Agile Dev Practices</title>
+      <link>http://example.org/post/2013-03-13-agile-dev-practices/</link>
+      <pubDate>Wed, 13 Mar 2013 22:36:01 +0000</pubDate>
+      
+      <guid>http://example.org/post/2013-03-13-agile-dev-practices/</guid>
+      <description>Last week I attended to Agile Dev Practices, a brand-new conference done in Postdam, organized by Diaz Hilterscheid, the people behind the renowned Agile Testing Days. It was my third international conference (the first outside Spain) and the first one I have gone as a speaker.
+I had the good fortune to assist to Carlos Blé tutorial about “Practical BDD for RIAs with JavaScript”. It was a great tutorial, more suitable to do in two days (or at least, one and a half) but equally great.</description>
+    </item>
+    
+  </channel>
+</rss>

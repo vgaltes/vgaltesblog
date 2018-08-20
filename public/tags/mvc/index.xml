@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mvc on VGALTES blog</title>
+    <link>http://example.org/tags/mvc/</link>
+    <description>Recent content in Mvc on VGALTES blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 06 Dec 2015 22:12:40 +0000</lastBuildDate>
+    
+	<atom:link href="http://example.org/tags/mvc/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Dealing with forms in ASP.Net MVC without using JavaScript</title>
+      <link>http://example.org/post/2015-12-06-dealing-with-forms-in-asp-net-mvc-without-using-javascript/</link>
+      <pubDate>Sun, 06 Dec 2015 22:12:40 +0000</pubDate>
+      
+      <guid>http://example.org/post/2015-12-06-dealing-with-forms-in-asp-net-mvc-without-using-javascript/</guid>
+      <description>In the era of JavaScript it&#39;s a good idea to support users that aren&#39;t getting JavaScript enhancements, specially if you work for UK&#39;s goverment. If you are using simple forms you don&#39;t have any problems, but as long as you start adding complexity to your page supporting this scenario can be a bit tricky. Obviously your first thought should be: &#34;Can I provide a similar experience using a less complex view?</description>
+    </item>
+    
+  </channel>
+</rss>

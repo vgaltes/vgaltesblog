@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Wait state in AWS Step Functions using the serverless framework - VGALTES blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Vicenç García" />
+  <meta name="description" content="In the last article we&amp;rsquo;ve seen how to the parallel state in a State function. In this article we&amp;rsquo;ll see how we can use the Wait state using the serverless framework.
+The wait state delays the execution of the state function for a certain amount of time. By default, it returns the same object that it receives.
+What are we going to code We are going to code the following state function As you can see we&amp;rsquo;re going to have an initial function that creates a result with a field called DelaySeconds." />
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.40.1" />
+
+
+<link rel="canonical" href="http://example.org/post/2017-06-21-step-functions-wait-state/" />
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+<link href="/dist/even.min.css?v=3.2.0" rel="stylesheet">
+<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
+
+
+
+
+<meta property="og:title" content="Wait state in AWS Step Functions using the serverless framework" />
+<meta property="og:description" content="In the last article we&rsquo;ve seen how to the parallel state in a State function. In this article we&rsquo;ll see how we can use the Wait state using the serverless framework.
+The wait state delays the execution of the state function for a certain amount of time. By default, it returns the same object that it receives.
+What are we going to code We are going to code the following state function As you can see we&rsquo;re going to have an initial function that creates a result with a field called DelaySeconds." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/post/2017-06-21-step-functions-wait-state/" />
+
+
+
+<meta property="article:published_time" content="2017-06-21T00:00:00&#43;00:00"/>
+
+<meta property="article:modified_time" content="2017-06-21T00:00:00&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta itemprop="name" content="Wait state in AWS Step Functions using the serverless framework">
+<meta itemprop="description" content="In the last article we&rsquo;ve seen how to the parallel state in a State function. In this article we&rsquo;ll see how we can use the Wait state using the serverless framework.
+The wait state delays the execution of the state function for a certain amount of time. By default, it returns the same object that it receives.
+What are we going to code We are going to code the following state function As you can see we&rsquo;re going to have an initial function that creates a result with a field called DelaySeconds.">
+
+
+<meta itemprop="datePublished" content="2017-06-21T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2017-06-21T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="552">
+
+
+
+<meta itemprop="keywords" content="step functions,aws,serverless," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Wait state in AWS Step Functions using the serverless framework"/>
+<meta name="twitter:description" content="In the last article we&rsquo;ve seen how to the parallel state in a State function. In this article we&rsquo;ll see how we can use the Wait state using the serverless framework.
+The wait state delays the execution of the state function for a certain amount of time. By default, it returns the same object that it receives.
+What are we going to code We are going to code the following state function As you can see we&rsquo;re going to have an initial function that creates a result with a field called DelaySeconds."/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">VGALTES</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">VGALTES</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Wait state in AWS Step Functions using the serverless framework</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 21-06-2017 </span>
+        <div class="post-category">
+            
+              <a href="/categories/serverless/"> serverless </a>
+            
+          </div>
+        <span class="more-meta"> 552 words </span>
+        <span class="more-meta"> 3 mins read </span>
+        
+      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#what-are-we-going-to-code">What are we going to code</a></li>
+<li><a href="#coding-the-lambdas">Coding the lambdas</a>
+<ul>
+<li><a href="#initlambda">InitLambda</a></li>
+<li><a href="#resultlambda">ResultLambda</a></li>
+</ul></li>
+<li><a href="#creating-the-step-function">Creating the step function</a>
+<ul>
+<li><a href="#specifying-a-timestamp">Specifying a timestamp</a></li>
+<li><a href="#non-hardcoded-duration">Non-hardcoded duration</a></li>
+</ul></li>
+<li><a href="#summary">Summary</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+
+    
+    
+
+    
+    <div class="post-content">
+      
+
+<p>In the <a href="http://vgaltes.com/serverless/step-functions-parallel-state/">last article</a> we&rsquo;ve seen how to the <a href="http://docs.aws.amazon.com/step-functions/latest/dg/amazon-states-language-parallel-state.html">parallel state</a> in a State function. In this article we&rsquo;ll see how we can use the <a href="http://docs.aws.amazon.com/step-functions/latest/dg/amazon-states-language-wait-state.html">Wait state</a> using the <a href="http://serverless.com">serverless framework</a>.</p>
+
+<p>The wait state delays the execution of the state function for a certain amount of time. By default, it returns the same object that it receives.</p>
+
+<h2 id="what-are-we-going-to-code">What are we going to code</h2>
+
+<p>We are going to code the following state function
+<img src="/images/netcorewait/state-function.png" alt="step function with parallel state" /></p>
+
+<p>As you can see we&rsquo;re going to have an initial function that creates a result with a field called DelaySeconds. Then, we&rsquo;ll have the wait state and finally a result state that will format the output.</p>
+
+<h2 id="coding-the-lambdas">Coding the lambdas</h2>
+
+<p>Following the steps of the <a href="http://vgaltes.com/serverless/step-functions-using-net-core/">following</a> article, create two lambdas called InitLambda and ResultLambda with the following code:</p>
+
+<h3 id="initlambda">InitLambda</h3>
+
+<pre><code>public class InitLambda
+{
+    public InitResult Init(string input){
+        return new InitResult(int.Parse(input));
+    }
+}
+
+public class InitResult{
+
+    public InitResult(int delay)
+    {
+        DelaySeconds = delay;
+    }
+    public int DelaySeconds {get;set;}
+}
+</code></pre>
+
+<h3 id="resultlambda">ResultLambda</h3>
+
+<pre><code>public class ResultLambda
+{
+    public string Result(InitResult input){
+        return $&quot;The seconds delayed are {input.DelaySeconds}&quot;;
+    }
+}
+
+public class InitResult{
+
+    public InitResult(int delay)
+    {
+        DelaySeconds = delay;
+    }
+    public int DelaySeconds {get;set;}
+}
+
+// You can have the result class in a shared library
+</code></pre>
+
+<h2 id="creating-the-step-function">Creating the step function</h2>
+
+<p>Now it&rsquo;s time to create the step function. The code is very similar to our original code, but we&rsquo;re now introducing a new kind of state. Let&rsquo;s put here the interesting bits:</p>
+
+<pre><code>stepFunctions:
+    stateMachines:
+        testParallelStepFunction:
+            definition:
+                StartAt: Init
+                States:
+                    Init:
+                        Type: Task
+                        Resource: arn:aws:lambda:${opt:region}:${self:custom.accountId}:function:${self:custom.initService}-${opt:stage}-Init
+                        Next: WaitSeconds
+                    WaitSeconds:
+                        Type: Wait
+                        Seconds: 10
+                        Next: Result
+                    Result:
+                        Type: Task
+                        Resource: arn:aws:lambda:${opt:region}:${self:custom.accountId}:function:${self:custom.resultService}-${opt:stage}-Result
+                        End: true
+</code></pre>
+
+<p>As you can see we have a new task state called WaitSeconds which is of type Wait. In this first case we are specifying that we want to wait 10 seconds. Let&rsquo;s run the step function from the UI and see if it waits the desired time.</p>
+
+<p><img src="/images/netcorewait/wait-10.png" alt="wait 10 seconds" /></p>
+
+<p>It works!</p>
+
+<p>Let&rsquo;s see which other alternatives do we have.</p>
+
+<h3 id="specifying-a-timestamp">Specifying a timestamp</h3>
+
+<p>It can be possible that we need a step to be executed at a certain time. If we want that, we can specify the timestamp field:</p>
+
+<pre><code>WaitSeconds:
+    Type: Wait
+    Timestamp: &quot;2017-06-20T20:58:00Z&quot;
+    Next: Result
+</code></pre>
+
+<p>The timestamp, as the documentation says, must conform to the RFC3339 profile of ISO 8601, with the further restrictions that an uppercase T must separate the date and time portions, and an uppercase Z must denote that a numeric time zone offset is not present. In our case, we&rsquo;re saying that we want to wait until 2017/06/20 20:58 UTC.</p>
+
+<p>Let&rsquo;s deploy and execute the step function from the UI to see if it works:</p>
+
+<p><img src="/images/netcorewait/wait-timestamp.png" alt="wait timestamp" /></p>
+
+<h3 id="non-hardcoded-duration">Non-hardcoded duration</h3>
+
+<p>We don&rsquo;t need to always hardcode the value of the duration or the timestamp. We can use a path from the state&rsquo;s input data to specify. If we want to do that, we need to specify the state in this way:</p>
+
+<pre><code>WaitSeconds:
+    Type: Wait
+    SecondsPath: &quot;$.DelaySeconds&quot;
+    Next: Result
+</code></pre>
+
+<p>In our case, we&rsquo;re going to use the field DelaySeconds of the input data to read the amount of seconds we want to wait. We can do the same thing with the timestamp using the field TimestampPath.</p>
+
+<h2 id="summary">Summary</h2>
+
+<p>We&rsquo;ve seen another possible state that you can use when defining a State Function: the wait step. We&rsquo;ve seen how we configure this kind of step in four different ways.</p>
+
+    </div>
+
+    
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Vicenç García</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">21-06-2017</span>
+  </p>
+  
+  
+</div>
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          
+          <a href="/tags/step-functions/">step functions</a>
+          
+          <a href="/tags/aws/">aws</a>
+          
+          <a href="/tags/serverless/">serverless</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+          <a class="prev" href="/post/2017-06-22-handling-errors-in-step-functions/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Handling errors in AWS Step Functions</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        
+          <a class="next" href="/post/2017-06-20-step-functions-parallel-state/">
+            <span class="next-text nav-default">Parallel state in AWS Step Functions using .Net Core</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+  <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'vgaltes';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:vgaltes@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://linkedin.com/in/vgaltes" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="https://twitter.com/vgaltes" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="https://github.com/vgaltes" class="iconfont icon-github" title="github"></a>
+  <a href="http://example.org/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    
+      2013 - 
+    2018
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Vicenç García</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+<script src="/lib/highlight/highlight.pack.js?v=20171001"></script><script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
+
+
+<script type="text/javascript" src="/dist/even.min.js?v=3.2.0"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

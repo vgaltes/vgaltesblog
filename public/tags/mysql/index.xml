@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mysql on VGALTES blog</title>
+    <link>http://example.org/tags/mysql/</link>
+    <description>Recent content in Mysql on VGALTES blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 17 Dec 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://example.org/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Dynamic secrets with Vault</title>
+      <link>http://example.org/post/2017-12-16-vault-dynamic-secrets/</link>
+      <pubDate>Sun, 17 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/post/2017-12-16-vault-dynamic-secrets/</guid>
+      <description>In the previous article we saw how we can configure Vault and write and read static secrets. Today, we&amp;rsquo;re going to see how we can use Vault to generate temporary users on a MySQL server so we can control access in a more secure way.
+First of all we&amp;rsquo;ll need a MySQL server connected to the same network than the Vault server. Let&amp;rsquo;s change the docker-compose.yml file to accomplish this.</description>
+    </item>
+    
+  </channel>
+</rss>

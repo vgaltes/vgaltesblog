@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Aprils Fools Day on VGALTES blog</title>
+    <link>http://example.org/tags/aprils-fools-day/</link>
+    <description>Recent content in Aprils Fools Day on VGALTES blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    
+	<atom:link href="http://example.org/tags/aprils-fools-day/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>A Premier League team will win the Champions League this year</title>
+      <link>http://example.org/post/2016-04-01-a-premier-league-team-will-win-the-champions/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/post/2016-04-01-a-premier-league-team-will-win-the-champions/</guid>
+      <description>Spain and Germany are dominating with an iron fist last Champions League editions. After a lot of investment, a Premier League team is ready to conquer the longed for trophy. In this article we&amp;rsquo;ll demonstrate this fact.
+The data We&amp;rsquo;ve borrowed the data for this study from the UEFA&amp;rsquo;s official page. If you go to this address http://www.uefa.com/uefachampionsleague/season=2011/matches/all/index.html# you&amp;rsquo;ll see all the matches played in the season 2010&amp;frasl;2011. Change the year in the query string to see another year&amp;rsquo;s results.</description>
+    </item>
+    
+  </channel>
+</rss>

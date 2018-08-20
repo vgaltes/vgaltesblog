@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Functional Design Patterns on VGALTES blog</title>
+    <link>http://example.org/tags/functional-design-patterns/</link>
+    <description>Recent content in Functional Design Patterns on VGALTES blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 04 Jul 2016 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://example.org/tags/functional-design-patterns/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>RPG Combat Kata</title>
+      <link>http://example.org/post/2016-07-04-rpg-combat-kata/</link>
+      <pubDate>Mon, 04 Jul 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/post/2016-07-04-rpg-combat-kata/</guid>
+      <description>A couple of weeks ago I saw these tweets (in Spanish):
+Hoy en la ofi hemos empezado la mañana con la RPG Combat kata de @SuuiGD que hicimos en el #scpna :-D https://t.co/vsK0OucncD
+&amp;mdash; Xabi Sáez de Ocáriz (@ziraco) June 22, 2016 
+@SuuiGD @ziraco a mi me flipó tanto que estoy haciendo la versión &amp;quot;Extended&amp;quot;.si sigo así, le pongo UI y al store! ;)
+&amp;mdash; Modesto San Juan (@msanjuan) June 22, 2016</description>
+    </item>
+    
+  </channel>
+</rss>

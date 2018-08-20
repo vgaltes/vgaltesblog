@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Net Core on VGALTES blog</title>
+    <link>http://example.org/tags/net-core/</link>
+    <description>Recent content in Net Core on VGALTES blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 20 Jun 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://example.org/tags/net-core/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Parallel state in AWS Step Functions using .Net Core</title>
+      <link>http://example.org/post/2017-06-20-step-functions-parallel-state/</link>
+      <pubDate>Tue, 20 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/post/2017-06-20-step-functions-parallel-state/</guid>
+      <description>In the last article we&amp;rsquo;ve seen how to create a very basic step function using .Net Core and the serverless framework. Today we&amp;rsquo;ll see how to create one of the more useful states in a Step Function: the parallel state.
+The parallel state allows you to create parallel branches of execution in your state machine. Using it, you&amp;rsquo;ll be able to run several tasks in parallel and then collect the results in another task, that will be executed only if all the parallel tasks finish correctly.</description>
+    </item>
+    
+    <item>
+      <title>AWS Step Functions using .Net Core</title>
+      <link>http://example.org/post/2017-06-15-step-functions-using-net-core/</link>
+      <pubDate>Thu, 15 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/post/2017-06-15-step-functions-using-net-core/</guid>
+      <description>If my good friend Alan Gorton is right
+Functions will eat servers. #serverless https://t.co/4Rc1cDnM73
+&amp;mdash; Alan Gorton (@develogue) February 19, 2017 
+we&amp;rsquo;d better be prepared. In this article we&amp;rsquo;ll see how we can develop AWS Lambda Functions using .Net Core and deploy them and Step Functions using the serverless framework.
+Installing dependencies You should be able to follow this tutorial using a Windows machine or a Mac. The first step is to install all the things we&amp;rsquo;re going to need.</description>
+    </item>
+    
+  </channel>
+</rss>

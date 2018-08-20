@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Oop on VGALTES blog</title>
+    <link>http://example.org/tags/oop/</link>
+    <description>Recent content in Oop on VGALTES blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 04 Feb 2015 10:00:55 +0000</lastBuildDate>
+    
+	<atom:link href="http://example.org/tags/oop/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Command-Query Separation</title>
+      <link>http://example.org/post/2015-02-04-command-query-separation/</link>
+      <pubDate>Wed, 04 Feb 2015 10:00:55 +0000</pubDate>
+      
+      <guid>http://example.org/post/2015-02-04-command-query-separation/</guid>
+      <description>No, I&#39;m not going to talk about CQRS, but the ideas behind both concepts are similar.
+The Command-Query Separation principle was first introduced by Bertrand Meyer in his book Object-Oriented Software Construction. Mr Meyer states as follows:
+Functions should no produce abstract side effects.
+ Meyer differentiates two kind of functions when we design a class:
+ Commands: those functions which produce abstract side effects (change the observable state of the object).</description>
+    </item>
+    
+  </channel>
+</rss>

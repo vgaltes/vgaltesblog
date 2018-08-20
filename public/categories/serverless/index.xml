@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Serverless on VGALTES blog</title>
+    <link>http://example.org/categories/serverless/</link>
+    <description>Recent content in Serverless on VGALTES blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 16 May 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://example.org/categories/serverless/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Using different configuration per stage</title>
+      <link>http://example.org/post/2018-05-16-using-different-configuration-per-stage/</link>
+      <pubDate>Wed, 16 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/post/2018-05-16-using-different-configuration-per-stage/</guid>
+      <description>In the previous article we saw how to create a basic deployment pipeline for a serverless application. In this article, we&amp;rsquo;re going to enrich the deployment by allowing to have different values for configuration settings in each stage.
+Background The moment your application starts to be a little bit more complex, you need to use configuration settings. These settings can be things like the log level, addresses of external services, usernames and (encrypted) passwords, etc.</description>
+    </item>
+    
+    <item>
+      <title>Deploying a serverless application</title>
+      <link>http://example.org/post/2018-04-19-deploy-serverless-app/</link>
+      <pubDate>Thu, 19 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/post/2018-04-19-deploy-serverless-app/</guid>
+      <description>Starting with AWS Lambda is really easy. You can even write a function in the browser! But that&amp;rsquo;s not how you should work on a daily basis. You must have a CI/CD pipeline set up, you probably have two accounts (one for production and another one for development), you need a repeatable and reliable way to create your infrastructure and so on. In this article I&amp;rsquo;ll show you how to create a simple continuous delivery pipeline that brings us closer to a professional application development.</description>
+    </item>
+    
+    <item>
+      <title>Calling a Step Function</title>
+      <link>http://example.org/post/2017-07-09-calling-a-step-function/</link>
+      <pubDate>Sun, 09 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/post/2017-07-09-calling-a-step-function/</guid>
+      <description>Until now we&amp;rsquo;ve seen how to create a Step Function, but we&amp;rsquo;ve always called them using the serverless framework. In this article we&amp;rsquo;re going to see how to call them programatically.
+We have two options to call a Step Function: the first one is to use the API Gateway and create an HTTP endpoint as the Event source of the Step Function. The second one is to call the step function from a Lambda function using the AWS SDK.</description>
+    </item>
+    
+    <item>
+      <title>Choice, pass, fail and succeed states in AWS Step Functions</title>
+      <link>http://example.org/post/2017-06-29-step-functions-choice-pass-fail-succeed-states/</link>
+      <pubDate>Thu, 29 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/post/2017-06-29-step-functions-choice-pass-fail-succeed-states/</guid>
+      <description>This will be the last article explaining the different states we can use in a step function. We&amp;rsquo;ll see three simple states like Pass, Fail and Succeed and finally, we&amp;rsquo;re going to a see a more complex state like Choice. And obviously, we&amp;rsquo;re going to use the http://serverless.com framework to deploy them.
+Pass state The pass state is a simple state that just passes its input to its output, without performing any work.</description>
+    </item>
+    
+    <item>
+      <title>Handling errors in AWS Step Functions</title>
+      <link>http://example.org/post/2017-06-22-handling-errors-in-step-functions/</link>
+      <pubDate>Thu, 22 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/post/2017-06-22-handling-errors-in-step-functions/</guid>
+      <description>As we&amp;rsquo;ve seen in previous articles, Step Functions helps us to orchestrate lambda functions. One of the most important aspects when we&amp;rsquo;re developing a system, distributed or not, is handling errors and retries. In this articles we&amp;rsquo;ll see how easy is to do it using Step Functions and the serverless framework.
+Catching errors Coding the lambda First of all we&amp;rsquo;re going to catch some errors. Let&amp;rsquo;s create a new project with one lambda inside it named ErrorLambda with the following code:</description>
+    </item>
+    
+    <item>
+      <title>Wait state in AWS Step Functions using the serverless framework</title>
+      <link>http://example.org/post/2017-06-21-step-functions-wait-state/</link>
+      <pubDate>Wed, 21 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/post/2017-06-21-step-functions-wait-state/</guid>
+      <description>In the last article we&amp;rsquo;ve seen how to the parallel state in a State function. In this article we&amp;rsquo;ll see how we can use the Wait state using the serverless framework.
+The wait state delays the execution of the state function for a certain amount of time. By default, it returns the same object that it receives.
+What are we going to code We are going to code the following state function As you can see we&amp;rsquo;re going to have an initial function that creates a result with a field called DelaySeconds.</description>
+    </item>
+    
+    <item>
+      <title>Parallel state in AWS Step Functions using .Net Core</title>
+      <link>http://example.org/post/2017-06-20-step-functions-parallel-state/</link>
+      <pubDate>Tue, 20 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/post/2017-06-20-step-functions-parallel-state/</guid>
+      <description>In the last article we&amp;rsquo;ve seen how to create a very basic step function using .Net Core and the serverless framework. Today we&amp;rsquo;ll see how to create one of the more useful states in a Step Function: the parallel state.
+The parallel state allows you to create parallel branches of execution in your state machine. Using it, you&amp;rsquo;ll be able to run several tasks in parallel and then collect the results in another task, that will be executed only if all the parallel tasks finish correctly.</description>
+    </item>
+    
+    <item>
+      <title>AWS Step Functions using .Net Core</title>
+      <link>http://example.org/post/2017-06-15-step-functions-using-net-core/</link>
+      <pubDate>Thu, 15 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/post/2017-06-15-step-functions-using-net-core/</guid>
+      <description>If my good friend Alan Gorton is right
+Functions will eat servers. #serverless https://t.co/4Rc1cDnM73
+&amp;mdash; Alan Gorton (@develogue) February 19, 2017 
+we&amp;rsquo;d better be prepared. In this article we&amp;rsquo;ll see how we can develop AWS Lambda Functions using .Net Core and deploy them and Step Functions using the serverless framework.
+Installing dependencies You should be able to follow this tutorial using a Windows machine or a Mac. The first step is to install all the things we&amp;rsquo;re going to need.</description>
+    </item>
+    
+  </channel>
+</rss>

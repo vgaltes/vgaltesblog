@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Sending forms with Suave, Suave.DotLiquid and Suave.Forms - VGALTES blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Vicenç García" />
+  <meta name="description" content="In the previous article we saw how to send forms using Suave.Experimental as view engine. In this article we&amp;rsquo;re going to use Suave.DotLiquid as view engine. We&amp;rsquo;ll see how we&amp;rsquo;re going to be able to reuse most of the work done previously.
+Suave.DotLiquid DotLiquid is a port of the Ruby template engine Liquid. Suave is able to use this library thanks to the pakage Suave.DotLiquid. So, the first thing we need to do is install these packages in our project." />
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.40.1" />
+
+
+<link rel="canonical" href="http://example.org/post/2016-04-21-forms-with-suave-dotliquid-and-suave-forms/" />
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+<link href="/dist/even.min.css?v=3.2.0" rel="stylesheet">
+<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
+
+
+
+
+<meta property="og:title" content="Sending forms with Suave, Suave.DotLiquid and Suave.Forms" />
+<meta property="og:description" content="In the previous article we saw how to send forms using Suave.Experimental as view engine. In this article we&rsquo;re going to use Suave.DotLiquid as view engine. We&rsquo;ll see how we&rsquo;re going to be able to reuse most of the work done previously.
+Suave.DotLiquid DotLiquid is a port of the Ruby template engine Liquid. Suave is able to use this library thanks to the pakage Suave.DotLiquid. So, the first thing we need to do is install these packages in our project." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/post/2016-04-21-forms-with-suave-dotliquid-and-suave-forms/" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta itemprop="name" content="Sending forms with Suave, Suave.DotLiquid and Suave.Forms">
+<meta itemprop="description" content="In the previous article we saw how to send forms using Suave.Experimental as view engine. In this article we&rsquo;re going to use Suave.DotLiquid as view engine. We&rsquo;ll see how we&rsquo;re going to be able to reuse most of the work done previously.
+Suave.DotLiquid DotLiquid is a port of the Ruby template engine Liquid. Suave is able to use this library thanks to the pakage Suave.DotLiquid. So, the first thing we need to do is install these packages in our project.">
+
+
+
+<meta itemprop="wordCount" content="429">
+
+
+
+<meta itemprop="keywords" content="F#,Suave,Forms," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Sending forms with Suave, Suave.DotLiquid and Suave.Forms"/>
+<meta name="twitter:description" content="In the previous article we saw how to send forms using Suave.Experimental as view engine. In this article we&rsquo;re going to use Suave.DotLiquid as view engine. We&rsquo;ll see how we&rsquo;re going to be able to reuse most of the work done previously.
+Suave.DotLiquid DotLiquid is a port of the Ruby template engine Liquid. Suave is able to use this library thanks to the pakage Suave.DotLiquid. So, the first thing we need to do is install these packages in our project."/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">VGALTES</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">VGALTES</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Sending forms with Suave, Suave.DotLiquid and Suave.Forms</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 01-01-0001 </span>
+        <div class="post-category">
+            
+              <a href="/categories/suave/"> Suave </a>
+            
+          </div>
+        <span class="more-meta"> 429 words </span>
+        <span class="more-meta"> 3 mins read </span>
+        
+      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#suave-dotliquid">Suave.DotLiquid</a></li>
+<li><a href="#reusing-code">Reusing code</a></li>
+<li><a href="#the-view">The view</a></li>
+<li><a href="#the-application">The application</a></li>
+<li><a href="#summary">Summary</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+
+    
+    
+
+    
+    <div class="post-content">
+      
+
+<p>In the <a href="http://vgaltes.com/suave/forms-with-suave-experimental-and-suave-forms">previous article</a> we saw how to send forms using <a href="https://www.nuget.org/packages/Suave.Experimental">Suave.Experimental</a> as view engine. In this article we&rsquo;re going to use Suave.DotLiquid as view engine. We&rsquo;ll see how we&rsquo;re going to be able to reuse most of the work done previously.</p>
+
+<h2 id="suave-dotliquid">Suave.DotLiquid</h2>
+
+<p><a href="http://dotliquidmarkup.org">DotLiquid</a> is a port of the Ruby template engine <a href="http://dotliquidmarkup.org/">Liquid</a>. Suave is able to use this library thanks to the pakage <a href="https://www.nuget.org/packages/Suave.DotLiquid/">Suave.DotLiquid</a>. So, the first thing we need to do is install these packages in our project.</p>
+
+<h2 id="reusing-code">Reusing code</h2>
+
+<p>We&rsquo;re going to change only the view part of our application, so we dont need to define any new ViewModel or anything.</p>
+
+<h2 id="the-view">The view</h2>
+
+<p>To use DotLiquid we need to create temlates as html files. Inside this templates we are able to write constructs that we&rsquo;ll be replace by text. In this simply example we&rsquo;re not going to use anything more sophisticated than this, but you can refer to the <a href="https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers">original documentation</a> to see what you can do.</p>
+
+<p>So, the view should look like this:</p>
+
+<pre><code>&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;Forms with DotLiquid&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div&gt;Create&lt;/div&gt;
+        &lt;form method=&quot;POST&quot;&gt;
+            &lt;fieldset&gt;
+                &lt;div class=&quot;editor-label&quot;&gt;Name&lt;/div&gt;
+                &lt;div class=&quot;editor-field&quot;&gt;
+                    &lt;input name=&quot;Name&quot;type=&quot;text&quot;required=&quot;&quot;/&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;editor-label&quot;&gt;Surname&lt;/div&gt;
+                &lt;div class=&quot;editor-field&quot;&gt;
+                    &lt;input name=&quot;Surname&quot;type=&quot;text&quot;required=&quot;&quot;/&gt;
+                &lt;/div&gt;
+            &lt;/fieldset&gt;
+            &lt;input type=&quot;submit&quot;value=&quot;Create human&quot;/&gt;
+        &lt;/form&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p>In this is standard HTML. Let&rsquo;s take a look at the view that will display the Human model to see DotLiquid in action.</p>
+
+<p><html>
+    <head>
+        <title>Forms with DotLiquid</title>
+    </head>
+    <body>
+        <div>Show</div>
+        <div>Name: {{model.Name}}</div>
+        <div>Surname: {{model.Surname}}</div>
+    </body>
+</html></p>
+
+<p>As you can see, we are accessing the properties Name and Surname of the model, in this case the Human type defined in the <a href="(http://vgaltes.com/suave/forms-with-suave-experimental-and-suave-forms)">previous article</a>.</p>
+
+<h2 id="the-application">The application</h2>
+
+<p>The changes we need to do in our App.fsx are really small.</p>
+
+<p>Firts, let&rsquo;s define the folder where DotLiquid will search for the templates.</p>
+
+<pre><code>DotLiquid.setTemplatesDir (__SOURCE_DIRECTORY__ + &quot;./Templates&quot;)
+</code></pre>
+
+<p>And now let&rsquo;s define the new WebPart we&rsquo;re going to use.</p>
+
+<pre><code>let dotliquidHuman =
+    choose [
+        GET &gt;=&gt;  DotLiquid.page (&quot;CreateHuman.html&quot;) ()
+        POST &gt;=&gt; bindReq (bindForm Forms.human) (fun form -&gt; DotLiquid.page (&quot;ShowHuman.html&quot;) form ) BAD_REQUEST
+    ]
+</code></pre>
+
+<p>As you can see, is very similar to the Experimental one, but we change a little bit how we call the view engine. In this case, we use the function DotLiquid.page, passing as arguments the name of the template and the model to use (unit in the first case, and form in the second case).</p>
+
+<p>And that&rsquo;s all, we don&rsquo;t need to make more changes to make it work.</p>
+
+<h2 id="summary">Summary</h2>
+
+<p>We have seen how easy is changing our view engine when working with Forms. We&rsquo;ve seen a very little introduction to DotLiquid, a nice template engine we can use with <a href="https://suave.io">Suave</a>. You can get the full solution <a href="https://github.com/vgaltes/FSharpForms">here</a></p>
+
+    </div>
+
+    
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Vicenç García</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">01-01-0001</span>
+  </p>
+  
+  
+</div>
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          
+          <a href="/tags/f/">F#</a>
+          
+          <a href="/tags/suave/">Suave</a>
+          
+          <a href="/tags/forms/">Forms</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+          <a class="prev" href="/post/2016-06-16-learning-patterns/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">My learning patterns</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        
+          <a class="next" href="/post/2016-04-20-forms-with-suave-experimental-and-suave-forms/">
+            <span class="next-text nav-default">Sending forms with Suave, Suave.Experimental and Suave.Forms</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+  <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'vgaltes';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:vgaltes@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://linkedin.com/in/vgaltes" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="https://twitter.com/vgaltes" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="https://github.com/vgaltes" class="iconfont icon-github" title="github"></a>
+  <a href="http://example.org/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    
+      2013 - 
+    2018
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Vicenç García</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+<script src="/lib/highlight/highlight.pack.js?v=20171001"></script><script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
+
+
+<script type="text/javascript" src="/dist/even.min.js?v=3.2.0"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

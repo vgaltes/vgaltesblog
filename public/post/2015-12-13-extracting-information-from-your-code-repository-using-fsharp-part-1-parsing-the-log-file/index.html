@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Extracting information from your code repository using F# - Part 1: parsing the log file - VGALTES blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Vicenç García" />
+  <meta name="description" content="I&#39;ve recently read the excellent book Your Code as Crime Scene by Adam Tornhill. In this book, Adam explain several techniques to extract very useful information from the commits in the code repository to help you to understand your code, your dependencies and your organisation. If you haven&#39;t read the book, please do yourself a favor and get a copy as a Christmas present.
+On the othe hand, this week I&#39;ve attended the fantastic Progressive F# Tutorials at Skills Matter." />
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.40.1" />
+
+
+<link rel="canonical" href="http://example.org/post/2015-12-13-extracting-information-from-your-code-repository-using-fsharp-part-1-parsing-the-log-file/" />
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+<link href="/dist/even.min.css?v=3.2.0" rel="stylesheet">
+<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
+
+
+
+
+<meta property="og:title" content="Extracting information from your code repository using F# - Part 1: parsing the log file" />
+<meta property="og:description" content="I&#39;ve recently read the excellent book Your Code as Crime Scene by Adam Tornhill. In this book, Adam explain several techniques to extract very useful information from the commits in the code repository to help you to understand your code, your dependencies and your organisation. If you haven&#39;t read the book, please do yourself a favor and get a copy as a Christmas present.
+On the othe hand, this week I&#39;ve attended the fantastic Progressive F# Tutorials at Skills Matter." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/post/2015-12-13-extracting-information-from-your-code-repository-using-fsharp-part-1-parsing-the-log-file/" />
+
+
+
+<meta property="article:published_time" content="2015-12-13T12:16:30&#43;00:00"/>
+
+<meta property="article:modified_time" content="2015-12-13T12:16:30&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta itemprop="name" content="Extracting information from your code repository using F# - Part 1: parsing the log file">
+<meta itemprop="description" content="I&#39;ve recently read the excellent book Your Code as Crime Scene by Adam Tornhill. In this book, Adam explain several techniques to extract very useful information from the commits in the code repository to help you to understand your code, your dependencies and your organisation. If you haven&#39;t read the book, please do yourself a favor and get a copy as a Christmas present.
+On the othe hand, this week I&#39;ve attended the fantastic Progressive F# Tutorials at Skills Matter.">
+
+
+<meta itemprop="datePublished" content="2015-12-13T12:16:30&#43;00:00" />
+<meta itemprop="dateModified" content="2015-12-13T12:16:30&#43;00:00" />
+<meta itemprop="wordCount" content="779">
+
+
+
+<meta itemprop="keywords" content="type providers,csv type provider,git," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Extracting information from your code repository using F# - Part 1: parsing the log file"/>
+<meta name="twitter:description" content="I&#39;ve recently read the excellent book Your Code as Crime Scene by Adam Tornhill. In this book, Adam explain several techniques to extract very useful information from the commits in the code repository to help you to understand your code, your dependencies and your organisation. If you haven&#39;t read the book, please do yourself a favor and get a copy as a Christmas present.
+On the othe hand, this week I&#39;ve attended the fantastic Progressive F# Tutorials at Skills Matter."/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">VGALTES</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">VGALTES</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Extracting information from your code repository using F# - Part 1: parsing the log file</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 13-12-2015 </span>
+        <div class="post-category">
+            
+              <a href="/categories/f/"> F# </a>
+            
+          </div>
+        <span class="more-meta"> 779 words </span>
+        <span class="more-meta"> 4 mins read </span>
+        
+      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  
+  <div class="post-toc-content always-active">
+    
+  </div>
+</div>
+
+    
+    
+
+    
+    <div class="post-content">
+      <p>I've recently read the excellent book <a href="https://pragprog.com/book/atcrime/your-code-as-a-crime-scene" target="_blank">Your Code as Crime Scene</a> by <a href="https://twitter.com/AdamTornhill" target="_blank">Adam Tornhill</a>. In this book, <a href="http://adamtornhill.com/" target="_blank">Adam</a> explain several techniques to extract very useful information from the commits in the code repository to help you to understand your code, your dependencies and your organisation. If you haven't read the book, please do yourself a favor and get a copy as a Christmas present.</p>
+<p>On the othe hand, this week I've attended the fantastic <a href="https://skillsmatter.com/conferences/6762-progressive-f-tutorials-2015" target="_blank">Progressive F# Tutorials</a> at <a href="https://skillsmatter.com/" target="_blank">Skills Matter</a>. There were 8 awesome workshops from people like <a href="https://twitter.com/jamie_dixon" target="_blank">Jamie Dixon</a>, <a href="https://twitter.com/tomaspetricek" target="_blank">Tomas Petricek</a> or <a href="https://twitter.com/ijrussell" target="_blank">Ian Russel</a> explaining how you can use <a href="http://fsharp.org/" target="_blank">F#</a> in your daily work. You can read a very good summary by the other <a href="https://twitter.com/jamiedixon" target="_blank">Jamie Dixon</a> <a href="https://medium.com/@jamiedixon/progressive-f-tutorials-london-2015-795d76c027da#.5m8huotel" target="_blank">here</a>.</p>
+<p>So, I've decided to improve my F# skills using it to do some of the analysis that Adam does in his book using his own tool <a href="https://github.com/adamtornhill/code-maat" target="_blank">code-maat</a>.</p>
+<h2>Creating a useful log</h2>
+<p>The first thing we need is to create a log that we can parse easily and that has all the information we need. So please, use your favorite git command line tool to navigate to the base folder of the repository that you want to analyze and type the following command:</p>
+<p><script src="https://gist.github.com/vgaltes/d650d511b60de637b662.js"></script></p>
+<p>This command will write into gitLog.log something similar to this</p>
+<p><script src="https://gist.github.com/vgaltes/39d0896e92a59a775e64.js"></script></p>
+<p>The basic structure here is that we have each commit separated by a line break. In every commit, we have a line with the commit information (hash, author, date and message) and several lines with the files that have changed (additions, deletions, file path). If the commit is a merge, all this structure is preceeded by another commit information line with the merge information.</p>
+<h2>Parsing the log file</h2>
+<p>So first of all, let's translate this structure into F# tpyes:</p>
+<p><script src="https://gist.github.com/vgaltes/e2afec3fd11e17ab96cf.js"></script></p>
+<p>As we can see we have the CommitInfo that is a <a href="http://fsharpforfunandprofit.com/posts/records/" target="_blank">Record type</a> formed by three strings and a DateTime and a CommitedFile that is also a Record type formed by two <a href="http://fsharpforfunandprofit.com/posts/the-option-type/" target="_blank">optional</a> integers and a string. The integers are optional because you can have some file in a binary format and git can't count the additions and deletions. In this case the log will display a "-" instead of a number. Finally, we have a Record type called Commit that has a CommitInfo field an array of CommitedFile. Prety straightforward.</p>
+<p>Let's read the content of the file and split it in the different commits to be able to parse it.</p>
+<p><script src="https://gist.github.com/vgaltes/de82a84c79f428f00e34.js"></script></p>
+<p>As you can see we start defining a constant in F# using the [&lt;<a href="https://msdn.microsoft.com/en-us/library/dd233193.aspx" target="_blank">Literal</a>&gt;] annotation. After that we read the file using  .Net standard libraries. And finally we split the content of the file unsing a double line break as a separator. So far so good.</p>
+<p>Now that we have an array with all the commits (still in text format), lets parse each of this chunks of data. First of all we need to know which of those lines are the commit info and which of them are the commit lines.</p>
+<p><script src="https://gist.github.com/vgaltes/0ceb2a2889aea26fbc0e.js"></script></p>
+<p>The first thing we do is to split the commit lines removing any empty line that we can possibly have. After that, we take the commit info line as the last line that is a commit info line (a line that starts with the hash information) removing all the merge info that we don't neeed. Finally, we take the file lines as all the lines that are not a commit info line.</p>
+<p>It's time to convert our commit info line into a CommitInfo object, much more convenient for our purposes.</p>
+<p><script src="https://gist.github.com/vgaltes/af3c017c2a4698acff31.js"></script></p>
+<p>As you can see, we are using the magic of <a href="https://msdn.microsoft.com/en-us/library/hh156509.aspx" target="_blank">Type providers</a> to parse the line and extract the information. In this case, using the <a href="https://fsharp.github.io/FSharp.Data/library/CsvProvider.html" target="_blank">CsvProvider</a>, we are defining that the third column will be a date using the Schema parameter. We just need to fill a CommitInfo object with the information of the first row.</p>
+<p>And finally we need to parse the information of the commit lines. We'll use a very similar process:</p>
+<p><script src="https://gist.github.com/vgaltes/468be9aeb97952305551.js"></script></p>
+<p>The idea is the same, but we just need to iterate over all the commit lines. In this case, the format of the csv is a bit different (tabs are used as separators) and we use the Schema parameter to indicate that the two integers are optional.</p>
+<p>Finally, we just need to create the Commit object:</p>
+<p><script src="https://gist.github.com/vgaltes/21452a1cde21b63be501.js"></script></p>
+<p>This is the whole function code:</p>
+<p><script src="https://gist.github.com/vgaltes/1ac9acba125c7e783994.js"></script></p>
+<p>The last bit, is to use this function in all the commits from the file:</p>
+<p><script src="https://gist.github.com/vgaltes/a353edbd84ab76d6d5af.js"></script></p>
+<h2>Summary</h2>
+<p>In this post we've seen how easy is to parse a git log file using F# and type providers. In future posts we'll see how can we extract information from this data. You can see the code of this post in this <a href="https://gist.github.com/vgaltes/30c32ab135375558c266" target="_blank">gist</a>. See you soon!</p>
+
+    </div>
+
+    
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Vicenç García</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">13-12-2015</span>
+  </p>
+  
+  
+</div>
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          
+          <a href="/tags/type-providers/">type providers</a>
+          
+          <a href="/tags/csv-type-provider/">csv type provider</a>
+          
+          <a href="/tags/git/">git</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+          <a class="prev" href="/post/2015-12-19-extracting-information-from-your-code-repository-using-f-part-2-basic-statistics/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Extracting information from your code repository using F# – Part 2: Basic statistics</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        
+          <a class="next" href="/post/2015-12-06-dealing-with-forms-in-asp-net-mvc-without-using-javascript/">
+            <span class="next-text nav-default">Dealing with forms in ASP.Net MVC without using JavaScript</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+  <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'vgaltes';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:vgaltes@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://linkedin.com/in/vgaltes" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="https://twitter.com/vgaltes" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="https://github.com/vgaltes" class="iconfont icon-github" title="github"></a>
+  <a href="http://example.org/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    
+      2013 - 
+    2018
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Vicenç García</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+<script src="/lib/highlight/highlight.pack.js?v=20171001"></script><script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
+
+
+<script type="text/javascript" src="/dist/even.min.js?v=3.2.0"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

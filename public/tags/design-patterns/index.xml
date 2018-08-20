@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Design Patterns on VGALTES blog</title>
+    <link>http://example.org/tags/design-patterns/</link>
+    <description>Recent content in Design Patterns on VGALTES blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    
+	<atom:link href="http://example.org/tags/design-patterns/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Decorator pattern in F#</title>
+      <link>http://example.org/post/2016-06-01-decorator-pattern-in-fsharp/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/post/2016-06-01-decorator-pattern-in-fsharp/</guid>
+      <description>Introduction A couple of weeks ago my friend Ian Russell explained the decorator pattern at work. For those who don&amp;rsquo;t know exactly how it works, the decorator pattern allows us to add behavior to an individual object without affecting the behavior of other objects of that class (Wikipedia).
+The object oriented solution There are a couple of typical implementations of the pattern in C#. The &amp;ldquo;lightweight&amp;rdquo; version is &amp;ldquo;just&amp;rdquo; to create decorators implementing the same interface of the decorated class, and passing the decorated object in the constructor of the decorator.</description>
+    </item>
+    
+  </channel>
+</rss>

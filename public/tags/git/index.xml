@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Git on VGALTES blog</title>
+    <link>http://example.org/tags/git/</link>
+    <description>Recent content in Git on VGALTES blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 19 Dec 2015 17:56:14 +0000</lastBuildDate>
+    
+	<atom:link href="http://example.org/tags/git/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Extracting information from your code repository using F# – Part 2: Basic statistics</title>
+      <link>http://example.org/post/2015-12-19-extracting-information-from-your-code-repository-using-f-part-2-basic-statistics/</link>
+      <pubDate>Sat, 19 Dec 2015 17:56:14 +0000</pubDate>
+      
+      <guid>http://example.org/post/2015-12-19-extracting-information-from-your-code-repository-using-f-part-2-basic-statistics/</guid>
+      <description>In the previous article we&#39;ve seen how to parse a git log file. We ended up having an array of commits:
+TODO: Raw content of a Gist file.
+Let&#39;s start extracting some useful statistics from it.
+The first thing that can come into our mind is to know how many commits we have done to the repository. That&#39;s pretty easy to do:
+
+As you can see, we are using the pipe forward operator (|&amp;gt;) and the Array.</description>
+    </item>
+    
+    <item>
+      <title>Extracting information from your code repository using F# - Part 1: parsing the log file</title>
+      <link>http://example.org/post/2015-12-13-extracting-information-from-your-code-repository-using-fsharp-part-1-parsing-the-log-file/</link>
+      <pubDate>Sun, 13 Dec 2015 12:16:30 +0000</pubDate>
+      
+      <guid>http://example.org/post/2015-12-13-extracting-information-from-your-code-repository-using-fsharp-part-1-parsing-the-log-file/</guid>
+      <description>I&#39;ve recently read the excellent book Your Code as Crime Scene by Adam Tornhill. In this book, Adam explain several techniques to extract very useful information from the commits in the code repository to help you to understand your code, your dependencies and your organisation. If you haven&#39;t read the book, please do yourself a favor and get a copy as a Christmas present.
+On the othe hand, this week I&#39;ve attended the fantastic Progressive F# Tutorials at Skills Matter.</description>
+    </item>
+    
+  </channel>
+</rss>

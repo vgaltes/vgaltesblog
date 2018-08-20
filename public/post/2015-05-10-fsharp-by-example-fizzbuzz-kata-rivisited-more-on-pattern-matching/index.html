@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>F# by example: FizzBuzz kata rivisited - More on Pattern-Matching - VGALTES blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Vicenç García" />
+  <meta name="description" content="In the first post of this series we&#39;ve seen a possible implementation for the FizzBuzz kata. In particular, we&#39;ve finished the article with this code for the fizzBuzz function:
+https://gist.github.com/vgaltes/edafb6efc55273543a1d
+We&#39;ve applied a Tuple pattern to match the tuple created in the match part. We&#39;ve also applied Wildcard matching to discard the values we are not interested in.
+In this article we&#39;re going to see how we can solve this problem using another flavors of Pattern-Matching." />
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.40.1" />
+
+
+<link rel="canonical" href="http://example.org/post/2015-05-10-fsharp-by-example-fizzbuzz-kata-rivisited-more-on-pattern-matching/" />
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+<link href="/dist/even.min.css?v=3.2.0" rel="stylesheet">
+<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
+
+
+
+
+<meta property="og:title" content="F# by example: FizzBuzz kata rivisited - More on Pattern-Matching" />
+<meta property="og:description" content="In the first post of this series we&#39;ve seen a possible implementation for the FizzBuzz kata. In particular, we&#39;ve finished the article with this code for the fizzBuzz function:
+https://gist.github.com/vgaltes/edafb6efc55273543a1d
+We&#39;ve applied a Tuple pattern to match the tuple created in the match part. We&#39;ve also applied Wildcard matching to discard the values we are not interested in.
+In this article we&#39;re going to see how we can solve this problem using another flavors of Pattern-Matching." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/post/2015-05-10-fsharp-by-example-fizzbuzz-kata-rivisited-more-on-pattern-matching/" />
+
+
+
+<meta property="article:published_time" content="2015-05-10T18:30:19&#43;01:00"/>
+
+<meta property="article:modified_time" content="2015-05-10T18:30:19&#43;01:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta itemprop="name" content="F# by example: FizzBuzz kata rivisited - More on Pattern-Matching">
+<meta itemprop="description" content="In the first post of this series we&#39;ve seen a possible implementation for the FizzBuzz kata. In particular, we&#39;ve finished the article with this code for the fizzBuzz function:
+https://gist.github.com/vgaltes/edafb6efc55273543a1d
+We&#39;ve applied a Tuple pattern to match the tuple created in the match part. We&#39;ve also applied Wildcard matching to discard the values we are not interested in.
+In this article we&#39;re going to see how we can solve this problem using another flavors of Pattern-Matching.">
+
+
+<meta itemprop="datePublished" content="2015-05-10T18:30:19&#43;01:00" />
+<meta itemprop="dateModified" content="2015-05-10T18:30:19&#43;01:00" />
+<meta itemprop="wordCount" content="465">
+
+
+
+<meta itemprop="keywords" content="F#,pattern matching,active pattern," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="F# by example: FizzBuzz kata rivisited - More on Pattern-Matching"/>
+<meta name="twitter:description" content="In the first post of this series we&#39;ve seen a possible implementation for the FizzBuzz kata. In particular, we&#39;ve finished the article with this code for the fizzBuzz function:
+https://gist.github.com/vgaltes/edafb6efc55273543a1d
+We&#39;ve applied a Tuple pattern to match the tuple created in the match part. We&#39;ve also applied Wildcard matching to discard the values we are not interested in.
+In this article we&#39;re going to see how we can solve this problem using another flavors of Pattern-Matching."/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">VGALTES</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">VGALTES</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">F# by example: FizzBuzz kata rivisited - More on Pattern-Matching</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 10-05-2015 </span>
+        <div class="post-category">
+            
+              <a href="/categories/f/"> F# </a>
+            
+          </div>
+        <span class="more-meta"> 465 words </span>
+        <span class="more-meta"> 3 mins read </span>
+        
+      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  
+  <div class="post-toc-content always-active">
+    
+  </div>
+</div>
+
+    
+    
+
+    
+    <div class="post-content">
+      <p>In the <a href="http://vgaltes.com/index.php/2015/04/24/f-example-fizzbuzz-kata/" target="_blank">first post</a> of this series we've seen a possible implementation for the <a href="http://codingkata.net/Katas/Beginner/FizzBuzz" target="_blank">FizzBuzz</a> kata. In particular, we've finished the article with this code for the fizzBuzz function:</p>
+<p>https://gist.github.com/vgaltes/edafb6efc55273543a1d</p>
+<p>We've applied a <a href="http://fsharpforfunandprofit.com/posts/match-expression/" target="_blank">Tuple pattern</a> to match the tuple created in the match part. We've also applied <a href="http://en.wikibooks.org/wiki/F_Sharp_Programming/Pattern_Matching_Basics" target="_blank">Wildcard matching</a> to discard the values we are not interested in.</p>
+<p>In this article we're going to see how we can solve this problem using another flavors of Pattern-Matching.</p>
+<h2>Active patterns</h2>
+<p>Using <a href="https://msdn.microsoft.com/en-us/library/dd233248.aspx" target="_blank">active patterns</a> you can define case names (partitions of your data) so that you can use these names in Pattern-Matching expressions. A typical example could be this one:</p>
+<p>https://gist.github.com/vgaltes/ea700e4c7f2334223d0a</p>
+<p>So let's use active pattern to resolve FizzBuzz kata. The active pattern could be something like this:</p>
+<p>https://gist.github.com/vgaltes/ac693fc6a81885d7eed8</p>
+<p>As  you can see we have an <a href="http://www.developerfusion.com/article/133772/pattern-matching-in-f-part-2-active-patterns/" target="_blank">active recognizer</a> that defines four cases. Inside the recognizer we're using Pattern-Matching to select the appropriate case as we did in the original implementation of the kata. Now, we just have to use this recognizer in a Pattern-Matching function:</p>
+<p>https://gist.github.com/vgaltes/2aa85a0ef5e92d4dfd97</p>
+<p>As you can see, we are using a Pattern-Matching function, a convenient shortcut for creating a Pattern-&lt;atching lambda expression. We are just replacing the <em>match...with</em> portion of the match expression with <em>function</em>.</p>
+<p>Now, if we would like to print the first 100 numbers we can do something like this:</p>
+<p>https://gist.github.com/vgaltes/1bd24d3819c9e6022514</p>
+<p>In this case we are using a range expression to create a <a href="https://msdn.microsoft.com/en-us/library/dd233209.aspx" target="_blank">sequence</a> with numbers from 1 to 100. Using the <a href="http://theburningmonk.com/2011/09/fsharp-pipe-forward-and-pipe-backward/" target="_blank">pipe forward operator</a> we are passing this sequence to the map function of the Seq module that transforms a sequence applying a function (in this case fizzBuzz) to every element in a sequence. Finally, we iterate over the sequence to print the results.</p>
+<h2>Partial Active Patterns</h2>
+<p>Active patterns have to limitations:</p>
+<ul>
+<li>Each input must map to a named case.</li>
+<li>Are limited to seven named cases.</li>
+</ul>
+<p>An alternative to active patterns are partial active patterns. A partial active pattern include only a single case name followed by an underscore. Let's rewrite the FizzBuzz kata using partial active patterns.</p>
+<p>First, we have to write the active patterns we are going to use:</p>
+<p>https://gist.github.com/vgaltes/06f0e841f0a82d9d7d8c</p>
+<p>And after that, we are ready to use them in a Pattern-Matching expression:</p>
+<p>https://gist.github.com/vgaltes/ba40cc99e15118b81301</p>
+<h2>Parameterized Active Patterns</h2>
+<p>It's possible to use a function that accepts more than the match value. Let's define a <a href="http://blogs.msdn.com/b/chrsmith/archive/2008/02/21/introduction-to-f_2300_-active-patterns.aspx" target="_blank">Parameterized partial active pattern</a> (remember to include additional parameters <strong>before </strong>the match input argument.</p>
+<p>https://gist.github.com/vgaltes/e453ddd088beac84791f</p>
+<p>And now, let's use this partial active pattern:</p>
+<p>https://gist.github.com/vgaltes/8c1c7b58c07df88bfd3a</p>
+<p>And that's all for today. All these samples are extracted from the excellent book <a href="http://www.amazon.co.uk/Book-Breaking-Managed-Functional-Programming/dp/1593275528" target="_blank">The book of F#</a>, so I can't recommend it enough if you want to learn F#.</p>
+<p>As usual, I'm just learning F#. If you see something incorrect or you want to add an alternative solution, please leave a comment.</p>
+
+    </div>
+
+    
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Vicenç García</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">10-05-2015</span>
+  </p>
+  
+  
+</div>
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          
+          <a href="/tags/f/">F#</a>
+          
+          <a href="/tags/pattern-matching/">pattern matching</a>
+          
+          <a href="/tags/active-pattern/">active pattern</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+          <a class="prev" href="/post/2015-10-06-my-point-of-view-about-the-noestimates-movement/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">My point of view about the #NoEstimates movement</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        
+          <a class="next" href="/post/2015-05-04-fsharp-by-example-discriminated-unions-record-types-tuples-and-operators/">
+            <span class="next-text nav-default">F# by example: discriminated unions, record types, tuples and operators.</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+  <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'vgaltes';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:vgaltes@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://linkedin.com/in/vgaltes" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="https://twitter.com/vgaltes" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="https://github.com/vgaltes" class="iconfont icon-github" title="github"></a>
+  <a href="http://example.org/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    
+      2013 - 
+    2018
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Vicenç García</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+<script src="/lib/highlight/highlight.pack.js?v=20171001"></script><script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
+
+
+<script type="text/javascript" src="/dist/even.min.js?v=3.2.0"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

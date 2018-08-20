@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>F# by example: FizzBuzz Kata - VGALTES blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Vicenç García" />
+  <meta name="description" content="Last Tuesday I started a book club with my friends Samir Talwar and Pedro Moreira Santos (both of them working at Codurance). The book we&#39;ve choseen is &#34;The book of F#&#34;, because we want to learn F#.
+After reading the first three chapters we decided to make the FizzBuzz kata to start practicing. In this article I&#39;m going to explain you how we solved the kata trying to explain all the F# syntax we use." />
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.40.1" />
+
+
+<link rel="canonical" href="http://example.org/post/2015-04-24-f-example-fizzbuzz-kata/" />
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+<link href="/dist/even.min.css?v=3.2.0" rel="stylesheet">
+<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
+
+
+
+
+<meta property="og:title" content="F# by example: FizzBuzz Kata" />
+<meta property="og:description" content="Last Tuesday I started a book club with my friends Samir Talwar and Pedro Moreira Santos (both of them working at Codurance). The book we&#39;ve choseen is &#34;The book of F#&#34;, because we want to learn F#.
+After reading the first three chapters we decided to make the FizzBuzz kata to start practicing. In this article I&#39;m going to explain you how we solved the kata trying to explain all the F# syntax we use." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/post/2015-04-24-f-example-fizzbuzz-kata/" />
+
+
+
+<meta property="article:published_time" content="2015-04-24T15:03:26&#43;01:00"/>
+
+<meta property="article:modified_time" content="2015-04-24T15:03:26&#43;01:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta itemprop="name" content="F# by example: FizzBuzz Kata">
+<meta itemprop="description" content="Last Tuesday I started a book club with my friends Samir Talwar and Pedro Moreira Santos (both of them working at Codurance). The book we&#39;ve choseen is &#34;The book of F#&#34;, because we want to learn F#.
+After reading the first three chapters we decided to make the FizzBuzz kata to start practicing. In this article I&#39;m going to explain you how we solved the kata trying to explain all the F# syntax we use.">
+
+
+<meta itemprop="datePublished" content="2015-04-24T15:03:26&#43;01:00" />
+<meta itemprop="dateModified" content="2015-04-24T15:03:26&#43;01:00" />
+<meta itemprop="wordCount" content="1137">
+
+
+
+<meta itemprop="keywords" content="tdd,F#,nunit,pattern matching,currying," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="F# by example: FizzBuzz Kata"/>
+<meta name="twitter:description" content="Last Tuesday I started a book club with my friends Samir Talwar and Pedro Moreira Santos (both of them working at Codurance). The book we&#39;ve choseen is &#34;The book of F#&#34;, because we want to learn F#.
+After reading the first three chapters we decided to make the FizzBuzz kata to start practicing. In this article I&#39;m going to explain you how we solved the kata trying to explain all the F# syntax we use."/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">VGALTES</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">VGALTES</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">F# by example: FizzBuzz Kata</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 24-04-2015 </span>
+        <div class="post-category">
+            
+              <a href="/categories/code/"> Code </a>
+            
+          </div>
+        <span class="more-meta"> 1137 words </span>
+        <span class="more-meta"> 6 mins read </span>
+        
+      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  
+  <div class="post-toc-content always-active">
+    
+  </div>
+</div>
+
+    
+    
+
+    
+    <div class="post-content">
+      <p>Last Tuesday I started a book club with my friends <a title="Samir Talwar" href="https://twitter.com/samirtalwar" target="_blank">Samir Talwar</a> and <a title="Pedro Moreira Santos" href="https://twitter.com/pedromsantos" target="_blank">Pedro Moreira Santos</a> (both of them working at <a title="Codurance" href="http://codurance.com/" target="_blank">Codurance</a>). The book we've choseen is <a title="The book of F#" href="http://www.amazon.co.uk/The-Book-Breaking-Functional-Programming/dp/1593275528" target="_blank">"The book of F#"</a>, because we want to learn <a title="F# software foundation" href="http://fsharp.org/" target="_blank">F#</a>.</p>
+<p>After reading the first three chapters we decided to make the <a title="FizzBuzz kata" href="http://www.codingdojo.org/cgi-bin/index.pl?KataFizzBuzz" target="_blank">FizzBuzz kata</a> to start practicing. In this article I'm going to explain you how we solved the kata trying to explain all the F# syntax we use. So, let's start!</p>
+<p>First of all let's install NUnit as our testing framework. In future articles we are going to take a look to other testing frameworks and libraries, but right now <a title="NUnit" href="http://www.nunit.org/" target="_blank">NUnit</a> is a good choice.</p>
+<pre class="brush:ps">install-package NUnit</pre>
+<p>No F# magic, just <a title="NuGet" href="https://www.nuget.org/" target="_blank">NuGet</a>.</p>
+<p>Let's write our first F# line of code:</p>
+<p>https://gist.github.com/vgaltes/8900b49681c56d0c792b</p>
+<p>In this line we have declared a new module. In F#, unless you have only one single file in your project, every file must begin with a namespace or module definition. Both are ways we have to organize our code. The main difference is that inside a module you can define other modules, type definitions, values and functions but inside a namespace only modules and type definitions.</p>
+<p>Now we need to include NUnit in the project. To reference a package in F# (a using in C#) we use the open keyword:</p>
+<p>https://gist.github.com/vgaltes/c1ae19b0ab531ca3ba69</p>
+<p>As we are working in a module, we can directly write the first test:</p>
+<p>https://gist.github.com/vgaltes/58750e89636880cda7b8</p>
+<p>In the line 1 of this gist we can see how we use an attribute in F#, in this case the Test attribute from NUnit.</p>
+<p>In the line 2 we are defining a new function, in this case a function without any parameter. To do that, we use the let binding to identify the function. We are not going to see any example in this article, but it's worth mentioning that <a title="let binding" href="https://msdn.microsoft.com/en-us/library/dd233238.aspx" target="_blank">let bindings</a> are immutable.</p>
+<p>The next interesting thing is how we name the function. In F# we can use any type of string to identify a value or a function, we just need to change what we use to wrap it. In this case we are using a <em>quoted identifier</em> to use a string with blank spaces, just enclosing it in backtick characters (``).</p>
+<p>Instead of using brackets to define the body of a function in F# we use an equal after the parameter definition and we indent the body. It's no important how many whitespaces we use as long as we are consistent in the indentation level we use.</p>
+<p>And finally, in the line 3, we are making the assertion of our test. In this case we are asserting that "1" is equals than the result of calling a function called fizzBuzz with the number 1 as a parameter. In F# we don't use parenthesis to pass parameters to a function.</p>
+<p>Not bad for three lines of code. But this code don't compile. We need to declare the fizzBuzz function in order to be able to run the tests. Let's do it:</p>
+<p>https://gist.github.com/vgaltes/00a56221ddaa38423688</p>
+<p>Here we are defining a function with one argument that returns an empty string. In F#, unless we are defining a function with more that one argument and with <a title="Type inference" href="https://msdn.microsoft.com/en-us/library/dd233180.aspx" target="_blank">type annotations</a> in the arguments (we'll see type annotations later), we don't need to use parenthesis to declare a function.</p>
+<p>In F# all expressions (and therefore all functions) returns a value, so the last expression of a function is the return value. So, in this case, the expression "" is the return value of our function.</p>
+<p>If we now run the test, the test will fail. To make this test pass, you just only have to return "1"</p>
+<p>https://gist.github.com/vgaltes/96c45ef56e8d2008dab9</p>
+<p>As you can imagine, the second test will be just as the first test but changing 1 with 2. Let's see how we have to implement the function to pass it:</p>
+<p>https://gist.github.com/vgaltes/10bd928d5d1224c8540d</p>
+<p>Here you can see our first <a title="Flow control expressions" href="http://fsharpforfunandprofit.com/posts/control-flow-expressions/" target="_blank">flow control expression</a>, in this case an if. In F# ifs are defined with the expression if...then...else. To compare to values we use the single equal operator.</p>
+<p>In the third test we are going to test that the fizzBuzz function returns "Fizz" when the parameter is a 3. Let's see the changes we must do in the function:</p>
+<p>https://gist.github.com/vgaltes/6816297abd63b6f60e4f</p>
+<p>In this case we've introduced an elif (a shortcut for else if) to specify the second condition.</p>
+<p>After the next test ("4" = fizzBuzz 4) we have enough duplication to do a little <a title="Refactoring" href="http://refactoring.com/" target="_blank">refactor</a>. The result of the refactor can be something like this:</p>
+<p>https://gist.github.com/vgaltes/62018983f630c98a26b8</p>
+<p>As you can see we can use the standard .Net ToString function here.</p>
+<p>The next important bit is after writing tests for 6 and 9. The code of the fizzBuzz function could be something like this:</p>
+<p>https://gist.github.com/vgaltes/cbd9ba33f5039ffb2c4e</p>
+<p>If you follow the rule of three, it's time to refactor. Our firs refactor could be something like this:</p>
+<p>https://gist.github.com/vgaltes/39d4f39e3dab86555200</p>
+<p>We are using the <a title="List.exists" href="https://msdn.microsoft.com/en-us/library/ee370309.aspx" target="_blank">exists</a> function from the List module. This function takes a predicate (a function) as a first argument and the list of elements as the second one. We are checking that the input is one of the elements of the list.</p>
+<p>We can rewrite this piece of code in a more compact way taking advantage of currying. You can read more information about currying in this <a title="FSharp currying" href="http://fsharpforfunandprofit.com/posts/currying/" target="_blank">post</a>.</p>
+<p>https://gist.github.com/vgaltes/310108e02557af31750e</p>
+<p>With the use of the parenthesis, we are converting the = operator into a function. So, when the List.exists supplies the current list item to our predicate, we can apply the function to compare it with the input parameter.</p>
+<p>If we continue working we will end up with something like this:</p>
+<p>https://gist.github.com/vgaltes/651a0c64d5f4aa04b511</p>
+<p>Now it's time to apply a typical functional feature: <a title="Pattern matching" href="http://fsharpforfunandprofit.com/posts/match-expression/" target="_blank">pattern matching</a>. Pattern matching is F# primary branching mechanism. So, we can remove these nested ifs with a pattern matching. Pattern matching is a quite big concept (we'll explore it deeply in the future) but here we are going to apply some concepts. Let's start with the simplest refactor we can do:</p>
+<p>https://gist.github.com/vgaltes/edafb6efc55273543a1d</p>
+<p>Here we are matching a tuple. The underscore character (_) is the Wildcard pattern that match any value and doesn't bind it to anything.</p>
+<p>Finally we are going to apply a couple of refactorings more to reach our final implementation:</p>
+<p>https://gist.github.com/vgaltes/b9dc646c7a403606af46</p>
+<p>The first refactor we made is take advantage of the NUnit's test cases to simplify the test code and remove duplication.</p>
+<p>The second refactor is to organize the code in different <a title="Modules" href="https://msdn.microsoft.com/en-us/library/dd233221.aspx" target="_blank">modules</a> (nested modules), one for the production code and other for the test code. In F#, the order of the modules is important because F# code is evaluated from top to bottom. So, if we need to reference module Prod from module Tests, we need to declare it before.</p>
+<p>And that's all. I hope you liked this little F# introduction. I'll keep the blog updated with the new things we'll be learning.</p>
+<p>&nbsp;</p>
+
+    </div>
+
+    
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Vicenç García</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">24-04-2015</span>
+  </p>
+  
+  
+</div>
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          
+          <a href="/tags/tdd/">tdd</a>
+          
+          <a href="/tags/f/">F#</a>
+          
+          <a href="/tags/nunit/">nunit</a>
+          
+          <a href="/tags/pattern-matching/">pattern matching</a>
+          
+          <a href="/tags/currying/">currying</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+          <a class="prev" href="/post/2015-05-04-fsharp-by-example-discriminated-unions-record-types-tuples-and-operators/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">F# by example: discriminated unions, record types, tuples and operators.</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        
+          <a class="next" href="/post/2015-02-27-architect/">
+            <span class="next-text nav-default">The architect</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+  <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'vgaltes';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:vgaltes@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://linkedin.com/in/vgaltes" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="https://twitter.com/vgaltes" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="https://github.com/vgaltes" class="iconfont icon-github" title="github"></a>
+  <a href="http://example.org/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    
+      2013 - 
+    2018
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Vicenç García</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+<script src="/lib/highlight/highlight.pack.js?v=20171001"></script><script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
+
+
+<script type="text/javascript" src="/dist/even.min.js?v=3.2.0"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

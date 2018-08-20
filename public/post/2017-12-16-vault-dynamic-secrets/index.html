@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Dynamic secrets with Vault - VGALTES blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Vicenç García" />
+  <meta name="description" content="In the previous article we saw how we can configure Vault and write and read static secrets. Today, we&amp;rsquo;re going to see how we can use Vault to generate temporary users on a MySQL server so we can control access in a more secure way.
+First of all we&amp;rsquo;ll need a MySQL server connected to the same network than the Vault server. Let&amp;rsquo;s change the docker-compose.yml file to accomplish this." />
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.40.1" />
+
+
+<link rel="canonical" href="http://example.org/post/2017-12-16-vault-dynamic-secrets/" />
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+<link href="/dist/even.min.css?v=3.2.0" rel="stylesheet">
+<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
+
+
+
+
+<meta property="og:title" content="Dynamic secrets with Vault" />
+<meta property="og:description" content="In the previous article we saw how we can configure Vault and write and read static secrets. Today, we&rsquo;re going to see how we can use Vault to generate temporary users on a MySQL server so we can control access in a more secure way.
+First of all we&rsquo;ll need a MySQL server connected to the same network than the Vault server. Let&rsquo;s change the docker-compose.yml file to accomplish this." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/post/2017-12-16-vault-dynamic-secrets/" />
+
+
+
+<meta property="article:published_time" content="2017-12-17T00:00:00&#43;00:00"/>
+
+<meta property="article:modified_time" content="2017-12-17T00:00:00&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta itemprop="name" content="Dynamic secrets with Vault">
+<meta itemprop="description" content="In the previous article we saw how we can configure Vault and write and read static secrets. Today, we&rsquo;re going to see how we can use Vault to generate temporary users on a MySQL server so we can control access in a more secure way.
+First of all we&rsquo;ll need a MySQL server connected to the same network than the Vault server. Let&rsquo;s change the docker-compose.yml file to accomplish this.">
+
+
+<meta itemprop="datePublished" content="2017-12-17T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2017-12-17T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="1094">
+
+
+
+<meta itemprop="keywords" content="vault,security,mysql," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Dynamic secrets with Vault"/>
+<meta name="twitter:description" content="In the previous article we saw how we can configure Vault and write and read static secrets. Today, we&rsquo;re going to see how we can use Vault to generate temporary users on a MySQL server so we can control access in a more secure way.
+First of all we&rsquo;ll need a MySQL server connected to the same network than the Vault server. Let&rsquo;s change the docker-compose.yml file to accomplish this."/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">VGALTES</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">VGALTES</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Dynamic secrets with Vault</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 17-12-2017 </span>
+        <div class="post-category">
+            
+              <a href="/categories/devops/"> devops </a>
+            
+          </div>
+        <span class="more-meta"> 1094 words </span>
+        <span class="more-meta"> 6 mins read </span>
+        
+      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#setting-up-mysql">Setting up MySQL</a></li>
+<li><a href="#setting-up-the-database-backend">Setting up the database backend</a></li>
+<li><a href="#summary">Summary</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+
+    
+    
+
+    
+    <div class="post-content">
+      
+
+<p>In the <a href="http://vgaltes.com/devops/vault-basics">previous</a> article we saw how we can configure <a href="https://vaultproject.io">Vault</a> and write and read static secrets. Today, we&rsquo;re going to see how we can use Vault to generate temporary users on a MySQL server so we can control access in a more secure way.</p>
+
+<p>First of all we&rsquo;ll need a MySQL server connected to the same network than the Vault server. Let&rsquo;s change the <em>docker-compose.yml</em> file to accomplish this.</p>
+
+<pre><code>version: '3'
+ 
+services:
+  mysql:
+    image: mysql
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: &quot;mypassword&quot;
+      MYSQL_DATABASE: &quot;test&quot;
+    ports:
+      - 6603:3306
+    volumes:
+      - ./etc/mysql/mysql_data:/var/lib/mysql
+    restart: always
+    networks:
+      - vault_mysql_net
+ 
+  vault:
+    depends_on:
+      - mysql
+    image: vault
+    container_name: vault.server
+    ports:
+      - 8200:8200
+    volumes:
+      - ./etc/vault.server/config:/mnt/vault/config
+      - ./etc/vault.server/data:/mnt/vault/data
+      - ./etc/vault.server/logs:/mnt/vault/logs
+    restart: always
+    networks:
+      - vault_mysql_net
+    cap_add:
+      - IPC_LOCK
+    environment:
+      VAULT_ADDR: http://127.0.0.1:8200
+    entrypoint: vault server -config=&quot;/mnt/vault/config/config.hcl&quot;
+ 
+networks:
+  vault_mysql_net:
+    driver: bridge
+</code></pre>
+
+<p>What are we doing here is add another container based on the mysql image and put them on the same network. To know the IPs of the two containers run <em>docker inspect mysql</em> and <em>docker inspect vault.server</em>. In my case, the two IPs are <em>172.18.0.2</em> and <em>172.18.0.3</em> respectively.</p>
+
+<h2 id="setting-up-mysql">Setting up MySQL</h2>
+
+<p>Remember that what are we doing is to setup Vault so that we can ask it to create a temporary user and password to acces a MySQL instance. We&rsquo;re not setting up MySQL as a storage backend to Vault.</p>
+
+<p>We&rsquo;ll need a user in MySQL able to create new users. Vault, will use this user to create (and drop, after the TTL) the temporary user it will bring us to connect to MySQL. To increase the security of our system, we want that only Vault could connect using this user. Let&rsquo;s configure MySQL first.</p>
+
+<p>Connect to MySQL using the root account. As we&rsquo;re exporting the MySQL port, we can do this from our laptop:</p>
+
+<pre><code>MacBook-Pro:TestVault vga$ mysql -uroot -pmypassword -h 127.0.0.1 -P 6603
+mysql: [Warning] Using a password on the command line interface can be insecure.
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 3
+Server version: 5.7.20 MySQL Community Server (GPL)
+
+Copyright (c) 2000, 2016, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql&gt; 
+</code></pre>
+
+<p>Let&rsquo;s create a test user that can only connect from Vault server:</p>
+
+<pre><code>mysql&gt; CREATE USER 'test'@'172.18.0.3';
+Query OK, 0 rows affected (0.02 sec)
+</code></pre>
+
+<p>Set a password for that user:</p>
+
+<pre><code>mysql&gt; set password for 'test'@'172.18.0.3' = 'test';
+Query OK, 0 rows affected (0.00 sec)
+</code></pre>
+
+<p>And now, grant privileges to the user. As we want Vault to just create readonly users (in this example), just give it the create user and select privileges:</p>
+
+<pre><code>mysql&gt; grant create user, select on *.* to 'test'@'172.18.0.3' with grant option;
+Query OK, 0 rows affected (0.00 sec)
+</code></pre>
+
+<p>We&rsquo;re done with MySQL. Let&rsquo;s move to Vault again.</p>
+
+<h2 id="setting-up-the-database-backend">Setting up the database backend</h2>
+
+<p>To be able to create dynamic secrets, we need to setup the database backend. So, let&rsquo;s login to Vault as an admin:</p>
+
+<pre><code>MacBook-Pro:TestVault vga$ vault auth -method=userpass username=admin password=abcd
+Error making API request.
+
+URL: PUT http://127.0.0.1:8200/v1/auth/userpass/login/admin
+Code: 503. Errors:
+
+* Vault is sealed
+</code></pre>
+
+<p>Ooops! As we discussed in the previous article, every time we restart Vault it becomes sealed. Unseal it and login as admin again. Now it&rsquo;s time to mount the database backend. To do that, run the following command:</p>
+
+<pre><code>MacBook-Pro:TestVault vga$ vault mount -path=mysql1 database
+Mount error: Error making API request.
+
+URL: POST http://127.0.0.1:8200/v1/sys/mounts/mysql1
+Code: 403. Errors:
+
+* permission denied
+</code></pre>
+
+<p>Woooot! We don&rsquo;t have permissions to mount the backend. We need to change the policy and rewrite it. Let&rsquo;s change the adminpolicy.hcl file from the previous article to something like this:</p>
+
+<pre><code>#authorization
+path &quot;auth/userpass/*&quot; {
+    capabilities = [&quot;create&quot;, &quot;read&quot;, &quot;update&quot;, &quot;delete&quot;, &quot;list&quot;]
+}
+
+#policies
+path &quot;sys/policy/*&quot; {
+    capabilities = [&quot;create&quot;, &quot;read&quot;, &quot;update&quot;, &quot;delete&quot;, &quot;list&quot;]
+}
+
+#mounts
+path &quot;/sys/mounts/*&quot; {
+    capabilities = [&quot;create&quot;, &quot;read&quot;, &quot;update&quot;, &quot;delete&quot;, &quot;list&quot;]
+}
+
+#mysql1
+path &quot;mysql1/*&quot; {
+    capabilities = [&quot;create&quot;, &quot;read&quot;, &quot;update&quot;, &quot;delete&quot;, &quot;list&quot;]
+}
+</code></pre>
+
+<p>And rewrite it:</p>
+
+<pre><code>MacBook-Pro:TestVault vga$ vault write sys/policy/admins policy=@&quot;adminpolicy.hcl&quot;
+Success! Data written to: sys/policy/admins
+</code></pre>
+
+<p>Cool, let&rsquo;s try to mount the database backend:</p>
+
+<pre><code>MacBook-Pro:TestVault vga$ vault mount -path=mysql1 database
+Successfully mounted 'database' at 'mysql1'!
+</code></pre>
+
+<p>Awesome, we&rsquo;ve mounted the database backend in the path mysql1. Now it&rsquo;s time to configure the role we&rsquo;ll be using in this example. Configuring the role we are defining a couple of things: first, the name of the credentials we&rsquo;re going to read in order to create the user. And second, the query Vault will use to create the user. Let&rsquo;s run the following command:</p>
+
+<pre><code>MacBook-Pro:TestVault vga$ vault write mysql1/roles/readonly db_name=mysql creation_statements=&quot;CREATE USER '{{page.lcb}}name{{page.rcb}}'@'%' IDENTIFIED BY '{{page.lcb}}password{{page.rcb}}';GRANT SELECT ON *.* TO '{{page.lcb}}name{{page.rcb}}'@'%';&quot; default_ttl=&quot;1h&quot; max_ttl=&quot;24h&quot;
+Success! Data written to: mysql1/roles/readonly
+</code></pre>
+
+<p>And finally, we need to configure the connection to the MySQL where we want to create the users. Let&rsquo;s do it:</p>
+
+<pre><code>MacBook-Pro:TestVault vga$ vault write mysql1/config/mysql plugin_name=mysql-database-plugin connection_url=&quot;test:test@tcp(172.18.0.2:3306)/&quot; allowed_roles=&quot;readonly&quot;
+
+
+The following warnings were returned from the Vault server:
+* Read access to this endpoint should be controlled via ACLs as it will return the connection details as is, including passwords, if any.
+</code></pre>
+
+<p>Cool, we&rsquo;re ready to go. Let&rsquo;s read the credentials for the readonly role in mysql1 and see what happens:</p>
+
+<pre><code>MacBook-Pro:TestVault vga$ vault read mysql1/creds/readonly
+Key             Value
+---             -----
+lease_id        mysql1/creds/readonly/977e3682-1f02-7165-43d3-919ba4512223
+lease_duration  1h0m0s
+lease_renewable true
+password        A1a-wq10q1qp3v1055up
+username        v-userpass-a-readonly-v5941vstst
+</code></pre>
+
+<p>Wow! It looks like that Vault has created a user and give us its username and password. Let&rsquo;s try to login into MySQL with those credentials:</p>
+
+<pre><code>MacBook-Pro:TestVault vga$ mysql -uv-userpass-a-readonly-v5941vstst -p&quot;A1a-wq10q1qp3v1055up&quot; -h 127.0.0.1 -P 6603
+mysql: [Warning] Using a password on the command line interface can be insecure.
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 5
+Server version: 5.7.20 MySQL Community Server (GPL)
+
+Copyright (c) 2000, 2016, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql&gt; 
+</code></pre>
+
+<h2 id="summary">Summary</h2>
+
+<p>Magic!!!! It worked! We can connect to the MySQL instance using the temporary user Vault has created for us. We no longer have to maintain users for different applications or usages, we just need to give our clients access to this endpoint. And thanks to the power of policies, we can give access to this endpoint only to the users we want. Also, the user used to create users, is only accessible via the Vault IP, so it&rsquo;s quite secure.</p>
+
+    </div>
+
+    
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Vicenç García</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">17-12-2017</span>
+  </p>
+  
+  
+</div>
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          
+          <a href="/tags/vault/">vault</a>
+          
+          <a href="/tags/security/">security</a>
+          
+          <a href="/tags/mysql/">mysql</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+          <a class="prev" href="/post/2018-04-19-deploy-serverless-app/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Deploying a serverless application</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        
+          <a class="next" href="/post/2017-12-16-vault-basics/">
+            <span class="next-text nav-default">Vault basics</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+  <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'vgaltes';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:vgaltes@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://linkedin.com/in/vgaltes" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="https://twitter.com/vgaltes" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="https://github.com/vgaltes" class="iconfont icon-github" title="github"></a>
+  <a href="http://example.org/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    
+      2013 - 
+    2018
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Vicenç García</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+<script src="/lib/highlight/highlight.pack.js?v=20171001"></script><script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
+
+
+<script type="text/javascript" src="/dist/even.min.js?v=3.2.0"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>VGALTES blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Vicenç García" />
+  <meta name="description" content="VGALTES blog." />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.40.1" />
+
+
+<link rel="canonical" href="http://example.org/" />
+<link href="http://example.org/index.xml" rel="alternate" type="application/rss+xml" title="VGALTES blog" />
+  <link href="http://example.org/index.xml" rel="feed" type="application/rss+xml" title="VGALTES blog" />
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+<link href="/dist/even.min.css?v=3.2.0" rel="stylesheet">
+<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
+
+
+
+
+<meta property="og:title" content="VGALTES blog" />
+<meta property="og:description" content="VGALTES blog." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://example.org/" />
+
+
+
+<meta property="og:updated_time" content="2017-06-20T00:00:00&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+<meta itemprop="name" content="VGALTES blog">
+<meta itemprop="description" content="VGALTES blog.">
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="VGALTES blog"/>
+<meta name="twitter:description" content="VGALTES blog."/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">VGALTES</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">VGALTES</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          
+  <section id="posts" class="posts">
+    
+    
+    
+      <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/2017-06-20-step-functions-parallel-state/">Parallel state in AWS Step Functions using .Net Core</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 20-06-2017 </span>
+      <div class="post-category">
+          
+            <a href="/categories/serverless/"> serverless </a>
+          
+        </div>
+      <span class="more-meta"> 698 words </span>
+      <span class="more-meta"> 4 mins read </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      In the last article we&rsquo;ve seen how to create a very basic step function using .Net Core and the serverless framework. Today we&rsquo;ll see how to create one of the more useful states in a Step Function: the parallel state.
+The parallel state allows you to create parallel branches of execution in your state machine. Using it, you&rsquo;ll be able to run several tasks in parallel and then collect the results in another task, that will be executed only if all the parallel tasks finish correctly.
+    </div>
+    <div class="read-more">
+      <a href="/post/2017-06-20-step-functions-parallel-state/" class="read-more-link">Read more..</a>
+    </div>
+  </div>
+</article>
+
+    
+      <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/2017-06-15-step-functions-using-net-core/">AWS Step Functions using .Net Core</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 15-06-2017 </span>
+      <div class="post-category">
+          
+            <a href="/categories/serverless/"> serverless </a>
+          
+        </div>
+      <span class="more-meta"> 1543 words </span>
+      <span class="more-meta"> 8 mins read </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      If my good friend Alan Gorton is right
+Functions will eat servers. #serverless https://t.co/4Rc1cDnM73
+&mdash; Alan Gorton (@develogue) February 19, 2017 
+we&rsquo;d better be prepared. In this article we&rsquo;ll see how we can develop AWS Lambda Functions using .Net Core and deploy them and Step Functions using the serverless framework.
+Installing dependencies You should be able to follow this tutorial using a Windows machine or a Mac. The first step is to install all the things we&rsquo;re going to need.
+    </div>
+    <div class="read-more">
+      <a href="/post/2017-06-15-step-functions-using-net-core/" class="read-more-link">Read more..</a>
+    </div>
+  </div>
+</article>
+
+    
+      <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/2017-04-01-a-simple-azure-function-using-f-sharp/">A simple Azure Function using F#</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 01-04-2017 </span>
+      <div class="post-category">
+          
+            <a href="/categories/fsharp/"> fsharp </a>
+          
+        </div>
+      <span class="more-meta"> 1400 words </span>
+      <span class="more-meta"> 7 mins read </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      The other day my friend Jero wrote an article explaining how to write a Google Function using Javascript. The goal of this article is to do the same exercise but using Azure Functions and F#.
+First steps First of all, you will need to set up a couple of things. Don&rsquo;t worry, both of them are free. First of all you&rsquo;ll need an Azure account. You can create one for free and have £150 credit (and you&rsquo;re not going to spend a single pound doing this exercise).
+    </div>
+    <div class="read-more">
+      <a href="/post/2017-04-01-a-simple-azure-function-using-f-sharp/" class="read-more-link">Read more..</a>
+    </div>
+  </div>
+</article>
+
+    
+      <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/2017-03-24-definition-of-x/">Definition of X</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 24-03-2017 </span>
+      <div class="post-category">
+          
+            <a href="/categories/teamwork/"> Teamwork </a>
+          
+        </div>
+      <span class="more-meta"> 301 words </span>
+      <span class="more-meta"> 2 mins read </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      When you&rsquo;re not sure about how to do something, you generally do a checklist of steps to follow. The first day I went to my current client, I had a list of steps: buy the train ticket, go to Kings Cross, collect the train ticket, take the train, take a cab, ask for Mr X, etc. I&rsquo;m not using that list anymore because I now know how to do it.
+    </div>
+    <div class="read-more">
+      <a href="/post/2017-03-24-definition-of-x/" class="read-more-link">Read more..</a>
+    </div>
+  </div>
+</article>
+
+    
+      <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/2017-03-16-cargo-cult/">Cargo cult</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 16-03-2017 </span>
+      <div class="post-category">
+          
+            <a href="/categories/teamwork/"> Teamwork </a>
+          
+        </div>
+      <span class="more-meta"> 663 words </span>
+      <span class="more-meta"> 4 mins read </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      Cargo cult is a movement that is found in societies that believe in often-apocalyptic religious prophecies that predict a return to power, the defeat of enemies, and/or the accumulation of wealth. This movement often occurs in colonial societies.
+The first occurrences date from the end of the 19th century in Fiji, but the most important ones are the ones in the Melanesian islands after the World War II. During the war, both sides airdropped supplies and military equipment for their troops that often shared it with the local population.
+    </div>
+    <div class="read-more">
+      <a href="/post/2017-03-16-cargo-cult/" class="read-more-link">Read more..</a>
+    </div>
+  </div>
+</article>
+
+    
+      <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/2017-03-14-cowboys/">Cowboys</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 14-03-2017 </span>
+      <div class="post-category">
+          
+            <a href="/categories/teamwork/"> Teamwork </a>
+          
+        </div>
+      <span class="more-meta"> 575 words </span>
+      <span class="more-meta"> 3 mins read </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      According to the Wikipedia, a cowboy (and a cowgirl) is an animal herder who tends cattle on ranches in North America, traditionally on horseback, and often performs a multitude of other ranch-related tasks. They were quite famous in the 19th century and we can still find them in ranches.
+Hollywood adapted the cowboy lifestyle to create some stereotypes, both positive and negative. But, in general, a cowboy was a guy with a gun killing people, either because they were bad guys or because they were defending a good cause.
+    </div>
+    <div class="read-more">
+      <a href="/post/2017-03-14-cowboys/" class="read-more-link">Read more..</a>
+    </div>
+  </div>
+</article>
+
+    
+      <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/2017-03-12-avoid-pull-requests/">Avoid pull requests</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 12-03-2017 </span>
+      <div class="post-category">
+          
+            <a href="/categories/teamwork/"> Teamwork </a>
+          
+        </div>
+      <span class="more-meta"> 467 words </span>
+      <span class="more-meta"> 3 mins read </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      Pull requests are a common way to integrate your changes in another repository or branch in an Open Source project. They allow the receiver of the pull request to easily view and review the changes you made. Pull requests are great, especially when your team is not colocated, but also in different time zones. It seems that their popularity has extended to enterprise projects as well, even when the team is co-located.
+    </div>
+    <div class="read-more">
+      <a href="/post/2017-03-12-avoid-pull-requests/" class="read-more-link">Read more..</a>
+    </div>
+  </div>
+</article>
+
+    
+      <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/2016-12-11-beyond-event-storming/">Beyond Event Storming</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 11-12-2016 </span>
+      <div class="post-category">
+          
+            <a href="/categories/event-storming/"> Event Storming </a>
+          
+        </div>
+      <span class="more-meta"> 1092 words </span>
+      <span class="more-meta"> 6 mins read </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      On 1st and 2nd of December, the last edition of Conferencia Agile Spain was held in Vitoria. I was part of the oragnisation and both as a organiser and as attendee I think it was awesome (post with some of the internals will come soon). I held a workshop about Event Storming there, which went great. Chris Matts did the opening keynote and he attended my workshop too. In the middle of the workshop he approached to me and told me: &ldquo;If you want, after the workshop I can explain you how can you join Event Storming and Real Options.
+    </div>
+    <div class="read-more">
+      <a href="/post/2016-12-11-beyond-event-storming/" class="read-more-link">Read more..</a>
+    </div>
+  </div>
+</article>
+
+    
+      <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/2016-10-17-partial-classification-active-pattern/">Partial classification active pattern</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 17-10-2016 </span>
+      <div class="post-category">
+          
+            <a href="/categories/fsharp/"> FSharp </a>
+          
+        </div>
+      <span class="more-meta"> 364 words </span>
+      <span class="more-meta"> 2 mins read </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      Pattern matching is a powerful and amazing characteristic of F#. Actually, is so amazing that Microsoft is starting to port it to C#.
+There are different kinds of pattern matching. In this post we&rsquo;re going to take a look at a partial classification active pattern that takes an argument and returns a value.
+As its name denotes, is a pattern that partially classificates what you match with it. That means that doesn&rsquo;t try to define all possible options but just one.
+    </div>
+    <div class="read-more">
+      <a href="/post/2016-10-17-partial-classification-active-pattern/" class="read-more-link">Read more..</a>
+    </div>
+  </div>
+</article>
+
+    
+      <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/2016-10-13-run-nunit3-tests-using-fake/">Running NUnit3 tests using fake</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 13-10-2016 </span>
+      <div class="post-category">
+          
+            <a href="/categories/fsharp/"> FSharp </a>
+          
+        </div>
+      <span class="more-meta"> 146 words </span>
+      <span class="more-meta"> 1 min read </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      When you have some unit tests developed using NUnit 2.x your FAKE script looks like something like this:
+Target &quot;RunUnitTests&quot; (fun _ -&gt; !! (testDir + &quot;/*.Tests.dll&quot;) |&gt; NUnit (fun p -&gt; {p with ToolPath = &quot;packages/NUnit.Runners/tools/&quot;})  )
+But NUnit3 works slightly different. Instead of having a single NUnit.Runners package, that package references some other packages (runner, extensions, etc). One of those packages is NUnit.ConsoleRunner that has the exe inside the tools folder.
+    </div>
+    <div class="read-more">
+      <a href="/post/2016-10-13-run-nunit3-tests-using-fake/" class="read-more-link">Read more..</a>
+    </div>
+  </div>
+</article>
+
+    
+  </section>
+  
+  <nav class="pagination">
+    
+      <a class="prev" href="/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text">Prev</span>
+      </a>
+    
+      <a class="next" href="/page/3/">
+        <span class="next-text">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+  </nav>
+
+        </div>
+        
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:vgaltes@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://linkedin.com/in/vgaltes" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="https://twitter.com/vgaltes" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="https://github.com/vgaltes" class="iconfont icon-github" title="github"></a>
+  <a href="http://example.org/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    
+      2013 - 
+    2018
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Vicenç García</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+<script src="/lib/highlight/highlight.pack.js?v=20171001"></script><script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
+
+
+<script type="text/javascript" src="/dist/even.min.js?v=3.2.0"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

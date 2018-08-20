@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Agile Dev Practices on VGALTES blog</title>
+    <link>http://example.org/tags/agile-dev-practices/</link>
+    <description>Recent content in Agile Dev Practices on VGALTES blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 13 Mar 2013 22:36:01 +0000</lastBuildDate>
+    
+	<atom:link href="http://example.org/tags/agile-dev-practices/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Agile Dev Practices</title>
+      <link>http://example.org/post/2013-03-13-agile-dev-practices/</link>
+      <pubDate>Wed, 13 Mar 2013 22:36:01 +0000</pubDate>
+      
+      <guid>http://example.org/post/2013-03-13-agile-dev-practices/</guid>
+      <description>Last week I attended to Agile Dev Practices, a brand-new conference done in Postdam, organized by Diaz Hilterscheid, the people behind the renowned Agile Testing Days. It was my third international conference (the first outside Spain) and the first one I have gone as a speaker.
+I had the good fortune to assist to Carlos Blé tutorial about “Practical BDD for RIAs with JavaScript”. It was a great tutorial, more suitable to do in two days (or at least, one and a half) but equally great.</description>
+    </item>
+    
+  </channel>
+</rss>

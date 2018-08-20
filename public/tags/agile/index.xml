@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Agile on VGALTES blog</title>
+    <link>http://example.org/tags/agile/</link>
+    <description>Recent content in Agile on VGALTES blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 18 Aug 2016 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://example.org/tags/agile/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Deadlines are not that bad</title>
+      <link>http://example.org/post/2016-08-18-deadlines-are-not-that-bad/</link>
+      <pubDate>Thu, 18 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/post/2016-08-18-deadlines-are-not-that-bad/</guid>
+      <description>In my current project we had a hard deadline: we had to go to public beta on August and finish the transition of all users to the new system by the end of August. When we knew those dates our first reaction was this one:
+Depending on the environment you work the reaction to these news are usually some combination of a lot of pressure from management, working a lot of hours, drop the quality of your code, hysteria, etc.</description>
+    </item>
+    
+    <item>
+      <title>The architect</title>
+      <link>http://example.org/post/2015-02-27-architect/</link>
+      <pubDate>Fri, 27 Feb 2015 17:23:12 +0000</pubDate>
+      
+      <guid>http://example.org/post/2015-02-27-architect/</guid>
+      <description>Last Wednesday was my last day in the project I worked on the last six months. I&#39;ve spent a great time working there, learning a lot of things and improving as a professional.
+One of the members of the team, Mark, has the role of technical architect. If you have an agile mindset when you listen the word architect is not unusual that a look of disgust appears on your face.</description>
+    </item>
+    
+  </channel>
+</rss>

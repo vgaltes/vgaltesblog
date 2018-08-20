@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Architect on VGALTES blog</title>
+    <link>http://example.org/tags/architect/</link>
+    <description>Recent content in Architect on VGALTES blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 27 Feb 2015 17:23:12 +0000</lastBuildDate>
+    
+	<atom:link href="http://example.org/tags/architect/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>The architect</title>
+      <link>http://example.org/post/2015-02-27-architect/</link>
+      <pubDate>Fri, 27 Feb 2015 17:23:12 +0000</pubDate>
+      
+      <guid>http://example.org/post/2015-02-27-architect/</guid>
+      <description>Last Wednesday was my last day in the project I worked on the last six months. I&#39;ve spent a great time working there, learning a lot of things and improving as a professional.
+One of the members of the team, Mark, has the role of technical architect. If you have an agile mindset when you listen the word architect is not unusual that a look of disgust appears on your face.</description>
+    </item>
+    
+  </channel>
+</rss>

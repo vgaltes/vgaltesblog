@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Avoid pull requests - VGALTES blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Vicenç García" />
+  <meta name="description" content="Pull requests are a common way to integrate your changes in another repository or branch in an Open Source project. They allow the receiver of the pull request to easily view and review the changes you made. Pull requests are great, especially when your team is not colocated, but also in different time zones. It seems that their popularity has extended to enterprise projects as well, even when the team is co-located." />
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.40.1" />
+
+
+<link rel="canonical" href="http://example.org/post/2017-03-12-avoid-pull-requests/" />
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+<link href="/dist/even.min.css?v=3.2.0" rel="stylesheet">
+<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
+
+
+
+
+<meta property="og:title" content="Avoid pull requests" />
+<meta property="og:description" content="Pull requests are a common way to integrate your changes in another repository or branch in an Open Source project. They allow the receiver of the pull request to easily view and review the changes you made. Pull requests are great, especially when your team is not colocated, but also in different time zones. It seems that their popularity has extended to enterprise projects as well, even when the team is co-located." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/post/2017-03-12-avoid-pull-requests/" />
+
+
+
+<meta property="article:published_time" content="2017-03-12T00:00:00&#43;00:00"/>
+
+<meta property="article:modified_time" content="2017-03-12T00:00:00&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta itemprop="name" content="Avoid pull requests">
+<meta itemprop="description" content="Pull requests are a common way to integrate your changes in another repository or branch in an Open Source project. They allow the receiver of the pull request to easily view and review the changes you made. Pull requests are great, especially when your team is not colocated, but also in different time zones. It seems that their popularity has extended to enterprise projects as well, even when the team is co-located.">
+
+
+<meta itemprop="datePublished" content="2017-03-12T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2017-03-12T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="467">
+
+
+
+<meta itemprop="keywords" content="Teamwork," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Avoid pull requests"/>
+<meta name="twitter:description" content="Pull requests are a common way to integrate your changes in another repository or branch in an Open Source project. They allow the receiver of the pull request to easily view and review the changes you made. Pull requests are great, especially when your team is not colocated, but also in different time zones. It seems that their popularity has extended to enterprise projects as well, even when the team is co-located."/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">VGALTES</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">VGALTES</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Avoid pull requests</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 12-03-2017 </span>
+        <div class="post-category">
+            
+              <a href="/categories/teamwork/"> Teamwork </a>
+            
+          </div>
+        <span class="more-meta"> 467 words </span>
+        <span class="more-meta"> 3 mins read </span>
+        
+      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  
+  <div class="post-toc-content always-active">
+    
+  </div>
+</div>
+
+    
+    
+
+    
+    <div class="post-content">
+      <p><a href="https://help.github.com/articles/about-pull-requests/">Pull requests</a> are a common way to integrate your changes in another repository or branch in an Open Source project. They allow the receiver of the pull request to easily view and review the changes you made. Pull requests are great, especially when your team is not colocated, but also in different time zones. It seems that their popularity has extended to enterprise projects as well, even when the team is co-located. Is in this situation when I consider pull requests a bad smell of team dynamics.</p>
+
+<p>Our story starts after the sprint planning. Every member of the team chooses a story to begin working on and creates a branch. After several days working in this branch (and maybe in other ones), he decides is a good time to create a pull request. The pull request can be something like this:</p>
+
+<p><img src="/images/giant-pull-request.png" alt="giant pull request" /></p>
+
+<p>The poor team member that takes responsibility of merging the pull request spend the whole day reviewing the changes. You can imagine the quality of the review.</p>
+
+<p><blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">10 lines of code = 10 issues.<br><br>500 lines of code = &quot;looks fine.&quot;<br><br>Code reviews.</p>&mdash; I Am Devloper (@iamdevloper) <a href="https://twitter.com/iamdevloper/status/397664295875805184">November 5, 2013</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></p>
+
+<p>Another problem you can have with pull requests is that you can review easily the changes that the sender has made but, what if he missed making a change? Imagine that you are changing the actions of a controller to async methods and you miss a couple of them. When the reviewer reviews the pull request, she will see all the actions that you&rsquo;ve changed (or added or removed) but it won&rsquo;t be easy to spot those actions you missed to update.</p>
+
+<p>So, what can you do to improve this situation?</p>
+
+<p>The first option is to avoid the necessity of reviewing changes. Work in pairs when you develop a new story. I know that you can&rsquo;t <a href="https://www.thoughtworks.com/insights/blog/pairing-are-you-doing-it-wrong">pair</a> all the time but use this tool as much as you can. The results will be much better because pairing is much better than reviewing. Talking with your partner about design decisions, naming, etc. is much better than just reviewing some code with much less context.</p>
+
+<p>If you can&rsquo;t pair, at least review the code with its creator. Take a seat next to her, use your favourite remote pair programming tool or start a hangout/webex/whatever and go through the code. Ask for explanations of the decisions, test new approximations, discuss naming. But have a face to face conversation with her.</p>
+
+<p>If for some inexplicable reason you can&rsquo;t pair or review the code with its creator, use tiny pull requests. Obviously, this is a general advice, please define small and incremental stories that involve the less code possible. The code will be better and the life of the teammate that will review the pull request will be much happier.</p>
+
+<p><img src="/images/chuck-norris-pull-request.jpg" alt="I approve this pull request" /></p>
+
+    </div>
+
+    
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Vicenç García</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">12-03-2017</span>
+  </p>
+  
+  
+</div>
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          
+          <a href="/tags/teamwork/">Teamwork</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+          <a class="prev" href="/post/2017-03-14-cowboys/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Cowboys</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        
+          <a class="next" href="/post/2016-12-11-beyond-event-storming/">
+            <span class="next-text nav-default">Beyond Event Storming</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+  <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'vgaltes';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:vgaltes@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://linkedin.com/in/vgaltes" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="https://twitter.com/vgaltes" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="https://github.com/vgaltes" class="iconfont icon-github" title="github"></a>
+  <a href="http://example.org/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    
+      2013 - 
+    2018
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Vicenç García</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+<script src="/lib/highlight/highlight.pack.js?v=20171001"></script><script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
+
+
+<script type="text/javascript" src="/dist/even.min.js?v=3.2.0"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

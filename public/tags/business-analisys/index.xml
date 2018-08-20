@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Business Analisys on VGALTES blog</title>
+    <link>http://example.org/tags/business-analisys/</link>
+    <description>Recent content in Business Analisys on VGALTES blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 11 Dec 2016 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://example.org/tags/business-analisys/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Beyond Event Storming</title>
+      <link>http://example.org/post/2016-12-11-beyond-event-storming/</link>
+      <pubDate>Sun, 11 Dec 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/post/2016-12-11-beyond-event-storming/</guid>
+      <description>On 1st and 2nd of December, the last edition of Conferencia Agile Spain was held in Vitoria. I was part of the oragnisation and both as a organiser and as attendee I think it was awesome (post with some of the internals will come soon). I held a workshop about Event Storming there, which went great. Chris Matts did the opening keynote and he attended my workshop too. In the middle of the workshop he approached to me and told me: &amp;ldquo;If you want, after the workshop I can explain you how can you join Event Storming and Real Options.</description>
+    </item>
+    
+  </channel>
+</rss>

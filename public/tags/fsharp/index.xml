@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Fsharp on VGALTES blog</title>
+    <link>http://example.org/tags/fsharp/</link>
+    <description>Recent content in Fsharp on VGALTES blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 15 Jun 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://example.org/tags/fsharp/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>AWS Step Functions using .Net Core</title>
+      <link>http://example.org/post/2017-06-15-step-functions-using-net-core/</link>
+      <pubDate>Thu, 15 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/post/2017-06-15-step-functions-using-net-core/</guid>
+      <description>If my good friend Alan Gorton is right
+Functions will eat servers. #serverless https://t.co/4Rc1cDnM73
+&amp;mdash; Alan Gorton (@develogue) February 19, 2017 
+we&amp;rsquo;d better be prepared. In this article we&amp;rsquo;ll see how we can develop AWS Lambda Functions using .Net Core and deploy them and Step Functions using the serverless framework.
+Installing dependencies You should be able to follow this tutorial using a Windows machine or a Mac. The first step is to install all the things we&amp;rsquo;re going to need.</description>
+    </item>
+    
+    <item>
+      <title>A simple Azure Function using F#</title>
+      <link>http://example.org/post/2017-04-01-a-simple-azure-function-using-f-sharp/</link>
+      <pubDate>Sat, 01 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/post/2017-04-01-a-simple-azure-function-using-f-sharp/</guid>
+      <description>The other day my friend Jero wrote an article explaining how to write a Google Function using Javascript. The goal of this article is to do the same exercise but using Azure Functions and F#.
+First steps First of all, you will need to set up a couple of things. Don&amp;rsquo;t worry, both of them are free. First of all you&amp;rsquo;ll need an Azure account. You can create one for free and have £150 credit (and you&amp;rsquo;re not going to spend a single pound doing this exercise).</description>
+    </item>
+    
+  </channel>
+</rss>

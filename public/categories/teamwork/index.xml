@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Teamwork on VGALTES blog</title>
+    <link>http://example.org/categories/teamwork/</link>
+    <description>Recent content in Teamwork on VGALTES blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 24 Mar 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://example.org/categories/teamwork/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Definition of X</title>
+      <link>http://example.org/post/2017-03-24-definition-of-x/</link>
+      <pubDate>Fri, 24 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/post/2017-03-24-definition-of-x/</guid>
+      <description>When you&amp;rsquo;re not sure about how to do something, you generally do a checklist of steps to follow. The first day I went to my current client, I had a list of steps: buy the train ticket, go to Kings Cross, collect the train ticket, take the train, take a cab, ask for Mr X, etc. I&amp;rsquo;m not using that list anymore because I now know how to do it.</description>
+    </item>
+    
+    <item>
+      <title>Cargo cult</title>
+      <link>http://example.org/post/2017-03-16-cargo-cult/</link>
+      <pubDate>Thu, 16 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/post/2017-03-16-cargo-cult/</guid>
+      <description>Cargo cult is a movement that is found in societies that believe in often-apocalyptic religious prophecies that predict a return to power, the defeat of enemies, and/or the accumulation of wealth. This movement often occurs in colonial societies.
+The first occurrences date from the end of the 19th century in Fiji, but the most important ones are the ones in the Melanesian islands after the World War II. During the war, both sides airdropped supplies and military equipment for their troops that often shared it with the local population.</description>
+    </item>
+    
+    <item>
+      <title>Cowboys</title>
+      <link>http://example.org/post/2017-03-14-cowboys/</link>
+      <pubDate>Tue, 14 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/post/2017-03-14-cowboys/</guid>
+      <description>According to the Wikipedia, a cowboy (and a cowgirl) is an animal herder who tends cattle on ranches in North America, traditionally on horseback, and often performs a multitude of other ranch-related tasks. They were quite famous in the 19th century and we can still find them in ranches.
+Hollywood adapted the cowboy lifestyle to create some stereotypes, both positive and negative. But, in general, a cowboy was a guy with a gun killing people, either because they were bad guys or because they were defending a good cause.</description>
+    </item>
+    
+    <item>
+      <title>Avoid pull requests</title>
+      <link>http://example.org/post/2017-03-12-avoid-pull-requests/</link>
+      <pubDate>Sun, 12 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/post/2017-03-12-avoid-pull-requests/</guid>
+      <description>Pull requests are a common way to integrate your changes in another repository or branch in an Open Source project. They allow the receiver of the pull request to easily view and review the changes you made. Pull requests are great, especially when your team is not colocated, but also in different time zones. It seems that their popularity has extended to enterprise projects as well, even when the team is co-located.</description>
+    </item>
+    
+  </channel>
+</rss>
