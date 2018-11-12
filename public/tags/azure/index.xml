@@ -6,10 +6,19 @@
     <description>Recent content in Azure on VGALTES blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 01 Apr 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 12 Nov 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://example.org/tags/azure/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Deploying Azure Functions, an introduction</title>
+      <link>http://example.org/post/deploying-azure-functions-an-introduction/</link>
+      <pubDate>Mon, 12 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/post/deploying-azure-functions-an-introduction/</guid>
+      <description>In the last few days, I&amp;rsquo;ve been tinkering with Azure Functions, reading the documentation a bit and doing a Pluralsight course. As it happens quite offten, these introductory courses use easy techniques to deploy the code, focusing on showing what you can do with the platform. Although obviously this has some value, I don&amp;rsquo;t think it&amp;rsquo;s a good idea because, at the end, it will be something that you won&amp;rsquo;t be able to use in a serious test.</description>
+    </item>
     
     <item>
       <title>A simple Azure Function using F#</title>
