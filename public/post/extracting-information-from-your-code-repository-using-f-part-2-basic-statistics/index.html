@@ -30,7 +30,7 @@ As you can see, we are using the pipe forward operator (|&amp;gt;) and the Array
 
 
 
-<meta name="generator" content="Hugo 0.40.1" />
+<meta name="generator" content="Hugo 0.51" />
 
 
 <link rel="canonical" href="http://example.org/post/extracting-information-from-your-code-repository-using-f-part-2-basic-statistics/" />
@@ -61,23 +61,8 @@ The first thing that can come into our mind is to know how many commits we have 
 
 As you can see, we are using the pipe forward operator (|&gt;) and the Array." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://example.org/post/extracting-information-from-your-code-repository-using-f-part-2-basic-statistics/" />
-
-
-
-<meta property="article:published_time" content="2015-12-19T17:56:14&#43;00:00"/>
-
+<meta property="og:url" content="http://example.org/post/extracting-information-from-your-code-repository-using-f-part-2-basic-statistics/" /><meta property="article:published_time" content="2015-12-19T17:56:14&#43;00:00"/>
 <meta property="article:modified_time" content="2015-12-19T17:56:14&#43;00:00"/>
-
-
-
-
-
-
-
-
-
-
 
 <meta itemprop="name" content="Extracting information from your code repository using F# – Part 2: Basic statistics">
 <meta itemprop="description" content="In the previous article we&#39;ve seen how to parse a git log file. We ended up having an array of commits:
@@ -90,7 +75,7 @@ As you can see, we are using the pipe forward operator (|&gt;) and the Array.">
 
 <meta itemprop="datePublished" content="2015-12-19T17:56:14&#43;00:00" />
 <meta itemprop="dateModified" content="2015-12-19T17:56:14&#43;00:00" />
-<meta itemprop="wordCount" content="464">
+<meta itemprop="wordCount" content="465">
 
 
 
@@ -174,7 +159,7 @@ As you can see, we are using the pipe forward operator (|&gt;) and the Array."/>
               <a href="/categories/f/"> F# </a>
             
           </div>
-        <span class="more-meta"> 464 words </span>
+        <span class="more-meta"> 465 words </span>
         <span class="more-meta"> 3 mins read </span>
         
       </div>
@@ -203,7 +188,10 @@ As you can see, we are using the pipe forward operator (|&gt;) and the Array."/>
 <p>Let's start extracting some useful statistics from it.</p>
 <p>The first thing that can come into our mind is to know how many commits we have done to the repository. That's pretty easy to do:</p>
 <p><script src="https://gist.github.com/vgaltes/515d66194678e9e1265c.js"></script></p>
-<p>As you can see, we are using the <a href="http://theburningmonk.com/2011/09/fsharp-pipe-forward-and-pipe-backward/" target="_blank">pipe forward operator</a> (|&gt;) and the <a href="https://msdn.microsoft.com/en-us/library/ee370275.aspx" target="_blank">Array.length</a> function to extract this information.</p><!--more-->
+<p>As you can see, we are using the <a href="http://theburningmonk.com/2011/09/fsharp-pipe-forward-and-pipe-backward/" target="_blank">pipe forward operator</a> (|&gt;) and the <a href="https://msdn.microsoft.com/en-us/library/ee370275.aspx" target="_blank">Array.length</a> function to extract this information.</p>
+
+HUGOMORE42
+
 <p>Now it's time to calculate the number of entities changed, that is the number of times that we commited a change in an entity:</p>
 <p><script src="https://gist.github.com/vgaltes/fadb9dd377e27f629c13.js"></script></p>
 <p>As you can see, we are using <a href="https://msdn.microsoft.com/en-us/library/ee353905.aspx" target="_blank">Array.collect</a> to concatenate the arrays of Files inside each Commit and count them.</p>

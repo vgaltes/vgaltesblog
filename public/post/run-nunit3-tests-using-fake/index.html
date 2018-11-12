@@ -27,7 +27,7 @@ But NUnit3 works slightly different. Instead of having a single NUnit.Runners pa
 
 
 
-<meta name="generator" content="Hugo 0.40.1" />
+<meta name="generator" content="Hugo 0.51" />
 
 
 <link rel="canonical" href="http://example.org/post/run-nunit3-tests-using-fake/" />
@@ -55,23 +55,8 @@ But NUnit3 works slightly different. Instead of having a single NUnit.Runners pa
 Target &quot;RunUnitTests&quot; (fun _ -&gt; !! (testDir &#43; &quot;/*.Tests.dll&quot;) |&gt; NUnit (fun p -&gt; {p with ToolPath = &quot;packages/NUnit.Runners/tools/&quot;})  )
 But NUnit3 works slightly different. Instead of having a single NUnit.Runners package, that package references some other packages (runner, extensions, etc). One of those packages is NUnit.ConsoleRunner that has the exe inside the tools folder." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://example.org/post/run-nunit3-tests-using-fake/" />
-
-
-
-<meta property="article:published_time" content="2016-10-13T00:00:00&#43;00:00"/>
-
+<meta property="og:url" content="http://example.org/post/run-nunit3-tests-using-fake/" /><meta property="article:published_time" content="2016-10-13T00:00:00&#43;00:00"/>
 <meta property="article:modified_time" content="2016-10-13T00:00:00&#43;00:00"/>
-
-
-
-
-
-
-
-
-
-
 
 <meta itemprop="name" content="Running NUnit3 tests using fake">
 <meta itemprop="description" content="When you have some unit tests developed using NUnit 2.x your FAKE script looks like something like this:

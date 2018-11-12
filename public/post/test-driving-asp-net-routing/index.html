@@ -27,7 +27,7 @@ Let&#39;s start with our first test:
 
 
 
-<meta name="generator" content="Hugo 0.40.1" />
+<meta name="generator" content="Hugo 0.51" />
 
 
 <link rel="canonical" href="http://example.org/post/test-driving-asp-net-routing/" />
@@ -55,23 +55,8 @@ Let&#39;s start with our first test:
 Let&#39;s start with our first test:
 [TestMethod]public void TestSimpleRoute(){RouteCollection routes = new RouteCollection();RouteConfig.RegisterRoutes(routes);// Act - process the routeRouteData result= routes.GetRouteData(CreateHttpContext(&#34;~/Admin/Index&#34;));// AssertAssert.IsNotNull(result);Assert.AreEqual(&#34;controller&#34;, result.Values[&#34;controller&#34;]);Assert.AreEqual(&#34;action&#34;, result.Values[&#34;action&#34;]);}private HttpContextBase CreateHttpContext(string targetUrl = null){var mockRequest = new Mock&lt;HttpRequestBase&gt;();mockRequest.Setup(m =&gt; m.AppRelativeCurrentExecutionFilePath).Returns(targetUrl);mockRequest." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://example.org/post/test-driving-asp-net-routing/" />
-
-
-
-<meta property="article:published_time" content="2014-07-29T17:36:20&#43;01:00"/>
-
+<meta property="og:url" content="http://example.org/post/test-driving-asp-net-routing/" /><meta property="article:published_time" content="2014-07-29T17:36:20&#43;01:00"/>
 <meta property="article:modified_time" content="2014-07-29T17:36:20&#43;01:00"/>
-
-
-
-
-
-
-
-
-
-
 
 <meta itemprop="name" content="Test Driving ASP.Net routing">
 <meta itemprop="description" content="In this article we will see how can we test drive the routing configuration of an ASP.Net web application.

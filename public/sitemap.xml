@@ -536,14 +536,14 @@
   </url>
   
   <url>
-    <loc>http://example.org/tags/f#/</loc>
+    <loc>http://example.org/tags/f/</loc>
     <lastmod>2016-10-17T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://example.org/categories/f#/</loc>
+    <loc>http://example.org/categories/f/</loc>
     <lastmod>2016-07-04T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
