@@ -234,7 +234,7 @@ It turns out that the Azure Functions Core Tools needs a parameter that exists o
 
 Let's commit and push and see if the function is deployed...
 
-![Deployment](/images/AddContext.png)
+![Deployment](/images/deployment.png)
 
 Voilà! Here it is!
 
