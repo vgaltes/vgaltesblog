@@ -133,11 +133,13 @@ resource "azurerm_function_app" "testDeployTF" {
 }
 ```
 
+## Deploying
+
 It's time to cd into the infrastructure folder, login into azure using `az login` and type `terraform apply`.
 
 ![Azure Function Terraform](/images/AzureFunctionTerraform.png)
 
 Here it is! The Function App deployed into Azure :-)
 
-##Summary
+## Summary
 In this article we've seen how we can deploy a Function App using Terraform.
