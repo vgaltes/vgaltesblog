@@ -9,7 +9,7 @@ tags:
 - azure
 ---
 
-In a [previous article]() we've seen how to deploy a Function App using the Azure CLI and the Azure Functions Core Tools. In this article we'll see how to get rid of the help of the latter and use the [Zip Deploy](https://docs.microsoft.com/en-us/azure/azure-functions/deployment-zip-push) feauture.
+In a [previous article](http://vgaltes.com/post/deploying-azure-functions-an-introduction/) we've seen how to deploy a Function App using the Azure CLI and the Azure Functions Core Tools. In this article we'll see how to get rid of the help of the latter and use the [Zip Deploy](https://docs.microsoft.com/en-us/azure/azure-functions/deployment-zip-push) feauture.
 
 ## Fixing the script.
 We already have a deployment script. It is something like this:
