@@ -58,7 +58,7 @@ az webapp deployment source config-zip -g $resourceGroupName -n $serviceName --s
 Let's call the script and see if it works:
 ` ./deploy.sh testZipDeploy westeurope uat`
 
-![Zip deployment](images/ZipDeploy.png)
+![Zip deployment](/images/ZipDeploy.png)
 
 Here it is!
 

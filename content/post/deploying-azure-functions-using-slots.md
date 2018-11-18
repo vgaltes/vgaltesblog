@@ -138,7 +138,7 @@ resource "azurerm_app_service_slot" "service-slot-staging" {
 
 And that's all. If you `terraform apply` these changes you will see that you have a function app with no code, and a staging slot with a function there.
 
-![Deploy Slot Terraform](images/DeploySlotTF.png)
+![Deploy Slot Terraform](/images/DeploySlotTF.png)
 
 ### Using Azure CLI
 We can accomplish the same using the Azure CLI. The only caveat here is that you're not going to find the slots commands under the `functionapp` command but under the `webapp` command. So, what you need to create a slot is the following command:
@@ -179,7 +179,7 @@ If you want to promote a slot to production, the targetSlot name needs to be `pr
 
 Let's take a look at the portal to see if the operation has succeeded:
 
-![Deploy Slot After Swap](images/DeploySlotAfterSwap.png)
+![Deploy Slot After Swap](/images/DeploySlotAfterSwap.png)
 
 Perfect! Now we have our function in production and an empty staging slot.
 
