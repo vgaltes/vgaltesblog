@@ -33,7 +33,7 @@ In Azure, functions live inside a Function App. The Function App is the containe
 
 Create an empty folder in your hard disk, cd into it and run the following command: `func init --worker-runtime dotnet`. This will create the Function App using DotNet as the runtime.
 
-Next step is to create the Azure Function. To do that, just type: `func function new --languate C# --template "HTTP trigger" --name HelloWorld`
+Next step is to create the Azure Function. To do that, just type: `func function new --language C# --template "HTTP trigger" --name HelloWorld`
 
 In this case, we're using C# as language and "HTTP trigger" as the template. If you want to see the different templates available for the different languages, type `func templates list`.
 
