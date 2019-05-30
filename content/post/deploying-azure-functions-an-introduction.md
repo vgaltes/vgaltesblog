@@ -6,6 +6,7 @@ categories:
 tags:
 - devops
 - azure functions
+- azure
 ---
 
 In the last few days, I've been tinkering with [Azure Functions](https://azure.microsoft.com/en-gb/services/functions/), reading the documentation a bit and doing a [Pluralsight course](https://app.pluralsight.com/library/courses/azure-functions-fundamentals). As it happens quite offten, these introductory courses use easy techniques to deploy the code, focusing on showing what you can do with the platform. Although obviously this has some value, I don't think it's a good idea because, at the end, it will be something that you won't be able to use in a serious test.
@@ -32,7 +33,7 @@ In Azure, functions live inside a Function App. The Function App is the containe
 
 Create an empty folder in your hard disk, cd into it and run the following command: `func init --worker-runtime dotnet`. This will create the Function App using DotNet as the runtime.
 
-Next step is to create the Azure Function. To do that, just type: `func function new --languate C# --template "HTTP trigger" --name HelloWorld`
+Next step is to create the Azure Function. To do that, just type: `func function new --language C# --template "HTTP trigger" --name HelloWorld`
 
 In this case, we're using C# as language and "HTTP trigger" as the template. If you want to see the different templates available for the different languages, type `func templates list`.
 
