@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Random Thoughts on VGALTES blog</title>
+    <link>http://example.org/tags/random-thoughts/</link>
+    <description>Recent content in Random Thoughts on VGALTES blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 13 May 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://example.org/tags/random-thoughts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Mentoring</title>
+      <link>http://example.org/post/mentoring/</link>
+      <pubDate>Mon, 13 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/post/mentoring/</guid>
+      <description>Last September I turned 40. You know, in the movies, when someone turns forty he buys a new brand card, gets divorced and tries something new. I still don&amp;rsquo;t have a car and, although I&amp;rsquo;m not married, I still live with my partner, but I did start something new. In my case, was an old &amp;ldquo;aspiration&amp;rdquo; (I tried it 7 years ago): learning to play guitar. Not that I want to be the next Angus Young but I never had any musical education and I always wanted to be able to play an instrument, especially guitar.</description>
+    </item>
+    
+  </channel>
+</rss>

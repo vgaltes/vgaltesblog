@@ -327,6 +327,15 @@
     </item>
     
     <item>
+      <title>Mentoring</title>
+      <link>http://example.org/tags/mentoring/</link>
+      <pubDate>Mon, 13 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/tags/mentoring/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Mvc</title>
       <link>http://example.org/tags/mvc/</link>
       <pubDate>Sun, 06 Dec 2015 22:12:40 +0000</pubDate>
@@ -422,6 +431,15 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>http://example.org/tags/personal/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Random Thoughts</title>
+      <link>http://example.org/tags/random-thoughts/</link>
+      <pubDate>Mon, 13 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/tags/random-thoughts/</guid>
       <description></description>
     </item>
     

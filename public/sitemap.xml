@@ -3,6 +3,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://example.org/post/mentoring/</loc>
+    <lastmod>2019-05-13T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>http://example.org/post/deploying-azure-functions-an-introduction/</loc>
     <lastmod>2018-11-12T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -296,14 +303,14 @@
   </url>
   
   <url>
-    <loc>http://example.org/tags/agile/</loc>
+    <loc>http://example.org/categories/agile/</loc>
     <lastmod>2016-08-18T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://example.org/categories/agile/</loc>
+    <loc>http://example.org/tags/agile/</loc>
     <lastmod>2016-08-18T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
@@ -350,14 +357,14 @@
   </url>
   
   <url>
-    <loc>http://example.org/tags/asp.net/</loc>
+    <loc>http://example.org/categories/asp.net/</loc>
     <lastmod>2015-12-06T22:12:40+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://example.org/categories/asp.net/</loc>
+    <loc>http://example.org/tags/asp.net/</loc>
     <lastmod>2015-12-06T22:12:40+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
@@ -501,15 +508,15 @@
   </url>
   
   <url>
-    <loc>http://example.org/tags/devops/</loc>
-    <lastmod>2018-11-12T00:00:00+00:00</lastmod>
+    <loc>http://example.org/categories/devops/</loc>
+    <lastmod>2017-12-17T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://example.org/categories/devops/</loc>
-    <lastmod>2017-12-17T00:00:00+00:00</lastmod>
+    <loc>http://example.org/tags/devops/</loc>
+    <lastmod>2018-11-12T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -536,15 +543,15 @@
   </url>
   
   <url>
-    <loc>http://example.org/tags/f#/</loc>
-    <lastmod>2016-10-17T00:00:00+00:00</lastmod>
+    <loc>http://example.org/categories/f#/</loc>
+    <lastmod>2016-07-04T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://example.org/categories/f#/</loc>
-    <lastmod>2016-07-04T00:00:00+00:00</lastmod>
+    <loc>http://example.org/tags/f#/</loc>
+    <lastmod>2016-10-17T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -556,15 +563,15 @@
   </url>
   
   <url>
-    <loc>http://example.org/tags/fsharp/</loc>
-    <lastmod>2017-06-15T00:00:00+00:00</lastmod>
+    <loc>http://example.org/categories/fsharp/</loc>
+    <lastmod>2017-04-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://example.org/categories/fsharp/</loc>
-    <lastmod>2017-04-01T00:00:00+00:00</lastmod>
+    <loc>http://example.org/tags/fsharp/</loc>
+    <lastmod>2017-06-15T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -590,15 +597,15 @@
   </url>
   
   <url>
-    <loc>http://example.org/tags/javascript/</loc>
-    <lastmod>2017-09-06T00:00:00+00:00</lastmod>
+    <loc>http://example.org/categories/javascript/</loc>
+    <lastmod>2015-12-06T22:12:40+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://example.org/categories/javascript/</loc>
-    <lastmod>2015-12-06T22:12:40+00:00</lastmod>
+    <loc>http://example.org/tags/javascript/</loc>
+    <lastmod>2017-09-06T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -612,6 +619,13 @@
   
   <url>
     <loc>http://example.org/tags/learning/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.org/tags/mentoring/</loc>
+    <lastmod>2019-05-13T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -693,27 +707,34 @@
   </url>
   
   <url>
-    <loc>http://example.org/tags/personal/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>http://example.org/categories/personal/</loc>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
+    <loc>http://example.org/tags/personal/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://example.org/post/</loc>
-    <lastmod>2018-11-12T00:00:00+00:00</lastmod>
+    <lastmod>2019-05-13T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://example.org/categories/random-thoughts/</loc>
-    <lastmod>2015-02-27T17:23:12+00:00</lastmod>
+    <lastmod>2019-05-13T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.org/tags/random-thoughts/</loc>
+    <lastmod>2019-05-13T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -758,15 +779,15 @@
   </url>
   
   <url>
-    <loc>http://example.org/tags/serverless/</loc>
-    <lastmod>2017-07-09T00:00:00+00:00</lastmod>
+    <loc>http://example.org/categories/serverless/</loc>
+    <lastmod>2018-11-12T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://example.org/categories/serverless/</loc>
-    <lastmod>2018-11-12T00:00:00+00:00</lastmod>
+    <loc>http://example.org/tags/serverless/</loc>
+    <lastmod>2017-07-09T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -793,13 +814,13 @@
   </url>
   
   <url>
-    <loc>http://example.org/tags/suave/</loc>
+    <loc>http://example.org/categories/suave/</loc>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://example.org/categories/suave/</loc>
+    <loc>http://example.org/tags/suave/</loc>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -819,13 +840,6 @@
   </url>
   
   <url>
-    <loc>http://example.org/tags/teamwork/</loc>
-    <lastmod>2017-03-24T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>http://example.org/categories/teamwork/</loc>
     <lastmod>2017-03-24T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -833,14 +847,21 @@
   </url>
   
   <url>
-    <loc>http://example.org/tags/testing/</loc>
-    <lastmod>2015-02-15T23:13:27+00:00</lastmod>
+    <loc>http://example.org/tags/teamwork/</loc>
+    <lastmod>2017-03-24T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://example.org/categories/testing/</loc>
+    <lastmod>2015-02-15T23:13:27+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.org/tags/testing/</loc>
     <lastmod>2015-02-15T23:13:27+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
@@ -869,7 +890,7 @@
   
   <url>
     <loc>http://example.org/</loc>
-    <lastmod>2018-11-12T00:00:00+00:00</lastmod>
+    <lastmod>2019-05-13T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
