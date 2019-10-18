@@ -10,7 +10,7 @@ tags:
 - amplify
 ---
 
-In many occasion,s you don't want your whole API open to the public. Maybe you want to make some endpoints available to authenticated users. In this article we're going to see how to do that using [Amazon Cognito User Pools](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html) and [AWS Amplify](https://aws.amazon.com/amplify/). Let's start!
+In many occasions, you don't want your whole API open to the public. Maybe you want to make some endpoints available to authenticated users. In this article we're going to see how to do that using [Amazon Cognito User Pools](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html) and [AWS Amplify](https://aws.amazon.com/amplify/). Let's start!
 
 ## Amazon Cognito User Pools
 As the documentation says, a user pool is a user directory in Amazon Cognito. You can allow your users to sign-up, sign-in, etc. You can also implement social sign-in with other identity providers, but we'll see that another day. Today we're going to create a simple user pool to allow users to sign-up and sign-in using their email.
