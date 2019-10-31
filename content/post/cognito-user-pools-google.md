@@ -25,7 +25,7 @@ We're ready now to configure a new Google app that we'll link to our user pool. 
 
 Click on *Create* and select the application from the list to see the *Client ID* and the *Client secret*. Write them down because we're going to need them.
 
-![AddGoogleApp.png]
+![Configure Google App](/images/AddGoogleApp.png)
 
 
 ## Cognito User Pool
