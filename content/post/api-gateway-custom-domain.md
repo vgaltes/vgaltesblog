@@ -21,13 +21,13 @@ Once you have a domain, you'll need a certificate for that domain as API Gateway
 
 Click on *Request a certificate* and in the next screen click again on *Request a certificate*. Put the name of your domain, for example `apiv2.authenticatedservices.net` and click next.
 
-![Create certificate](images/certificate1.png)
+![Create certificate](/images/certificate1.png)
 
 Select *DNS validation* on the next screen and click on *Review*. Click on *Confirm and request* in the next screen.
 
 Now we need to validate the certificate. In the next screen, expand the domain section and click on *Create record in Route 53*
 
-![Validate certificate](images/certificate2.png)
+![Validate certificate](/images/certificate2.png)
 
 Click on *Create* in the pop up and on *Continue* on the main screen. It will usually take a couple of minutes to validate the certificate. In the *Certificate Manager* main screen you'll see the certificate in the *Pending Validation* state until it gets validated.
 
@@ -50,7 +50,7 @@ Now it's time to create the domain. To do that, run the command `serverless crea
 
 As you'll see in the console, it can take up to 40 minutes for the domain to be initialised, so grab a good book and wait a little bit.
 
-![Serverless developer reading a book](images/reading.jpg)
+![Serverless developer reading a book](/images/reading.jpg)
 
 We're back!! It's time to deploy our api. Just run the usual deployment command. Again, much better if you have this in a script.
 
@@ -66,7 +66,7 @@ Distribution Domain Name
 
 And now, you can go to your endpoint and see that is working perfectly.
 
-![New endpoint](images/newendpoint.png)
+![New endpoint](/images/newendpoint.png)
 
 
 ## Domain per environment and wildcard certificates
