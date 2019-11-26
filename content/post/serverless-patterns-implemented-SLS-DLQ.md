@@ -58,7 +58,7 @@ custom:
   defaultRegion: eu-west-1
 ```
 
-# SNS Topic
+## SNS Topic
 Let's start defining the SNS topic in the resource section of the file. It should look like this:
 ```
 SNSNotifier:
