@@ -1,6 +1,6 @@
 ---
 title: 'Capturing and forwarding correlation IDs in ASP.NET Core, the easy way'
-date: '2020-01-30 21:03:26 +0100'
+date: '2020-01-29 21:03:26 +0100'
 thumbnail: /images/ActivityBaggage.png
 categories:
 - aspnet core
