@@ -1,5 +1,5 @@
 ---
-title: 'Forwarding correlation IDs in ASPNet Core'
+title: 'Capturing and forwarding correlation IDs in ASP.NET Core'
 date: '2020-01-29'
 categories:
 - aspnet core
@@ -7,7 +7,7 @@ tags:
 - microservices
 ---
 
-When you have different services that communicate amongst them, you need to be able to correlate those calls to perform effective analysis of any problem you might have. The way to do this is using correlation ids and pass them along in all your call to the different services you use. In this article, I´m going to explain you a way to do this in ASP .Net Core.
+When you have different services that communicate amongst them, you need to be able to correlate those calls to perform effective analysis of any problem you might have. The way to do this is using correlation ids and pass them along in all your call to the different services you use. In this article, I´m going to explain you a way to do this in ASP.NET Core.
 
 ## Correlation IDs
 Why do you need more than one correlation ID? As Yan Cui explains in this [article](https://theburningmonk.com/2015/05/a-consistent-approach-to-track-correlation-ids-through-microservices/) you might be interested in passing other data between your services, not just the correlation ID. Things like the user ID, or the session ID or maybe things related to your domain as order ID.
@@ -170,4 +170,4 @@ Finally, we need to register the Typed Client. We can do that in the `ConfigureS
 ```
 
 ## Summary
-In this article, we've seen how we capture and forward correlation IDs for HTTP APIs in ASPNet Core. Hope it helps!!
+In this article, we've seen how we capture and forward correlation IDs for HTTP APIs in ASP.NET Core. Hope it helps!!
