@@ -23,12 +23,12 @@ La parte mala es que he acabado el año absolutamente agotado. El último mes o 
 La pandemia también me quitó las ganas de hacer cosas, sobretodo cosas fuera del trabajo más allá de estar con mi família. Esto ha sido como una pescadilla que se muerde la cola, pq por una parte no me apetecía hacer nada, pero por otra me faltaba el hacer cosas diferentes. Aquí si que no tengo ni idea como me lo tomaré este año, pero por ahora me he apuntado a un curso de piano y a otro de escritura. Como dice mi amiga Aroa, "Vicenç, tenemos que trabajar sobre lo de limitar el WIP" :D La verdad es que ambas cosas me motivan bastante y creo que me puedo organizar bien para hacerlas, así que espero que la cosa salga bien.
 
 Y cuales son mis objetivos para 2021? Pues la verdad, es que no me quiero marcar ningún objetivo muy ambicioso, dado que por lo menos la primera mitad del año seguiremos embarcados en la pandemia y ya veremos como va a reaccionar mi cerebro. Cosas que si que me gustaría hacer:
-- Seguir mejorando como manager
-- Racionalizar mi manera de liderar, para poder explicarla y transmitirla a mis compañeras de Voxel.
-- Acabar un proyecto "secreto" que tenemos con unos compañeros de Voxel
-- No engordar como un cerdo y seguir algo parecido a una dieta saludable
-- Hacer deporte de una manera regular. No digo mucho deporte ni poder correr una maraton, digo no estar sentado todo el santo día.
-- Seguir meditando.
-- Escribir con regularidad.
+ - Seguir mejorando como manager
+ - Racionalizar mi manera de liderar, para poder explicarla y transmitirla a mis compañeras de Voxel.
+ - Acabar un proyecto "secreto" que tenemos con unos compañeros de Voxel
+ - No engordar como un cerdo y seguir algo parecido a una dieta saludable
+ - Hacer deporte de una manera regular. No digo mucho deporte ni poder correr una maraton, digo no estar sentado todo el santo día.
+ - Seguir meditando.
+ - Escribir con regularidad.
 
 A día de hoy me parecen objetivos razonables y realizables, pero ya volveremos a hablar en un par de meses.
