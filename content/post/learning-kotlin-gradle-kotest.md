@@ -1,6 +1,6 @@
 ---
 title: 'Learning Kotlin: configuring Kotest with Gradle'
-thumbnail: static/images/server.vault.up.png
+thumbnail: /images/LearningProject1-CreateNewProject.png
 date: '20122-08-07'
 categories:
 - kotlin
