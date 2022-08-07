@@ -57,6 +57,8 @@ Now we need to configure Gradle so we can run the build. The file that we're goi
 
 ```
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.gradle.api.tasks.testing.logging.TestExceptionFormat.*
+import org.gradle.api.tasks.testing.logging.TestLogEvent.*
 ```
 
 Change the dependencies section so we can use Kotest:
@@ -74,10 +76,19 @@ Now we need to "link" Kotest with JUnit5. To do this, we need to add useJUnitPla
 ```
 tasks.withType<Test>{
     useJUnitPlatform()
+
+    testLogging {
+        events(FAILED, STANDARD_ERROR, SKIPPED)
+
+        exceptionFormat = FULL
+        showExceptions = true
+        showCauses = true
+        showStackTraces = true
+    }
 }
 ```
 
-This will do the job along the junit5 dependency we added earlier.
+This will do the job along the junit5 dependency we added earlier. As you can see we're also configuring the output of the Gradle test task, so we will have more information if something goes wrong.
 
 ## Writing our first tests
 Now it's time to add some simple test. Go to the `src/test/kotlin` and create a new file called `MyFirstTest` with the following content:
