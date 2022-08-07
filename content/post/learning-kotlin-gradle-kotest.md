@@ -116,7 +116,6 @@ If you want to run the tests from the build you need to run the following comman
 
 ```
 ./gradlew test
-
 ```
 
 ## Summary
