@@ -1,7 +1,7 @@
 ---
 title: 'Learning Kotlin: configuring Kotest with Gradle'
 thumbnail: /images/LearningProject1-CreateNewProject.png
-date: '20122-08-07'
+date: '2022-10-29'
 categories:
 - kotlin
 tags:

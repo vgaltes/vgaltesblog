@@ -37,7 +37,7 @@ disqusShortname = "vgaltes"
 url = "/categories/"
 
 [params]
-  version = "3.x"           # Used to give a friendly message when you have an incompatible update
+  version = "4.x"           # Used to give a friendly message when you have an incompatible update
   debug = false             # If true, load `eruda.min.js`. See https://github.com/liriliri/eruda
 
   since = "2013"            # Site creation time          # 站点建立时间
@@ -63,7 +63,7 @@ url = "/categories/"
   # Some global options, you can also close or open something in front matter for a single post, see more information from `archetypes/default.md`.
   toc = true                                                                            # 是否开启目录
   autoCollapseToc = false   # Auto expand and collapse toc                              # 目录自动展开/折叠
-  fancybox = true           # see https://github.com/fancyapps/fancybox                 # 是否启用fancybox（图片可点击）
+  fancyboxJS = true         # see https://github.com/fancyapps/fancybox                 # 是否启用fancybox（图片可点击）
   mathjax = false           # see https://www.mathjax.org/                              # 是否使用mathjax（数学公式）
   mathjaxEnableSingleDollar = false                                                     # 是否使用 $...$ 即可進行inline latex渲染
   mathjaxEnableAutoNumber = false                                                       # 是否使用公式自动编号
