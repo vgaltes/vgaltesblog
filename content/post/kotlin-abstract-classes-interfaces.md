@@ -16,7 +16,7 @@ So, let's see what are they and what are the difference amongst them.
 ## Abstract classes
 With abstract classes, using the keyword *abstract* you can declare members without implementation. That implementation will be provided by the class that derives from the abstract class, using the keyword override. 
 
-````
+```
 abstract class Vehicle {
     abstract fun honk()
 }
