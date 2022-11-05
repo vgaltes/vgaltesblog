@@ -87,7 +87,7 @@ As you can see, the primary constructor of the abstract class is called first, t
 
 Logically, by default abstract classes are open and their abstract methods too. And functions declared as abstract cannot be declared as final.
 
-## Interfaces
+## Interfaces
 
 We can do something similar with interfaces. There are some differences though between abstract classes and interfaces.
 
