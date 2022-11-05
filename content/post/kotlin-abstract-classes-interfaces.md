@@ -9,7 +9,7 @@ tags:
 comments: []
 ---
 
-When you're studying Kotlin and take a look at abstract classes and interfaces, your first impression is that they are two very similar constructs, or at least that was my first impression. You can use both of them to share state and behavior
+When you're studying Kotlin and take a look at abstract classes and interfaces, your first impression is that they are two very similar constructs, or at least that was my first impression. You can use both of them to share state and behavior.
 
 So, let's see what are they and what are the difference amongst them.
 
@@ -88,8 +88,7 @@ As you can see, the primary constructor of the abstract class is called first, t
 Logically, by default abstract classes are open and their abstract methods too. And functions declared as abstract cannot be declared as final.
 
 ## Interfaces
-
-We can do something similar with interfaces. There are some differences though between abstract classes and interfaces.
+We can do something similar with interfaces. There are some differences between abstract classes and interfaces though.
 
 In an interface, by default everything is open and we can override everything. We can have default method implementations in interfaces. If we do that, we don't need to override those methods. Let's have a look to an example:
 
