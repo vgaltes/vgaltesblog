@@ -47,9 +47,9 @@ abstract class Person(val name: String) {
     init {
         this.messages.add("Call to second init block in Person")
     }
-    }
+}
 
-    class Spaniard : Person {
+class Spaniard : Person {
     var secondSurname = ""
 
     constructor(name: String, surname: String, secondSurname: String) : super(name, surname) {
