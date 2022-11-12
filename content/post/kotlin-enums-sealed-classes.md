@@ -21,7 +21,7 @@ A subclass of a sealed class can have its own methods and properties.
 Let's take a look to an example:
 
 
-```
+``` kotlin
 sealed class Error
 class FileError(val fileName: String, val severity: Int): Error() {
     fun changeDrive(): String = "Changing drive"
@@ -36,7 +36,7 @@ class EsotericError(val reason: String, val severity: Int): Error() {
 
 Here we have a sealed class and three subclasses, each of them with their own method. How can we use them?
 
-```
+``` kotlin
 fun process(error: Error) {
     val action = when (error) {
         is FileError -> {
@@ -61,7 +61,7 @@ We can use sealed classes when we are dealing with a set of alternative classes.
 ## Enums
 It's a way to represent a constant set of possible options. 
 
-```
+``` kotlin
 enum class DangerLevel {
     HIGH, MEDIUM, LOW
 }
@@ -69,7 +69,7 @@ enum class DangerLevel {
 
 We can use enums easily in a when expression
 
-```
+``` kotlin
 fun process(d: DangerLevel){
     when(d) {
         DangerLevel.HIGH -> { /* Do something */}
@@ -81,7 +81,7 @@ fun process(d: DangerLevel){
 
 We can add properties and functions to an enum if we like
 
-```
+``` kotlin
 enum class DangerLevel (val level: Int){
     HIGH(3),
     MEDIUM(2),
@@ -93,7 +93,7 @@ enum class DangerLevel (val level: Int){
 
 And we can even have functions inside each value
 
-```
+``` kotlin
 enum class DangerLevel (val level: Int){
     HIGH(3) {
         override fun getLevel(): String = "This is dangerous"
@@ -111,7 +111,7 @@ enum class DangerLevel (val level: Int){
 
 This is kind of nice, but it would be more elegant to define this as an extension function
 
-```
+``` kotlin
 enum class DangerLevel (val level: Int){
     HIGH(3),
     MEDIUM(2),

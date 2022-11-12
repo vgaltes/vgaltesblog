@@ -16,7 +16,7 @@ So, let's see what are they and what are the difference amongst them.
 ## Abstract classes
 With abstract classes, using the keyword *abstract* you can declare members without implementation. That implementation will be provided by the class that derives from the abstract class, using the keyword override. 
 
-```
+``` kotlin
 abstract class Vehicle {
     abstract fun honk()
 }
@@ -30,7 +30,7 @@ But you can also, and this is something you can't do with interfaces, define fun
 
 You can't create a new instance of an abstract class, but you can create constructors and init blocks. The order of execution is the same that would be if the class wasn't abstract. Let's take a look. Imagine that we have these classes:
 
-```
+``` kotlin
 abstract class Person(val name: String) {
     var surname: String = ""
     var messages: MutableList<String> = mutableListOf()
@@ -92,7 +92,7 @@ We can do something similar with interfaces. There are some differences between 
 
 In an interface, by default everything is open and we can override everything. We can have default method implementations in interfaces. If we do that, we don't need to override those methods. Let's have a look to an example:
 
-```
+``` kotlin
 interface OnlyNamePerson {
     val name: String
     fun sayHello(name: String): String
@@ -119,7 +119,7 @@ One interesting capability of interfaces in Kotlin is that you can implement [tr
 
 Imagine that we're developing a game and we need a way to create players. Let's start with some generic interfaces:
 
-```
+``` kotlin
 interface Level {
     fun getLevel(): Int
 }
@@ -135,7 +135,7 @@ interface Class {
 
 Without traits, if we wanted to create a NotDangerousFriendlyWizard we'd needed to do something like this:
 
-```
+``` kotlin
 class NotDangerousFriendlyWizard : Class, Level, Enemy {
     override fun getLevel(): Int = 1
     override fun isEnemy(): Boolean = false
@@ -145,7 +145,7 @@ class NotDangerousFriendlyWizard : Class, Level, Enemy {
 
 And what happens if we want to create a NotDangerousFriendlyElf? That we need to create something like this: 
 
-```
+``` kotlin
 class NotDangerousFriendlyElf : Class, Level, Enemy {
     override fun getLevel(): Int = 1
     override fun isEnemy(): Boolean = false
@@ -157,7 +157,7 @@ As you can see, our classes are quite big and there's a lot of code duplication.
 
 Let's use traits (via interfaces with default implementations) in order to have a more concise code. First, we need to create the interfaces with the default implementations:
 
-```
+``` kotlin
 interface NotDangerous : Level { override fun getLevel(): Int { return 1 } }
 interface Friend : Enemy { override fun isEnemy(): Boolean { return false } }
 interface Wizard : Class { override fun getClass(): String { return "Wizard"}}
@@ -165,7 +165,7 @@ interface Wizard : Class { override fun getClass(): String { return "Wizard"}}
 
 Now, we can declare our NotDangerousFriendlyWizard like this:
 
-```
+``` kotlin
 class NotDangerousFriendlyWizard : NotDangerous, Friend, Wizard
 ```
 
