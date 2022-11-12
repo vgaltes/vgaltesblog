@@ -1,12 +1,12 @@
 ---
-title: 'Learning Kotlin: variance and covariance'
+title: 'Learning Kotlin: covariance and contravariance'
 date: '2022-11-12'
 categories:
 - kotlin
 tags:
 - generics
-- variance
 - covariance
+- contravariance
 comments: []
 ---
 
