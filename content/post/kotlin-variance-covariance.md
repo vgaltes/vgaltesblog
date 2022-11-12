@@ -15,7 +15,7 @@ When we work with generics, sometimes we need to help the compiler in order to a
 ## Covariance
 Imagine that we want to model a factory of toys. Let's start by creating an interface that will take a generic type:
 
-``` kotlin
+```kotlin
 interface Factory<T> {
     fun create(name: String): T
 }
@@ -23,7 +23,7 @@ interface Factory<T> {
 
 Now we need to define what we want to produce
 
-``` kotlin
+```kotlin
 open class Toy(val name: String)
 class Ball(name: String) : Toy(name)
 class Transformer(name: String) : Toy(name)
@@ -32,7 +32,7 @@ class TableGame(name: String) : Toy(name)
 
 So now, we're able to define some of the factories our company want to build. We can have some factories more specialised, like a `TableGameFactory`, and some more generic where more toys can be created. 
 
-``` kotlin
+```kotlin
 class ToyFactory : Factory<Toy> {
     override fun create(name: String): Toy {
         return when {
@@ -53,19 +53,19 @@ class TableGameFactory : Factory<TableGame> {
 
 And finally, imagine that in our code we have created a variable of type `TableGameFactory`.
 
-``` kotlin
+```kotlin
 var tableGameFactory = TableGameFactory()
 ```
 
 What happens if we try to do something like this?
 
-``` kotlin
+```kotlin
 val toyProducer:Factory<Toy> = tableGameFactory
 ```
 
 Well, the compiler will say no. The compiler knows that a `TableGame` inherits from Toy, but it doesn't know anything about the relationship between a `Producer` of `Toy` and a `Producer` of a `TableGame`. We need to help it. We need to tell it that those classes are covariant in that type parameter, i.e., the inheritance relationship is kept. So if a `TableGame` inherits from `Toy`, we need to tell the compiler that `Producer<TableGame>` is a subtype of `Producer<Toy>`. And we can do this using the `out` keyword in the interface definition:
 
-``` kotlin
+```kotlin
 interface Factory<out T> {
     fun create(name: String): T
 }
@@ -76,7 +76,7 @@ The keyword is `out`, because we are declaring producers of that type. So T, can
 ### Contravariance
 Now that we know what covariance is, let's take a look at contravariance. Imagine that we are modelling how people eat. Let's start with the `Person` class that can be something like this:
 
-``` kotlin
+```kotlin
 class Person<T> {
     fun eat(aThing: T) {}
 }
@@ -84,7 +84,7 @@ class Person<T> {
 
 What do people eat? Well we eat aliments, and those aliments can be, for example, vegetables and eggs.
 
-``` kotlin
+```kotlin
 open class Food{}
 class Vegetable : Food()
 class Egg : Food()
@@ -92,19 +92,19 @@ class Egg : Food()
 
 A person can be omnivorous, so she can eat any type of Food
 
-``` kotlin
+```kotlin
 val omnivorous = Person<Food>()
 ```
 
 But what if that person, during some time wants to be vegan an only eat vegetables? Can we do this?
 
-``` kotlin
+```kotlin
 val vegetarian: Person<Food> = omnivorous
 ```
 
 No, we can't because not only `Person<Food>` is not a subtype of `Person<Vegetable>`, but quite the opposite: `Vegetable` is a subtype of `Food`. But does it make sense that we make this assignation? Yes, it does. As a person that can eat anything, I can spend some time eating only vegetables. So, we need to help the compiler. In this case, we will help it using the keyboard in, because we are using the contravariant type as an input parameter.
 
-``` kotlin
+```kotlin
 class Person<in T> {
     fun eat(aThing: T) {}
 }
