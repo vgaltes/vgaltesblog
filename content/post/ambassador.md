@@ -22,10 +22,10 @@ Other teams can ask you questions about your APIs. Or how your flows work. Or ma
 ### Development teams from other companies
 Maybe your APIs are used by other companies. They can be testing their new service in your stage environment running a production service using it. Whatever they do, they will have questions.
 
-### C-Levels
+### C-Levels
 You know, C levels always have questions / proposals / whatever that they think are really important and need to be answered straight away.
 
-## Who answers these questions
+## Who answers these questions
 Generally, only a few members of the teams answer them. They are usually the Product Manager, the Tech Lead and the Most Resolutive Person of the team (the person the other teams now it will answer quickly). Generally those people receive these questions in private channels or email and they get overwhelmed by them. They can't do properly their job because they spend a lot of time dealing with this.
 
 ## A solution
