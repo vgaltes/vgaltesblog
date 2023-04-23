@@ -1,7 +1,6 @@
 ---
 title: 'The Ambassador'
-thumbnail: /images/Ambassador.jpg
-date: '2023-04-24'
+date: '2023-04-23'
 categories:
 - Teamwork
 tags:
